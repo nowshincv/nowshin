@@ -1,1841 +1,1525 @@
+
 <!DOCTYPE html>
-<html lang="en" class="dark scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#110d13">
-    <meta name="description" content="Explore Nur Jannat Nowshin's professional portfolio, skills, experience, education and contact information.">
-    <meta name="color-scheme" content="dark">
-    <title>Nur Jannat Nowshin | Portfolio & CV</title>
-
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
-    <script>
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        obsidian: "#110d13",
-                        slateCard: "#1c1620",
-                        champagne: {
-                            100: "#fff7f0",
-                            300: "#e8b9ba",
-                            400: "#d7a0a2",
-                            500: "#c58b91",
-                            600: "#986078"
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['"Plus Jakarta Sans"', "sans-serif"],
-                        serif: ['"Playfair Display"', "serif"]
-                    }
-                }
-            }
-        };
-    </script>
-
-    <style>
-        :root {
-            --bg: #110d13;
-            --panel: #1c1620;
-            --rose: #d7a0a2;
-            --rose-light: #f0c8c8;
-            --ivory: #fff5ed;
-            --muted: #b9aab5;
-            --line: rgba(215,160,162,.19);
-            --gold: #e5c7a0;
-        }
-
-        * { box-sizing: border-box; }
-
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 100px;
-        }
-
-        body {
-            margin: 0;
-            color: #e9e1e8;
-            background:
-                radial-gradient(ellipse at 8% 5%, rgba(183,124,131,.12), transparent 35%),
-                radial-gradient(ellipse at 92% 35%, rgba(152,96,120,.09), transparent 35%),
-                radial-gradient(ellipse at 50% 100%, rgba(215,160,162,.055), transparent 40%),
-                var(--bg);
-            overflow-x: hidden;
-        }
-
-        ::selection { background: var(--rose); color: #171019; }
-
-        ::-webkit-scrollbar { width: 7px; }
-        ::-webkit-scrollbar-track { background: var(--bg); }
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(var(--rose-light), #986078);
-            border-radius: 20px;
-        }
-
-        a, button, input, textarea { -webkit-tap-highlight-color: transparent; }
-
-        a:focus-visible, button:focus-visible,
-        input:focus-visible, textarea:focus-visible {
-            outline: 2px solid var(--rose-light);
-            outline-offset: 4px;
-        }
-
-        #particleCanvas {
-            position: fixed;
-            inset: 0;
-            z-index: 0;
-            pointer-events: none;
-            opacity: .35;
-        }
-
-        .site-header {
-            background: rgba(17,13,19,.78);
-            border-bottom: 1px solid rgba(215,160,162,.13);
-            backdrop-filter: blur(22px);
-            -webkit-backdrop-filter: blur(22px);
-            transition: box-shadow .35s, background .35s;
-        }
-
-        .site-header.scrolled {
-            background: rgba(17,13,19,.94);
-            box-shadow: 0 10px 40px rgba(0,0,0,.18);
-        }
-
-        .glass-card {
-            position: relative;
-            background: linear-gradient(145deg, rgba(34,25,36,.83), rgba(25,19,29,.78));
-            border: 1px solid var(--line);
-            backdrop-filter: blur(17px);
-            -webkit-backdrop-filter: blur(17px);
-            transition: border-color .35s, box-shadow .35s, transform .35s, background .35s;
-        }
-
-        .glass-card:hover {
-            border-color: rgba(215,160,162,.42);
-            box-shadow: 0 20px 50px rgba(0,0,0,.2), 0 0 25px rgba(215,160,162,.035);
-        }
-
-        .gold-gradient-text {
-            background: linear-gradient(110deg, #fff7f0 5%, #f0c8c8 36%, #d7a0a2 62%, #e5c7a0 82%, #fff5ed);
-            background-size: 220% auto;
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: textShimmer 8s linear infinite;
-        }
-
-        .section-label {
-            color: var(--rose);
-            font-size: 10px;
-            font-weight: 800;
-            letter-spacing: .2em;
-            text-transform: uppercase;
-        }
-
-        .section-heading {
-            color: var(--ivory);
-            font-family: "Playfair Display", serif;
-            letter-spacing: -.035em;
-        }
-
-        .section-ornament {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            margin-top: 20px;
-            color: var(--rose);
-            font-size: 11px;
-        }
-
-        .section-ornament::before,
-        .section-ornament::after {
-            content: "";
-            width: 42px;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, #b77c83);
-        }
-
-        .section-ornament::after {
-            transform: rotate(180deg);
-        }
-
-        .nav-link {
-            position: relative;
-            color: #c9bec9;
-            transition: color .25s;
-        }
-
-        .nav-link::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: -8px;
-            width: 0;
-            height: 1px;
-            background: linear-gradient(90deg, var(--rose), var(--gold));
-            transition: width .3s;
-        }
-
-        .nav-link:hover { color: var(--rose-light); }
-        .nav-link:hover::after { width: 100%; }
-
-        .premium-button {
-            position: relative;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 13px 23px;
-            overflow: hidden;
-            border: 1px solid rgba(255,245,237,.3);
-            border-radius: 12px;
-            background: linear-gradient(115deg, #e8b9ba, #fff0e5 48%, #d7a0a2);
-            background-size: 200% auto;
-            color: #241720;
-            font-size: 12px;
-            font-weight: 800;
-            transition: transform .3s, box-shadow .3s, background-position .5s;
-        }
-
-        .premium-button:hover {
-            transform: translateY(-3px);
-            background-position: right center;
-            box-shadow: 0 12px 32px rgba(183,124,131,.25);
-        }
-
-        .premium-button::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: -120%;
-            width: 65%;
-            height: 100%;
-            transform: skewX(-22deg);
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,.4), transparent);
-            transition: left .7s;
-        }
-
-        .premium-button:hover::after { left: 150%; }
-
-        .eyebrow-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 10px 15px;
-            border: 1px solid rgba(215,160,162,.23);
-            border-radius: 100px;
-            background: rgba(215,160,162,.055);
-            color: #f0c8c8;
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: .025em;
-            box-shadow: inset 0 0 20px rgba(215,160,162,.025);
-        }
-
-        .status-dot {
-            width: 7px;
-            height: 7px;
-            flex-shrink: 0;
-            border-radius: 50%;
-            background: #e8b9ba;
-            box-shadow: 0 0 12px rgba(215,160,162,.8);
-            animation: pulseRose 2.5s ease-in-out infinite;
-        }
-
-        /* PREMIUM PROFILE PORTRAIT */
-
-        .portrait-stage {
-            position: relative;
-            isolation: isolate;
-            width: min(100%, 360px);
-            aspect-ratio: 4 / 5;
-            margin-inline: auto;
-            perspective: 1000px;
-        }
-
-        .portrait-aura {
-            position: absolute;
-            inset: 8% -8%;
-            z-index: -2;
-            border-radius: 48%;
-            background: radial-gradient(ellipse, rgba(215,160,162,.26), rgba(152,96,120,.12) 42%, transparent 72%);
-            filter: blur(32px);
-            animation: auraBreathe 6s ease-in-out infinite;
-        }
-
-        .portrait-orbit {
-            position: absolute;
-            inset: -13px;
-            border: 1px solid rgba(215,160,162,.22);
-            border-radius: 185px 185px 34px 34px;
-            transform: rotate(4deg);
-            transition: transform .7s cubic-bezier(.2,.8,.2,1);
-        }
-
-        .portrait-orbit::before,
-        .portrait-orbit::after {
-            content: "✦";
-            position: absolute;
-            color: var(--gold);
-            font-size: 13px;
-            text-shadow: 0 0 18px rgba(229,199,160,.5);
-        }
-
-        .portrait-orbit::before { top: 16%; right: -6px; }
-        .portrait-orbit::after { bottom: 18%; left: -7px; font-size: 10px; }
-
-        .portrait-stage:hover .portrait-orbit {
-            transform: rotate(0deg) scale(1.015);
-        }
-
-        .portrait-frame {
-            position: absolute;
-            inset: 0;
-            padding: 7px;
-            overflow: hidden;
-            border: 1px solid rgba(229,199,160,.65);
-            border-radius: 180px 180px 28px 28px;
-            background: linear-gradient(145deg, #f0c8c8 0%, #986078 22%, #e5c7a0 48%, #5b394d 75%, #d7a0a2 100%);
-            box-shadow:
-                0 28px 80px rgba(0,0,0,.38),
-                0 0 35px rgba(215,160,162,.12),
-                inset 0 0 0 1px rgba(255,255,255,.14);
-            transform: translateZ(0);
-            transition: box-shadow .5s, transform .5s;
-        }
-
-        .portrait-stage:hover .portrait-frame {
-            box-shadow:
-                0 35px 90px rgba(0,0,0,.45),
-                0 0 48px rgba(215,160,162,.22),
-                inset 0 0 0 1px rgba(255,255,255,.2);
-            transform: translateY(-4px);
-        }
-
-        .portrait-inner {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            border: 1px solid rgba(255,245,237,.4);
-            border-radius: 174px 174px 22px 22px;
-            background: #241923;
-        }
-
-        .portrait-inner::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            z-index: 1;
-            pointer-events: none;
-            background:
-                linear-gradient(180deg, rgba(17,13,19,.02) 45%, rgba(17,13,19,.1) 65%, rgba(17,13,19,.4) 100%),
-                linear-gradient(115deg, rgba(255,240,229,.11), transparent 34%, transparent 72%, rgba(215,160,162,.12));
-        }
-
-        .portrait-image {
-            display: block;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center 22%;
-            transform: scale(1.015);
-            filter: saturate(.94) contrast(1.025);
-            transition: transform 1.1s cubic-bezier(.2,.8,.2,1), filter .6s;
-        }
-
-        .portrait-stage:hover .portrait-image {
-            transform: scale(1.065);
-            filter: saturate(1.04) contrast(1.04);
-        }
-
-        .portrait-shine {
-            position: absolute;
-            inset: -40% auto -40% -100%;
-            z-index: 2;
-            width: 55%;
-            pointer-events: none;
-            transform: skewX(-20deg);
-            background: linear-gradient(90deg, transparent, rgba(255,245,237,.17), transparent);
-            animation: portraitShine 8s ease-in-out infinite;
-        }
-
-        .portrait-caption-label {
-            color: #d7a0a2;
-            font-size: 9px;
-            font-weight: 800;
-            letter-spacing: .17em;
-            text-transform: uppercase;
-        }
-
-        .portrait-badge {
-            position: absolute;
-            z-index: 4;
-            top: 10px;
-            left: -15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 9px 12px;
-            border: 1px solid rgba(215,160,162,.3);
-            border-radius: 15px;
-            background: rgba(28,22,32,.95);
-            box-shadow: 0 12px 35px rgba(0,0,0,.24);
-            backdrop-filter: blur(15px);
-            animation: float 5s ease-in-out infinite;
-        }
-
-        .portrait-badge-icon {
-            display: grid;
-            place-items: center;
-            width: 30px;
-            height: 30px;
-            border: 1px solid rgba(215,160,162,.28);
-            border-radius: 8px;
-            background: rgba(215,160,162,.1);
-            color: #f0c8c8;
-        }
-
-        .portrait-badge-title {
-            color: var(--ivory);
-            font-size: 10px;
-            font-weight: 800;
-        }
-
-        .portrait-badge-sub {
-            margin-top: 2px;
-            color: #b9aab5;
-            font-size: 9px;
-        }
-
-        .portrait-bottom-badge {
-            position: absolute;
-            z-index: 4;
-            right: -15px;
-            bottom: 15%;
-            display: grid;
-            place-items: center;
-            width: 44px;
-            height: 44px;
-            border: 1px solid rgba(229,199,160,.7);
-            border-radius: 50%;
-            background: linear-gradient(145deg, #fff0e5, #d7a0a2);
-            color: #35202b;
-            font-size: 16px;
-            box-shadow: 0 0 30px rgba(215,160,162,.23);
-            animation: float 4.5s ease-in-out infinite reverse;
-        }
-
-        .hero-copy {
-            animation: heroEnter .9s both;
-        }
-
-        .hero-portrait {
-            animation: heroEnter .9s .15s both;
-        }
-
-        .rose-icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 48px;
-            height: 48px;
-            flex-shrink: 0;
-            border: 1px solid rgba(215,160,162,.27);
-            border-radius: 15px;
-            background: linear-gradient(145deg, rgba(215,160,162,.14), rgba(215,160,162,.025));
-            color: var(--rose-light);
-            font-size: 17px;
-            transition: transform .35s, box-shadow .35s, background .35s;
-        }
-
-        .glass-card:hover .rose-icon {
-            transform: translateY(-3px) rotate(-4deg);
-            background: rgba(215,160,162,.15);
-            box-shadow: 0 8px 22px rgba(215,160,162,.08);
-        }
-
-        .skill-list li {
-            display: flex;
-            align-items: flex-start;
-            gap: 9px;
-        }
-
-        .skill-list i {
-            margin-top: 4px;
-            color: var(--rose);
-            font-size: 10px;
-        }
-
-        .reveal {
-            opacity: 0;
-            transform: translateY(26px);
-            transition: opacity .75s ease, transform .75s cubic-bezier(.2,.7,.2,1);
-        }
-
-        .reveal.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .reveal-delay-1 { transition-delay: .08s; }
-        .reveal-delay-2 { transition-delay: .16s; }
-        .reveal-delay-3 { transition-delay: .24s; }
-
-        .timeline-line {
-            background: linear-gradient(180deg, #e8b9ba, rgba(152,96,120,.15));
-        }
-
-        .timeline-dot {
-            box-shadow: 0 0 0 5px rgba(215,160,162,.07), 0 0 20px rgba(215,160,162,.18);
-        }
-
-        .education-card {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .education-card::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 95px;
-            height: 95px;
-            pointer-events: none;
-            background: radial-gradient(circle at top right, rgba(215,160,162,.09), transparent 72%);
-        }
-
-        /* PREMIUM CONTACT SECTION */
-
-        #contact {
-            position: relative;
-            isolation: isolate;
-            scroll-margin-top: 100px;
-        }
-
-        .contact-orb {
-            position: absolute;
-            z-index: -1;
-            width: 220px;
-            height: 220px;
-            border-radius: 50%;
-            filter: blur(85px);
-            opacity: .14;
-            pointer-events: none;
-        }
-
-        .contact-orb-one {
-            top: 5%;
-            left: -70px;
-            background: #d7a0a2;
-        }
-
-        .contact-orb-two {
-            right: -70px;
-            bottom: 5%;
-            background: #986078;
-        }
-
-        .contact-shell {
-            position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(215,160,162,.25);
-            border-radius: 30px;
-            background:
-                radial-gradient(ellipse at 8% 0%, rgba(183,124,131,.15), transparent 38%),
-                radial-gradient(ellipse at 100% 100%, rgba(215,160,162,.09), transparent 38%),
-                linear-gradient(145deg, #19121b 0%, #110d13 48%, #1a121b 100%);
-            box-shadow: 0 35px 100px rgba(0,0,0,.3);
-        }
-
-        .contact-top-line {
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #a86f78 20%, #f0c8c8 50%, #a86f78 80%, transparent);
-            background-size: 200% 100%;
-            animation: shimmerLine 7s linear infinite;
-        }
-
-        .contact-eyebrow {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            color: #e7b5b6;
-            font-size: 10px;
-            font-weight: 800;
-            letter-spacing: .18em;
-        }
-
-        .eyebrow-line {
-            display: inline-block;
-            width: 22px;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, #d7a0a2);
-        }
-
-        .contact-heading {
-            color: var(--ivory);
-            font-family: "Playfair Display", serif;
-            font-weight: 600;
-            letter-spacing: -.035em;
-        }
-
-        .contact-heading-accent {
-            display: block;
-            margin-top: 5px;
-            font-style: italic;
-            background: linear-gradient(120deg, #fff5ed, #e8b9ba 52%, #b77c83);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .contact-heading-ornament {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            color: var(--rose);
-            font-size: 11px;
-        }
-
-        .contact-heading-ornament span {
-            width: 45px;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, #b77c83);
-        }
-
-        .contact-intro-card {
-            position: relative;
-            overflow: hidden;
-            padding: 25px;
-            border: 1px solid rgba(215,160,162,.23);
-            border-radius: 23px;
-            background:
-                radial-gradient(circle at 100% 0%, rgba(215,160,162,.12), transparent 45%),
-                linear-gradient(145deg, rgba(215,160,162,.075), rgba(255,245,237,.018));
-        }
-
-        .contact-intro-card::after {
-            content: "✦";
-            position: absolute;
-            top: 16px;
-            right: 20px;
-            color: rgba(215,160,162,.25);
-            font-size: 30px;
-            animation: float 4s ease-in-out infinite;
-        }
-
-        .contact-avatar-icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 58px;
-            height: 58px;
-            color: #f0c8c8;
-            font-size: 23px;
-            border: 1px solid rgba(215,160,162,.38);
-            border-radius: 18px;
-            background: linear-gradient(145deg, rgba(215,160,162,.19), rgba(215,160,162,.035));
-        }
-
-        .contact-mini-label, .contact-detail-label {
-            color: #d7a0a2;
-            font-size: 10px;
-            font-weight: 800;
-            letter-spacing: .13em;
-        }
-
-        .contact-availability {
-            display: inline-flex;
-            align-items: center;
-            gap: 9px;
-            padding: 10px 13px;
-            color: #ead1d0;
-            font-size: 11px;
-            border: 1px solid rgba(215,160,162,.2);
-            border-radius: 100px;
-            background: rgba(215,160,162,.055);
-        }
-
-        .availability-dot {
-            width: 7px;
-            height: 7px;
-            flex-shrink: 0;
-            border-radius: 50%;
-            background: #d7a0a2;
-            animation: pulseRose 2s ease-in-out infinite;
-        }
-
-        .contact-detail-card {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            min-width: 0;
-            padding: 16px;
-            border: 1px solid rgba(215,160,162,.15);
-            border-radius: 17px;
-            background: rgba(255,245,237,.025);
-            transition: border-color .3s, background .3s, transform .3s, box-shadow .3s;
-        }
-
-        a.contact-detail-card:hover {
-            transform: translateY(-3px);
-            border-color: rgba(215,160,162,.45);
-            background: rgba(215,160,162,.065);
-            box-shadow: 0 12px 28px rgba(0,0,0,.15);
-        }
-
-        .contact-detail-icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 44px;
-            height: 44px;
-            flex-shrink: 0;
-            color: #e7b5b6;
-            border: 1px solid rgba(215,160,162,.23);
-            border-radius: 13px;
-            background: rgba(215,160,162,.085);
-            transition: transform .3s, background .3s;
-        }
-
-        .contact-detail-card:hover .contact-detail-icon {
-            transform: scale(1.06);
-            background: rgba(215,160,162,.15);
-        }
-
-        .contact-detail-value {
-            margin-top: 4px;
-            color: #fff5ed;
-            font-size: 12px;
-            font-weight: 600;
-            line-height: 1.7;
-            overflow-wrap: anywhere;
-        }
-
-        .contact-arrow {
-            margin-left: auto;
-            flex-shrink: 0;
-            color: #b77c83;
-            font-size: 12px;
-            transition: transform .3s, color .3s;
-        }
-
-        a.contact-detail-card:hover .contact-arrow {
-            color: #f0c8c8;
-            transform: translate(2px,-2px);
-        }
-
-        .contact-social-panel {
-            padding: 18px;
-            border-top: 1px solid var(--line);
-        }
-
-        .contact-social-link {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 10px 12px;
-            color: #e7d8d5;
-            font-size: 11px;
-            font-weight: 600;
-            border: 1px solid rgba(215,160,162,.2);
-            border-radius: 11px;
-            background: rgba(215,160,162,.045);
-            transition: all .3s;
-        }
-
-        .contact-social-link i {
-            color: #d7a0a2;
-            font-size: 14px;
-        }
-
-        .contact-social-link:hover {
-            color: #fff5ed;
-            border-color: #b77c83;
-            background: rgba(215,160,162,.12);
-            transform: translateY(-3px);
-        }
-
-        .contact-form-card {
-            height: 100%;
-            padding: 25px;
-            border: 1px solid rgba(215,160,162,.22);
-            border-radius: 23px;
-            background: linear-gradient(145deg, rgba(255,245,237,.045), rgba(255,245,237,.015));
-        }
-
-        .contact-form-decoration {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 48px;
-            height: 48px;
-            flex-shrink: 0;
-            color: #e7b5b6;
-            font-size: 20px;
-            border: 1px solid rgba(215,160,162,.23);
-            border-radius: 15px;
-            background: rgba(215,160,162,.07);
-            transform: rotate(-7deg);
-        }
-
-        .contact-field label {
-            display: block;
-            margin-bottom: 9px;
-            color: #e2c6c5;
-            font-size: 10px;
-            font-weight: 800;
-            letter-spacing: .11em;
-        }
-
-        .contact-input-wrap, .contact-textarea-wrap { position: relative; }
-
-        .contact-input-wrap > i, .contact-textarea-wrap > i {
-            position: absolute;
-            top: 17px;
-            left: 15px;
-            color: #b77c83;
-            font-size: 13px;
-            pointer-events: none;
-            transition: color .25s;
-        }
-
-        .contact-input-wrap input, .contact-textarea-wrap textarea {
-            width: 100%;
-            color: #fff5ed;
-            font-family: "Plus Jakarta Sans", sans-serif;
-            font-size: 12px;
-            line-height: 1.7;
-            border: 1px solid rgba(215,160,162,.17);
-            border-radius: 12px;
-            background: rgba(12,10,15,.45);
-            outline: none;
-            transition: border-color .25s, background .25s, box-shadow .25s;
-        }
-
-        .contact-input-wrap input {
-            min-height: 49px;
-            padding: 13px 13px 13px 42px;
-        }
-
-        .contact-textarea-wrap textarea {
-            min-height: 140px;
-            padding: 14px 14px 14px 42px;
-            resize: vertical;
-        }
-
-        .contact-input-wrap input::placeholder,
-        .contact-textarea-wrap textarea::placeholder {
-            color: #897e89;
-            opacity: 1;
-        }
-
-        .contact-input-wrap:focus-within input,
-        .contact-textarea-wrap:focus-within textarea {
-            border-color: rgba(215,160,162,.8);
-            background: rgba(12,10,15,.72);
-            box-shadow: 0 0 0 3px rgba(215,160,162,.075);
-        }
-
-        .contact-input-wrap:focus-within > i,
-        .contact-textarea-wrap:focus-within > i { color: #f0c8c8; }
-
-        .contact-character-count {
-            color: #9f8d98;
-            font-size: 10px;
-        }
-
-        .contact-submit-btn {
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 14px;
-            width: 100%;
-            min-height: 54px;
-            padding: 15px 19px;
-            overflow: hidden;
-            color: #241720;
-            font-size: 12px;
-            font-weight: 800;
-            border: 1px solid rgba(255,245,237,.25);
-            border-radius: 13px;
-            background: linear-gradient(110deg, #e8b9ba, #f4d9d0 52%, #c88f98);
-            box-shadow: 0 9px 26px rgba(183,124,131,.13);
-            transition: transform .3s, box-shadow .3s, filter .3s;
-            cursor: pointer;
-        }
-
-        .contact-submit-btn::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 60%;
-            height: 100%;
-            transform: skewX(-22deg);
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,.4), transparent);
-            transition: left .7s;
-        }
-
-        .contact-submit-btn:hover::before { left: 150%; }
-
-        .contact-submit-btn:hover {
-            transform: translateY(-2px);
-            filter: brightness(1.04);
-            box-shadow: 0 13px 32px rgba(183,124,131,.23);
-        }
-
-        .contact-submit-content, .contact-submit-arrow {
-            position: relative;
-            z-index: 1;
-        }
-
-        .contact-submit-content {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .contact-submit-arrow { transition: transform .3s; }
-        .contact-submit-btn:hover .contact-submit-arrow { transform: translateX(4px); }
-
-        .contact-form-note {
-            display: flex;
-            align-items: flex-start;
-            gap: 8px;
-            color: #a99aa5;
-            font-size: 10px;
-            line-height: 1.7;
-        }
-
-        .contact-form-note i {
-            margin-top: 2px;
-            color: #d7a0a2;
-        }
-
-        .contact-status {
-            color: #f0c8c8;
-            font-size: 12px;
-            line-height: 1.7;
-        }
-
-        .contact-status:empty { display: none; }
-
-        .contact-bottom-note {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 13px;
-            border-top: 1px solid var(--line);
-            color: #b9a7b2;
-            font-family: "Playfair Display", serif;
-            font-size: 13px;
-            font-style: italic;
-            text-align: center;
-        }
-
-        .contact-bottom-star { color: #d7a0a2; }
-
-        /* ANIMATIONS */
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-9px); }
-        }
-
-        @keyframes auraBreathe {
-            0%, 100% { transform: scale(.95); opacity: .75; }
-            50% { transform: scale(1.08); opacity: 1; }
-        }
-
-        @keyframes portraitShine {
-            0%, 62% { left: -100%; }
-            85%, 100% { left: 150%; }
-        }
-
-        @keyframes textShimmer {
-            0% { background-position: 100% center; }
-            100% { background-position: -120% center; }
-        }
-
-        @keyframes pulseRose {
-            0%, 100% { opacity: 1; box-shadow: 0 0 12px rgba(215,160,162,.65); }
-            50% { opacity: .6; box-shadow: 0 0 4px rgba(215,160,162,.25); }
-        }
-
-        @keyframes shimmerLine {
-            0% { background-position: 100% 0; }
-            100% { background-position: -100% 0; }
-        }
-
-        @keyframes heroEnter {
-            from { opacity: 0; transform: translateY(22px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @media (min-width: 1024px) {
-            .contact-intro-card { padding: 30px; }
-            .contact-form-card { padding: 32px; }
-        }
-
-        @media (max-width: 767px) {
-            .portrait-stage { width: min(85%, 320px); }
-            .portrait-badge { left: -10px; padding: 8px 10px; }
-            .portrait-bottom-badge { right: -12px; width: 40px; height: 40px; }
-        }
-
-        @media (max-width: 639px) {
-            .contact-shell { border-radius: 24px; }
-            .contact-form-card { padding: 20px 16px; }
-            .contact-intro-card { padding: 22px; }
-            .contact-heading { font-size: 2.35rem; }
-            .contact-social-panel { padding: 16px 0 0; }
-            .contact-social-link { flex: 1 1 auto; }
-            .contact-bottom-note { font-size: 11px; }
-            .portrait-stage { width: min(85%, 285px); }
-            .portrait-orbit { inset: -9px; }
-            .portrait-badge { top: 8px; left: -12px; }
-            .portrait-badge-title { font-size: 9px; }
-            .portrait-badge-sub { font-size: 8px; }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after {
-                scroll-behavior: auto !important;
-                animation-duration: .01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: .01ms !important;
-            }
-
-            .reveal { opacity: 1; transform: none; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#fff8f7">
+  <meta name="description" content="Explore Nowshin's professional profile, teaching experience, skills, education, and qualifications.">
+  <title>Nowshin | Personal Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <style>
+    :root {
+      --bg: #fff8f7;
+      --surface: #ffffff;
+      --pink: #f5dfe3;
+      --pink-deep: #e9bfc9;
+      --rose: #b77b8c;
+      --rose-dark: #8e5a6a;
+      --gold: #b99a67;
+      --text: #49363c;
+      --muted: #8d7b80;
+      --border: rgba(183, 123, 140, .19);
+      --shadow: 0 18px 55px rgba(125, 76, 91, .09);
+      --radius: 24px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 95px;
+    }
+
+    body {
+      background:
+        radial-gradient(ellipse at 5% 5%, rgba(245, 223, 227, .65), transparent 32%),
+        radial-gradient(ellipse at 95% 40%, rgba(239, 220, 211, .28), transparent 30%),
+        var(--bg);
+      color: var(--text);
+      font-family: "DM Sans", sans-serif;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+      opacity: .15;
+      background-image: radial-gradient(#b77b8c .6px, transparent .6px);
+      background-size: 18px 18px;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0;
+      background: linear-gradient(90deg, var(--rose), var(--gold));
+      z-index: 2000;
+    }
+
+    .container {
+      width: min(1120px, 90%);
+      margin-inline: auto;
+    }
+
+    .section {
+      padding: 105px 0;
+      position: relative;
+    }
+
+    .section-heading {
+      max-width: 650px;
+      margin: 0 auto 55px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--rose-dark);
+      font-size: .76rem;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .eyebrow::before,
+    .eyebrow::after {
+      content: "";
+      width: 22px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    h1, h2, h3, .brand {
+      font-family: "Cormorant Garamond", serif;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      line-height: 1.05;
+      font-weight: 600;
+      margin-bottom: 17px;
+    }
+
+    .section-heading h2 span,
+    .hero-title span {
+      color: var(--rose);
+      font-style: italic;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      max-width: 520px;
+      margin: 0 auto;
+      font-size: .94rem;
+    }
+
+    /* Navigation */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 17px 0;
+      border-bottom: 1px solid transparent;
+      transition: background .3s ease, box-shadow .3s ease, padding .3s ease;
+    }
+
+    .navbar.scrolled {
+      background: rgba(255, 248, 247, .92);
+      backdrop-filter: blur(18px);
+      border-bottom-color: var(--border);
+      box-shadow: 0 8px 30px rgba(125, 76, 91, .06);
+      padding: 11px 0;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .brand {
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: .02em;
+      white-space: nowrap;
+    }
+
+    .brand span {
+      color: var(--rose);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 27px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #76636a;
+      font-size: .82rem;
+      font-weight: 600;
+      transition: color .25s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--rose-dark);
+    }
+
+    .nav-cta {
+      padding: 11px 19px;
+      border-radius: 50px;
+      background: var(--rose-dark);
+      color: white !important;
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(142, 90, 106, .22);
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 43px;
+      height: 43px;
+      border: 1px solid var(--border);
+      background: white;
+      color: var(--rose-dark);
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100svh;
+      padding: 145px 0 85px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 430px;
+      height: 430px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(233, 191, 201, .38), transparent 70%);
+      right: -100px;
+      top: 8%;
+      animation: breathe 7s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      align-items: center;
+      gap: 75px;
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 2;
+    }
+
+    .availability {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 9px 15px;
+      background: rgba(255,255,255,.78);
+      border: 1px solid var(--border);
+      border-radius: 50px;
+      font-size: .76rem;
+      color: var(--rose-dark);
+      margin-bottom: 25px;
+    }
+
+    .availability i {
+      color: #a77b62;
+      font-size: .58rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(3.6rem, 7vw, 6.4rem);
+      line-height: .92;
+      font-weight: 500;
+      letter-spacing: -.035em;
+      margin-bottom: 27px;
+    }
+
+    .hero-description {
+      max-width: 530px;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.9;
+      margin-bottom: 30px;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn {
+      min-height: 49px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 13px 22px;
+      border-radius: 50px;
+      font-size: .84rem;
+      font-weight: 700;
+      border: 1px solid transparent;
+      transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .btn-primary {
+      color: white;
+      background: var(--rose-dark);
+      box-shadow: 0 10px 24px rgba(142, 90, 106, .16);
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 14px 30px rgba(142, 90, 106, .25);
+    }
+
+    .btn-outline {
+      color: var(--rose-dark);
+      background: rgba(255,255,255,.6);
+      border-color: var(--border);
+    }
+
+    .btn-outline:hover {
+      background: white;
+    }
+
+    .hero-socials {
+      display: flex;
+      gap: 11px;
+      margin-top: 32px;
+    }
+
+    .social-link {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      color: var(--rose-dark);
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.75);
+      border-radius: 50%;
+      transition: all .25s ease;
+    }
+
+    .social-link:hover {
+      color: white;
+      background: var(--rose-dark);
+      transform: translateY(-3px);
+    }
+
+    .hero-visual {
+      position: relative;
+      max-width: 430px;
+      width: 100%;
+      margin-inline: auto;
+    }
+
+    .portrait-frame {
+      position: relative;
+      padding: 15px;
+      border-radius: 48% 48% 24px 24px;
+      background: linear-gradient(145deg, #fff, #f0d9df 55%, #c8a77e);
+      box-shadow: 0 25px 70px rgba(142, 90, 106, .17);
+      transform: rotate(2deg);
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .portrait-inner {
+      min-height: 450px;
+      border: 1px solid rgba(255,255,255,.9);
+      border-radius: 48% 48% 17px 17px;
+      background:
+        radial-gradient(ellipse at 50% 32%, #fff7f6 0%, #f3dfe3 47%, #e5c6cd 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 25px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .portrait-inner::before,
+    .portrait-inner::after {
+      content: "";
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      border: 1px solid rgba(183,123,140,.22);
+      border-radius: 50%;
+    }
+
+    .portrait-inner::after {
+      width: 280px;
+      height: 280px;
+    }
+
+    .portrait-placeholder {
+      position: relative;
+      z-index: 1;
+      max-width: 240px;
+    }
+
+    .portrait-placeholder i {
+      font-size: 4rem;
+      color: rgba(142,90,106,.5);
+      margin-bottom: 20px;
+    }
+
+    .portrait-placeholder p {
+      color: var(--rose-dark);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.65rem;
+      line-height: 1.2;
+    }
+
+    .portrait-placeholder small {
+      display: block;
+      margin-top: 12px;
+      color: var(--muted);
+      font-family: "DM Sans", sans-serif;
+      font-size: .72rem;
+      line-height: 1.7;
+    }
+
+    .floating-note {
+      position: absolute;
+      bottom: 45px;
+      left: -45px;
+      padding: 16px 19px;
+      border: 1px solid rgba(255,255,255,.9);
+      background: rgba(255,255,255,.86);
+      backdrop-filter: blur(12px);
+      border-radius: 17px;
+      box-shadow: var(--shadow);
+      animation: float 5s ease-in-out infinite reverse;
+    }
+
+    .floating-note strong {
+      display: block;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.5rem;
+      line-height: 1.2;
+    }
+
+    .floating-note span {
+      color: var(--muted);
+      font-size: .7rem;
+    }
+
+    .floating-star {
+      position: absolute;
+      top: 50px;
+      right: -15px;
+      color: var(--gold);
+      font-size: 2rem;
+      animation: sparkle 3s ease-in-out infinite;
+    }
+
+    /* About */
+    .about-grid {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 65px;
+      align-items: center;
+    }
+
+    .about-art {
+      min-height: 390px;
+      position: relative;
+      display: grid;
+      place-items: center;
+    }
+
+    .about-circle {
+      width: min(330px, 85vw);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: linear-gradient(145deg, #f8e8eb, #e8c6cf);
+      display: grid;
+      place-items: center;
+      position: relative;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.8), 0 25px 60px rgba(142,90,106,.10);
+    }
+
+    .about-circle::before {
+      content: "";
+      position: absolute;
+      inset: 17px;
+      border: 1px solid rgba(183,123,140,.35);
+      border-radius: 50%;
+    }
+
+    .about-circle i {
+      font-size: 5.5rem;
+      color: rgba(142,90,106,.55);
+    }
+
+    .about-tag {
+      position: absolute;
+      right: 0;
+      bottom: 35px;
+      padding: 15px 19px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      box-shadow: var(--shadow);
+      color: var(--rose-dark);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.25rem;
+      font-style: italic;
+    }
+
+    .about-copy h3 {
+      font-size: 2.3rem;
+      line-height: 1.15;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .about-copy p {
+      color: var(--muted);
+      font-size: .94rem;
+      margin-bottom: 17px;
+    }
+
+    .about-facts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 13px;
+      margin: 26px 0 30px;
+    }
+
+    .fact {
+      padding: 15px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.65);
+    }
+
+    .fact span {
+      display: block;
+      color: var(--muted);
+      font-size: .72rem;
+      margin-bottom: 4px;
+    }
+
+    .fact strong {
+      font-size: .86rem;
+      font-weight: 700;
+    }
+
+    /* Skills */
+    .skills-section {
+      background: rgba(255,255,255,.48);
+      border-block: 1px solid rgba(183,123,140,.10);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .skill-card {
+      padding: 29px 25px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.78);
+      border-radius: var(--radius);
+      box-shadow: 0 10px 35px rgba(125,76,91,.035);
+      transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-7px);
+      box-shadow: var(--shadow);
+      border-color: rgba(183,123,140,.42);
+    }
+
+    .skill-icon {
+      width: 51px;
+      height: 51px;
+      display: grid;
+      place-items: center;
+      border-radius: 17px;
+      background: var(--pink);
+      color: var(--rose-dark);
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+
+    .skill-card h3 {
+      font-size: 1.55rem;
+      margin-bottom: 11px;
+    }
+
+    .skill-card p {
+      color: var(--muted);
+      font-size: .85rem;
+      line-height: 1.8;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 17px;
+    }
+
+    .skill-tags span {
+      background: #fff5f5;
+      border: 1px solid var(--border);
+      border-radius: 50px;
+      padding: 6px 10px;
+      font-size: .69rem;
+      color: var(--rose-dark);
+    }
+
+    /* Experience */
+    .timeline {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 10px;
+      top: 10px;
+      bottom: 10px;
+      width: 1px;
+      background: linear-gradient(var(--pink-deep), var(--gold), transparent);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 43px;
+      padding-bottom: 34px;
+    }
+
+    .timeline-item:last-child {
+      padding-bottom: 0;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: 3px;
+      top: 6px;
+      width: 15px;
+      height: 15px;
+      background: var(--rose);
+      border: 4px solid #f9e8eb;
+      border-radius: 50%;
+      box-shadow: 0 0 0 4px rgba(183,123,140,.10);
+    }
+
+    .timeline-card {
+      padding: 27px 30px;
+      background: rgba(255,255,255,.8);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      box-shadow: 0 12px 38px rgba(125,76,91,.04);
+      transition: transform .3s ease;
+    }
+
+    .timeline-card:hover {
+      transform: translateX(5px);
+    }
+
+    .timeline-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+
+    .timeline-meta span {
+      color: var(--rose-dark);
+      font-size: .75rem;
+      font-weight: 700;
+    }
+
+    .timeline-meta .date {
+      padding: 6px 11px;
+      background: #fff0f2;
+      border-radius: 50px;
+    }
+
+    .timeline-card h3 {
+      font-size: 1.75rem;
+      line-height: 1.2;
+      margin-bottom: 5px;
+    }
+
+    .timeline-card h4 {
+      font-size: .88rem;
+      color: var(--rose-dark);
+      margin-bottom: 13px;
+      font-weight: 600;
+    }
+
+    .timeline-card p,
+    .timeline-card li {
+      color: var(--muted);
+      font-size: .86rem;
+    }
+
+    .timeline-card ul {
+      padding-left: 19px;
+      margin-top: 10px;
+    }
+
+    .timeline-card li {
+      padding: 3px 0;
+    }
+
+    /* Education */
+    .education-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .education-card {
+      padding: 27px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.78);
+      border-radius: 20px;
+      display: flex;
+      gap: 18px;
+      transition: transform .3s ease, box-shadow .3s ease;
+    }
+
+    .education-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+    }
+
+    .education-icon {
+      width: 48px;
+      height: 48px;
+      flex: 0 0 48px;
+      display: grid;
+      place-items: center;
+      background: var(--pink);
+      color: var(--rose-dark);
+      border-radius: 15px;
+    }
+
+    .education-card h3 {
+      font-size: 1.45rem;
+      line-height: 1.2;
+      margin-bottom: 7px;
+    }
+
+    .education-card p {
+      color: var(--muted);
+      font-size: .83rem;
+    }
+
+    .education-card .edu-date {
+      display: inline-block;
+      color: var(--rose-dark);
+      margin-top: 10px;
+      font-size: .75rem;
+      font-weight: 700;
+    }
+
+    /* Contact */
+    .contact-section {
+      padding-bottom: 85px;
+    }
+
+    .contact-card {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #f8e9ec, #fffdfb 65%, #f0e3d6);
+      border: 1px solid rgba(183,123,140,.22);
+      border-radius: 32px;
+      padding: 65px 55px;
+      text-align: center;
+    }
+
+    .contact-card::before,
+    .contact-card::after {
+      content: "";
+      position: absolute;
+      width: 230px;
+      height: 230px;
+      border: 1px solid rgba(183,123,140,.17);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .contact-card::before {
+      left: -120px;
+      top: -120px;
+    }
+
+    .contact-card::after {
+      right: -120px;
+      bottom: -130px;
+    }
+
+    .contact-card h2 {
+      position: relative;
+      font-size: clamp(2.6rem, 5vw, 4.3rem);
+      line-height: 1;
+      margin-bottom: 20px;
+    }
+
+    .contact-card p {
+      max-width: 550px;
+      margin: 0 auto 27px;
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    .contact-details {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 13px;
+      margin-top: 28px;
+    }
+
+    .contact-detail {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 11px 15px;
+      border-radius: 50px;
+      background: rgba(255,255,255,.75);
+      border: 1px solid var(--border);
+      color: var(--rose-dark);
+      font-size: .79rem;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 25px 0;
+      background: rgba(255,255,255,.45);
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .footer-inner p {
+      color: var(--muted);
+      font-size: .77rem;
+    }
+
+    .footer-signature {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.25rem;
+      font-style: italic;
+      color: var(--rose-dark);
+    }
+
+    .back-top {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      background: var(--rose-dark);
+      color: white;
+      border-radius: 50%;
+      z-index: 500;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: all .3s ease;
+      box-shadow: 0 8px 22px rgba(142,90,106,.2);
+    }
+
+    .back-top.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    /* Reveal animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .75s ease, transform .75s cubic-bezier(.2,.7,.2,1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .delay-1 { transition-delay: .10s; }
+    .delay-2 { transition-delay: .20s; }
+    .delay-3 { transition-delay: .30s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(2deg); }
+      50% { transform: translateY(-12px) rotate(1deg); }
+    }
+
+    @keyframes breathe {
+      0%, 100% { transform: scale(1); opacity: .7; }
+      50% { transform: scale(1.12); opacity: 1; }
+    }
+
+    @keyframes sparkle {
+      0%, 100% { opacity: .65; transform: scale(.9) rotate(0); }
+      50% { opacity: 1; transform: scale(1.12) rotate(12deg); }
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .nav-links { gap: 16px; }
+      .nav-links a { font-size: .76rem; }
+      .nav-cta { padding: 9px 13px; }
+      .hero-grid { gap: 40px; }
+      .portrait-inner { min-height: 380px; }
+      .about-grid { gap: 35px; }
+      .skills-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 720px) {
+      html { scroll-padding-top: 80px; }
+      .section { padding: 78px 0; }
+      .navbar { padding: 12px 0; }
+      .brand { font-size: 1.6rem; }
+      .menu-toggle { display: grid; place-items: center; }
+
+      .nav-links {
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 5%;
+        right: 5%;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 12px;
+        background: rgba(255, 250, 249, .98);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        box-shadow: var(--shadow);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-8px);
+        transition: all .25s ease;
+      }
+
+      .nav-links.open {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      .nav-links li { width: 100%; }
+
+      .nav-links a {
+        display: block;
+        padding: 12px 14px;
+        font-size: .88rem;
+        border-radius: 10px;
+      }
+
+      .nav-links a:hover { background: #fff0f2; }
+      .nav-cta { text-align: center; margin-top: 5px; }
+
+      .hero {
+        min-height: auto;
+        padding: 125px 0 75px;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+      }
+
+      .hero-copy { text-align: center; }
+      .availability { margin-inline: auto; }
+      .hero-description { margin-inline: auto; }
+      .hero-actions, .hero-socials { justify-content: center; }
+      .hero h1 { font-size: clamp(3.5rem, 15vw, 5.5rem); }
+      .hero-visual { max-width: 350px; }
+      .portrait-inner { min-height: 350px; }
+      .floating-note { left: -12px; bottom: 25px; }
+      .floating-star { right: -4px; }
+
+      .section-heading { margin-bottom: 38px; }
+      .section-heading h2 { font-size: 3rem; }
+
+      .about-grid { grid-template-columns: 1fr; gap: 30px; }
+      .about-art { min-height: 315px; }
+      .about-circle { width: 275px; }
+      .about-copy h3 { font-size: 2rem; }
+
+      .skills-grid { grid-template-columns: 1fr; gap: 15px; }
+      .skill-card { padding: 25px; }
+      .timeline-card { padding: 22px; }
+      .timeline-card h3 { font-size: 1.55rem; }
+      .education-grid { grid-template-columns: 1fr; }
+
+      .contact-card { padding: 48px 22px; border-radius: 25px; }
+      .contact-card h2 { font-size: 3rem; }
+      .contact-details { flex-direction: column; }
+      .contact-detail { max-width: 100%; overflow-wrap: anywhere; }
+      .footer-inner { justify-content: center; text-align: center; }
+    }
+
+    @media (max-width: 380px) {
+      .container { width: 92%; }
+      .hero-actions { flex-direction: column; }
+      .hero-actions .btn { width: 100%; }
+      .about-facts { grid-template-columns: 1fr; }
+      .portrait-inner { min-height: 315px; }
+      .floating-note { padding: 12px 14px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
 </head>
 
-<body class="bg-obsidian text-slate-200 font-sans antialiased overflow-x-hidden">
+<body>
+  <div class="scroll-progress" id="scrollProgress"></div>
 
-    <canvas id="particleCanvas" aria-hidden="true"></canvas>
+  <header class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a class="brand" href="#home" aria-label="Nowshin home">N<span>.</span></a>
 
-    <!-- NAVIGATION -->
-    <header id="siteHeader" class="site-header sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-[76px] flex items-center justify-between">
+      <button class="menu-toggle" id="menuToggle"
+        aria-label="Open navigation menu" aria-expanded="false"
+        aria-controls="navLinks">
+        <i class="fa-solid fa-bars"></i>
+      </button>
 
-            <a href="#home" class="flex items-center gap-3 group" aria-label="Nowshin homepage">
-                <div class="w-10 h-10 rounded-xl flex items-center justify-center font-bold text-[#241720] text-sm shadow-lg"
-                     style="background:linear-gradient(135deg,#fff0e5,#d7a0a2,#986078)">
-                    NJN
-                </div>
-                <div>
-                    <span class="block font-bold tracking-wider text-white group-hover:text-[#e8b9ba] transition-colors">NOWSHIN</span>
-                    <span class="block text-[9px] text-slate-400 tracking-[.2em] uppercase">Portfolio & CV</span>
-                </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a class="nav-cta" href="#contact">Contact Me <i class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="availability reveal">
+            <i class="fa-solid fa-circle"></i>
+            Professional Profile · Teaching & Learning
+          </div>
+
+          <h1 class="hero-title reveal delay-1">
+            Hello, I'm<br>
+            <span>Nowshin.</span>
+          </h1>
+
+          <p class="hero-description reveal delay-2">
+            An enthusiastic educator with a passion for learning,
+            personal growth, and helping others discover their potential.
+            I believe that meaningful education can inspire confidence
+            and create lasting change.
+          </p>
+
+          <div class="hero-actions reveal delay-3">
+            <a href="#about" class="btn btn-primary">
+              Discover My Story <i class="fa-solid fa-arrow-right"></i>
             </a>
+            <a href="#contact" class="btn btn-outline">
+              Let's Connect <i class="fa-regular fa-envelope"></i>
+            </a>
+          </div>
 
-            <nav class="hidden md:flex items-center gap-7 text-xs font-semibold" aria-label="Main navigation">
-                <a href="#about" class="nav-link">About</a>
-                <a href="#skills" class="nav-link">Skills</a>
-                <a href="#experience" class="nav-link">Experience</a>
-                <a href="#education" class="nav-link">Education</a>
-                <a href="#contact" class="nav-link">Contact</a>
-            </nav>
-
-            <div class="flex items-center gap-3">
-                <a href="#contact" class="hidden sm:inline-flex premium-button !py-2.5 !px-4 !text-xs">
-                    <i class="fa-regular fa-paper-plane"></i>
-                    Let's Connect
-                </a>
-
-                <button id="mobileMenuBtn" type="button"
-                        aria-label="Open navigation menu"
-                        aria-expanded="false"
-                        aria-controls="mobileMenu"
-                        class="md:hidden p-2 text-xl text-[#e8b9ba]">
-                    <i id="menuIcon" class="fa-solid fa-bars"></i>
-                </button>
-            </div>
+          <div class="hero-socials reveal delay-3">
+            <!-- Replace # with Nowshin's real social profile URLs -->
+            <a class="social-link" href="#contact" aria-label="Facebook">
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a class="social-link" href="#contact" aria-label="LinkedIn">
+              <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+            <a class="social-link" href="#contact" aria-label="Email">
+              <i class="fa-regular fa-envelope"></i>
+            </a>
+          </div>
         </div>
 
-        <nav id="mobileMenu" aria-label="Mobile navigation"
-             class="hidden md:hidden px-5 pb-5 pt-2 space-y-1 bg-[#17121a]/98 border-t border-[#d7a0a2]/10">
-            <a href="#about" class="block py-3 text-sm text-slate-200">About</a>
-            <a href="#skills" class="block py-3 text-sm text-slate-200">Skills</a>
-            <a href="#experience" class="block py-3 text-sm text-slate-200">Experience</a>
-            <a href="#education" class="block py-3 text-sm text-slate-200">Education</a>
-            <a href="#contact" class="block py-3 text-sm text-slate-200">Contact</a>
-        </nav>
-    </header>
-
-    <main class="relative z-10 space-y-24 sm:space-y-28 pb-20">
-
-        <!-- HERO -->
-        <section id="home" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 md:pt-20">
-            <div class="grid lg:grid-cols-12 gap-12 lg:gap-10 items-center">
-
-                <div class="hero-copy lg:col-span-7 space-y-6 text-center lg:text-left">
-                    <div class="eyebrow-pill">
-                        <span class="status-dot"></span>
-                        Instructor @ National Youth Development Academy
-                    </div>
-
-                    <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-tight">
-                        Hi, I'm
-                        <span class="gold-gradient-text font-serif block mt-2">Nur Jannat Nowshin</span>
-                    </h1>
-
-                    <p class="text-slate-300 text-sm sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                        English Literature Undergraduate, Creative Graphic Designer, SEO & Digital Marketer, and Professional Instructor. Dedicated to driving growth through creative branding, digital strategies, and practical training.
-                    </p>
-
-                    <div class="flex flex-wrap gap-2 justify-center lg:justify-start pt-1">
-                        <span class="px-3 py-2 rounded-lg text-[11px] bg-[#d7a0a2]/5 text-[#e8b9ba] border border-[#d7a0a2]/15"><i class="fa-solid fa-graduation-cap mr-1"></i> English Scholar</span>
-                        <span class="px-3 py-2 rounded-lg text-[11px] bg-[#d7a0a2]/5 text-[#e8b9ba] border border-[#d7a0a2]/15"><i class="fa-solid fa-pen-nib mr-1"></i> Graphic Designer</span>
-                        <span class="px-3 py-2 rounded-lg text-[11px] bg-[#d7a0a2]/5 text-[#e8b9ba] border border-[#d7a0a2]/15"><i class="fa-solid fa-chalkboard-user mr-1"></i> IT Educator</span>
-                        <span class="px-3 py-2 rounded-lg text-[11px] bg-[#d7a0a2]/5 text-[#e8b9ba] border border-[#d7a0a2]/15"><i class="fa-solid fa-chart-line mr-1"></i> SEO Strategist</span>
-                    </div>
-
-                    <div class="flex flex-wrap gap-3 justify-center lg:justify-start pt-3">
-                        <a href="#contact" class="premium-button">
-                            Get In Touch <i class="fa-solid fa-arrow-right text-xs"></i>
-                        </a>
-                        <a href="#experience" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl glass-card text-white text-sm font-semibold">
-                            <i class="fa-regular fa-user text-[#e8b9ba]"></i> Explore My Journey
-                        </a>
-                    </div>
-
-                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-x-5 gap-y-2 pt-3 text-xs text-slate-400">
-                        <span><i class="fa-solid fa-location-dot text-[#d7a0a2] mr-2"></i>Chattogram, Bangladesh</span>
-                        <span><i class="fa-solid fa-sparkles text-[#d7a0a2] mr-2"></i>Creative. Dedicated. Curious.</span>
-                    </div>
-                </div>
-
-                <!-- PREMIUM PROFILE PICTURE -->
-                <div class="hero-portrait lg:col-span-5 flex flex-col items-center px-2 sm:px-5 lg:px-0">
-                    <div class="portrait-stage">
-                        <div class="portrait-aura"></div>
-                        <div class="portrait-orbit"></div>
-
-                        <div class="portrait-frame">
-                            <div class="portrait-inner">
-                                <img
-                                    src="1000019747.jpg"
-                                    alt="Portrait of Nur Jannat Nowshin"
-                                    class="portrait-image"
-                                    fetchpriority="high"
-                                    onerror="this.onerror=null;this.style.display='none';document.getElementById('portraitFallback').style.display='flex';">
-
-                                <div id="portraitFallback"
-                                     style="display:none"
-                                     class="absolute inset-0 items-center justify-center flex-col gap-4 text-center p-6 text-[#e8b9ba]">
-                                    <i class="fa-regular fa-image text-5xl"></i>
-                                    <span class="text-sm font-semibold">Profile picture unavailable</span>
-                                    <span class="text-xs text-slate-400">Check that 1000019747.jpg is beside index.html.</span>
-                                </div>
-
-                                <div class="portrait-shine"></div>
-                            </div>
-                        </div>
-
-                        <div class="portrait-badge">
-                            <div class="portrait-badge-icon"><i class="fa-solid fa-award"></i></div>
-                            <div>
-                                <p class="portrait-badge-title">Professional Instructor</p>
-                                <p class="portrait-badge-sub">NYDA · Present</p>
-                            </div>
-                        </div>
-
-                        <div class="portrait-bottom-badge" aria-hidden="true">
-                            <i class="fa-solid fa-feather-pointed"></i>
-                        </div>
-                    </div>
-
-                    <!-- MEET THE PERSON CARD (MOVED CLEANLY BELOW THE PICTURE) -->
-                    <div class="w-full max-w-[360px] mt-4 p-4 border border-[#d7a0a2]/30 rounded-2xl bg-[#1c1620]/90 backdrop-blur-md shadow-xl">
-                        <p class="portrait-caption-label">Meet the person behind the work</p>
-                        <div class="flex items-center justify-between gap-3 mt-2">
-                            <div>
-                                <p class="font-serif text-base sm:text-lg text-white">Nur Jannat Nowshin</p>
-                                <p class="text-[11px] text-slate-300 mt-0.5">Instructor · Creative Professional</p>
-                            </div>
-                            <div class="w-9 h-9 rounded-full border border-[#d7a0a2]/30 flex items-center justify-center text-[#e8b9ba] flex-shrink-0 bg-[#d7a0a2]/10">
-                                <i class="fa-solid fa-sparkles text-xs"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+        <div class="hero-visual reveal delay-2">
+          <div class="portrait-frame">
+            <div class="portrait-inner">
+              <div class="portrait-placeholder">
+                <i class="fa-regular fa-user"></i>
+                <p>A little space<br>for your portrait</p>
+                <small>Replace this placeholder with Nowshin's photo when ready.</small>
+              </div>
             </div>
-        </section>
+          </div>
 
-        <!-- ABOUT -->
-        <section id="about" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="glass-card rounded-3xl p-7 sm:p-12 relative overflow-hidden reveal">
-                <div class="absolute -top-24 -right-20 w-64 h-64 rounded-full bg-[#d7a0a2]/5 blur-3xl pointer-events-none"></div>
+          <div class="floating-note">
+            <strong>Learn. Grow. Inspire.</strong>
+            <span>A journey of continuous growth</span>
+          </div>
 
-                <div class="max-w-3xl space-y-6 relative">
-                    <div class="section-label"><i class="fa-solid fa-user-check mr-2"></i>About Me</div>
-
-                    <h2 class="section-heading text-3xl sm:text-4xl font-semibold">
-                        Blending Artistic Creativity with Analytical Vision
-                    </h2>
-
-                    <p class="text-slate-300 leading-8 text-sm sm:text-base">
-                        A highly motivated and detail-oriented English undergraduate with a strong foundation in Graphic Design, Digital Marketing, Content Creation, and Computer Applications. Experienced in instructing professional courses, mentoring learners, developing creative digital solutions, and managing online projects.
-                    </p>
-
-                    <p class="text-slate-400 leading-7 text-sm">
-                        Recognized for excellent communication, adaptability, and a proactive approach to learning. Passionate about contributing to organizational growth through innovation, professionalism, and continuous skill development.
-                    </p>
-
-                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-5 pt-6 border-t border-[#d7a0a2]/15">
-                        <div>
-                            <p class="text-[#e8b9ba] text-2xl font-bold">100%</p>
-                            <p class="text-slate-400 text-xs mt-1">Dedication to Quality</p>
-                        </div>
-                        <div>
-                            <p class="text-[#e8b9ba] text-2xl font-bold">NYDA</p>
-                            <p class="text-slate-400 text-xs mt-1">Professional Instructor</p>
-                        </div>
-                        <div>
-                            <p class="text-[#e8b9ba] text-2xl font-bold">B.A.</p>
-                            <p class="text-slate-400 text-xs mt-1">English Literature</p>
-                        </div>
-                        <div>
-                            <p class="text-[#e8b9ba] text-2xl font-bold">Fluent</p>
-                            <p class="text-slate-400 text-xs mt-1">English & Bangla</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SKILLS -->
-        <section id="skills" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto mb-12 space-y-4 reveal">
-                <span class="section-label"><i class="fa-solid fa-layer-group mr-2"></i>Technical Expertise</span>
-                <h2 class="section-heading text-3xl sm:text-4xl font-semibold">Skills & Competencies</h2>
-                <p class="text-slate-400 text-sm leading-7">A multidisciplinary skill set combining creative software, web design, and digital strategy.</p>
-                <div class="section-ornament"><i class="fa-solid fa-sparkles"></i></div>
-            </div>
-
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-                <article class="glass-card p-6 rounded-2xl space-y-4 reveal">
-                    <div class="rose-icon"><i class="fa-solid fa-palette"></i></div>
-                    <h3 class="text-lg font-bold text-white">Graphic Design</h3>
-                    <ul class="skill-list space-y-3 text-slate-300 text-sm">
-                        <li><i class="fa-solid fa-check"></i><span>Adobe Illustrator</span></li>
-                        <li><i class="fa-solid fa-check"></i><span>Adobe Photoshop</span></li>
-                        <li><i class="fa-solid fa-check"></i><span>Adobe Premiere Pro</span></li>
-                        <li><i class="fa-solid fa-check"></i><span>Canva Branding</span></li>
-                    </ul>
-                </article>
-
-                <article class="glass-card p-6 rounded-2xl space-y-4 reveal reveal-delay-1">
-                    <div class="rose-icon"><i class="fa-solid fa-bullhorn"></i></div>
-                    <h3 class="text-lg font-bold text-white">Digital Marketing</h3>
-                    <ul class="skill-list space-y-3 text-slate-300 text-sm">
-                        <li><i class="fa-solid fa-check"></i><span>Social Media Management</span></li>
-                        <li><i class="fa-solid fa-check"></i><span>Content Strategy</span></li>
-                        <li><i class="fa-solid fa-check"></i><span>SEO Fundamentals</span></li>
-                        <li><i class="fa-solid fa-check"></i><span>Digital Branding</span></li>
-                    </ul>
-                </article>
-
-                <article class="glass-card p-6 rounded-2xl space-y-4 reveal reveal-delay-2">
-                    <div class="rose-icon"><i class="fa-solid fa-code"></i></div>
-                    <h3 class="text-lg font-bold text-white">Web Development</h3>
-                    <ul class="skill-list space-y-3 text-slate-300 text-sm">
-                        <li><i class="fa-solid fa-check"></i><span>WordPress CMS</span></li>
-                        <li><i class="fa-solid fa-check"></i><span>Local WP Environment</span></li>
-                        <li><i class="fa-solid fa-check"></i><span>Pantheon Hosting</span></li>
-                        <li><i class="fa-solid fa-check"></i><span>E-commerce Layouts</span></li>
-                    </ul>
-                </article>
-
-                <article class="glass-card p-6 rounded-2xl space-y-4 reveal reveal-delay-3">
-                    <div class="rose-icon"><i class="fa-solid fa-users"></i></div>
-                    <h3 class="text-lg font-bold text-white">Soft & IT Skills</h3>
-                    <ul class="skill-list space-y-3 text-slate-300 text-sm">
-                        <li><i class="fa-solid fa-check"></i><span>MS Office & Data Entry</span></li>
-                        <li><i class="fa-solid fa-check"></i><span>Leadership & Teamwork</span></li>
-                        <li><i class="fa-solid fa-check"></i><span>Project Management</span></li>
-                        <li><i class="fa-solid fa-check"></i><span>Communication</span></li>
-                    </ul>
-                </article>
-            </div>
-        </section>
-
-        <!-- EXPERIENCE -->
-        <section id="experience" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto mb-14 space-y-4 reveal">
-                <span class="section-label"><i class="fa-solid fa-briefcase mr-2"></i>Career Track</span>
-                <h2 class="section-heading text-3xl sm:text-4xl font-semibold">Work Experience</h2>
-                <p class="text-slate-400 text-sm leading-7">Professional experience in instruction, mentoring, and creative design.</p>
-                <div class="section-ornament"><i class="fa-solid fa-sparkles"></i></div>
-            </div>
-
-            <div class="relative ml-3 sm:ml-10 md:ml-32 space-y-9">
-                <div class="timeline-line absolute left-0 top-2 bottom-2 w-px"></div>
-
-                <article class="relative pl-7 sm:pl-9 reveal">
-                    <span class="timeline-dot absolute -left-[7px] top-3 w-[15px] h-[15px] rounded-full bg-[#e8b9ba] border-[3px] border-[#110d13]"></span>
-                    <span class="hidden md:inline-block absolute -left-36 top-1 text-xs font-semibold text-[#e8b9ba] bg-[#d7a0a2]/10 px-3 py-1 rounded-full border border-[#d7a0a2]/20">Present</span>
-
-                    <div class="glass-card p-6 rounded-2xl space-y-4">
-                        <span class="md:hidden inline-block text-xs text-[#e8b9ba] bg-[#d7a0a2]/10 px-3 py-1 rounded-full">Present / Ongoing</span>
-                        <div class="flex flex-wrap items-center justify-between gap-3">
-                            <h3 class="text-xl font-bold text-white">Instructor</h3>
-                            <span class="text-xs text-[#e8b9ba] bg-[#d7a0a2]/10 border border-[#d7a0a2]/20 px-3 py-2 rounded-full">National Youth Development Academy (NYDA)</span>
-                        </div>
-                        <ul class="list-disc list-inside text-slate-300 text-sm space-y-2 leading-7">
-                            <li>Conduct practical training modules on computer applications and digital skills.</li>
-                            <li>Guide trainees through hands-on coursework, assignments, and real-world scenarios.</li>
-                            <li>Monitor learner performance and provide constructive feedback.</li>
-                        </ul>
-                    </div>
-                </article>
-
-                <article class="relative pl-7 sm:pl-9 reveal">
-                    <span class="absolute -left-[7px] top-3 w-[15px] h-[15px] rounded-full bg-[#986078] border-[3px] border-[#110d13]"></span>
-                    <span class="hidden md:inline-block absolute -left-36 top-1 text-xs text-slate-400 bg-white/5 px-3 py-1 rounded-full border border-white/10">Jul–Aug 2025</span>
-
-                    <div class="glass-card p-6 rounded-2xl space-y-4">
-                        <span class="md:hidden inline-block text-xs text-slate-400 bg-white/5 px-3 py-1 rounded-full">July – August 2025</span>
-                        <div class="flex flex-wrap items-center justify-between gap-3">
-                            <h3 class="text-xl font-bold text-white">Mentor</h3>
-                            <span class="text-xs text-slate-300 bg-white/5 border border-white/10 px-3 py-2 rounded-full">E-learning & Earning Ltd.</span>
-                        </div>
-                        <ul class="list-disc list-inside text-slate-300 text-sm space-y-2 leading-7">
-                            <li>Supported students with online learning activities and coursework.</li>
-                            <li>Assisted participants with digital skills and productivity tools.</li>
-                            <li>Encouraged collaborative problem-solving and monitored progress.</li>
-                        </ul>
-                    </div>
-                </article>
-
-                <article class="relative pl-7 sm:pl-9 reveal">
-                    <span class="absolute -left-[7px] top-3 w-[15px] h-[15px] rounded-full bg-[#986078] border-[3px] border-[#110d13]"></span>
-                    <span class="hidden md:inline-block absolute -left-36 top-1 text-xs text-slate-400 bg-white/5 px-3 py-1 rounded-full">Freelance</span>
-
-                    <div class="glass-card p-6 rounded-2xl space-y-4">
-                        <span class="md:hidden inline-block text-xs text-slate-400 bg-white/5 px-3 py-1 rounded-full">Self-employed</span>
-                        <div class="flex flex-wrap items-center justify-between gap-3">
-                            <h3 class="text-xl font-bold text-white">Freelance Graphic Designer</h3>
-                            <span class="text-xs text-slate-300 bg-white/5 border border-white/10 px-3 py-2 rounded-full">Remote Work</span>
-                        </div>
-                        <ul class="list-disc list-inside text-slate-300 text-sm space-y-2 leading-7">
-                            <li>Designed logos, flyers, banners, social media graphics, and business cards.</li>
-                            <li>Developed visual identity and branding materials for businesses and personal brands.</li>
-                            <li>Worked with clients to translate creative requirements into polished designs.</li>
-                        </ul>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <!-- EDUCATION & CERTIFICATIONS -->
-        <section id="education" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-2 gap-12">
-
-                <div class="space-y-6">
-                    <div class="reveal space-y-4">
-                        <span class="section-label"><i class="fa-solid fa-graduation-cap mr-2"></i>Academic Background</span>
-                        <h2 class="section-heading text-3xl sm:text-4xl font-semibold">Education</h2>
-                    </div>
-
-                    <article class="education-card glass-card p-5 rounded-2xl space-y-2 reveal">
-                        <div class="flex flex-wrap items-start justify-between gap-2">
-                            <h3 class="text-lg font-bold text-white">Bachelor of Arts (English)</h3>
-                            <span class="text-xs text-[#e8b9ba] bg-[#d7a0a2]/10 px-2.5 py-1 rounded">Expected 2028</span>
-                        </div>
-                        <p class="text-slate-300 text-sm">National University, Bangladesh</p>
-                        <p class="text-slate-400 text-xs">Undergraduate Study — Ongoing</p>
-                    </article>
-
-                    <article class="education-card glass-card p-5 rounded-2xl space-y-2 reveal reveal-delay-1">
-                        <div class="flex flex-wrap items-start justify-between gap-2">
-                            <h3 class="text-lg font-bold text-white">Higher Secondary Certificate (HSC)</h3>
-                            <span class="text-xs text-slate-400 bg-white/5 px-2.5 py-1 rounded">2023</span>
-                        </div>
-                        <p class="text-slate-300 text-sm">Chittagong Govt. Women's College, Chattogram</p>
-                        <p class="text-[#e8b9ba] text-xs font-semibold">GPA: 4.83 / 5.00</p>
-                    </article>
-
-                    <article class="education-card glass-card p-5 rounded-2xl space-y-2 reveal reveal-delay-2">
-                        <div class="flex flex-wrap items-start justify-between gap-2">
-                            <h3 class="text-lg font-bold text-white">Secondary School Certificate (SSC)</h3>
-                            <span class="text-xs text-slate-400 bg-white/5 px-2.5 py-1 rounded">2021</span>
-                        </div>
-                        <p class="text-slate-300 text-sm">Lohagara Shahpir Pilot High School</p>
-                        <p class="text-[#e8b9ba] text-xs font-semibold">GPA: 4.83 / 5.00</p>
-                    </article>
-                </div>
-
-                <div class="space-y-6">
-                    <div class="reveal space-y-4">
-                        <span class="section-label"><i class="fa-solid fa-award mr-2"></i>Qualifications</span>
-                        <h2 class="section-heading text-3xl sm:text-4xl font-semibold">Certifications & Training</h2>
-                    </div>
-
-                    <article class="education-card glass-card p-5 rounded-2xl space-y-2 reveal">
-                        <span class="text-xs text-[#e8b9ba]">2025</span>
-                        <h3 class="text-lg font-bold text-white">Government Freelancing Training Program</h3>
-                        <p class="text-slate-300 text-sm leading-6">Digital Marketing & Freelancing — Department of Youth Development (DYD)</p>
-                    </article>
-
-                    <article class="education-card glass-card p-5 rounded-2xl space-y-2 reveal reveal-delay-1">
-                        <span class="text-xs text-[#e8b9ba]">2025</span>
-                        <h3 class="text-lg font-bold text-white">Advanced Computer Certificate Course</h3>
-                        <p class="text-slate-300 text-sm leading-6">National Youth Development Academy (NYDA)</p>
-                    </article>
-
-                    <article class="education-card glass-card p-5 rounded-2xl space-y-2 reveal reveal-delay-2">
-                        <span class="text-xs text-[#e8b9ba]">2025</span>
-                        <h3 class="text-lg font-bold text-white">Employability Skills — 79 Hours</h3>
-                        <p class="text-slate-300 text-sm leading-6">Wadhwani Foundation — Job Ready Skills</p>
-                    </article>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- PREMIUM CONTACT SECTION -->
-        <section id="contact" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
-            <div class="contact-orb contact-orb-one"></div>
-            <div class="contact-orb contact-orb-two"></div>
-
-            <div class="contact-shell">
-                <div class="contact-top-line"></div>
-
-                <div class="relative z-10 p-5 sm:p-9 lg:p-14">
-                    <div class="text-center max-w-2xl mx-auto mb-12">
-                        <div class="contact-eyebrow mb-5">
-                            <span class="eyebrow-line"></span>
-                            <i class="fa-regular fa-paper-plane"></i>
-                            <span>LET'S START A CONVERSATION</span>
-                            <span class="eyebrow-line"></span>
-                        </div>
-
-                        <h2 class="contact-heading text-4xl sm:text-5xl lg:text-6xl leading-tight">
-                            Let's Create
-                            <span class="contact-heading-accent">Something Beautiful.</span>
-                        </h2>
-
-                        <p class="text-slate-300/80 text-sm sm:text-base leading-7 mt-5 max-w-xl mx-auto">
-                            Have a project in mind, a collaboration to discuss, or an opportunity to share? I'd love to hear from you.
-                        </p>
-
-                        <div class="contact-heading-ornament mt-7">
-                            <span></span>
-                            <i class="fa-solid fa-sparkles"></i>
-                            <span></span>
-                        </div>
-                    </div>
-
-                    <div class="grid lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
-
-                        <!-- CONTACT INFORMATION -->
-                        <div class="lg:col-span-5 flex flex-col gap-6">
-                            <div class="contact-intro-card">
-                                <div class="contact-avatar-icon">
-                                    <i class="fa-regular fa-envelope"></i>
-                                </div>
-
-                                <p class="contact-mini-label mt-5">A LITTLE NOTE</p>
-
-                                <h3 class="text-2xl sm:text-3xl font-semibold text-white font-serif mt-2">
-                                    Your next idea starts here.
-                                </h3>
-
-                                <p class="text-slate-300/75 text-sm leading-7 mt-4">
-                                    Every meaningful collaboration begins with a conversation. Let's turn your ideas into something thoughtful, creative, and memorable.
-                                </p>
-
-                                <div class="contact-availability mt-6">
-                                    <span class="availability-dot"></span>
-                                    <span>Open to professional inquiries</span>
-                                </div>
-                            </div>
-
-                            <a href="mailto:nurjannatnowshin810@gmail.com" class="contact-detail-card group">
-                                <div class="contact-detail-icon"><i class="fa-regular fa-envelope"></i></div>
-                                <div class="min-w-0 flex-1">
-                                    <p class="contact-detail-label">WRITE ME AN EMAIL</p>
-                                    <p class="contact-detail-value">nurjannatnowshin810@gmail.com</p>
-                                </div>
-                                <i class="fa-solid fa-arrow-up-right-from-square contact-arrow"></i>
-                            </a>
-
-                            <a href="tel:+8801540338121" class="contact-detail-card group">
-                                <div class="contact-detail-icon"><i class="fa-solid fa-phone"></i></div>
-                                <div class="min-w-0 flex-1">
-                                    <p class="contact-detail-label">LET'S TALK</p>
-                                    <p class="contact-detail-value">+880 1540338121</p>
-                                </div>
-                                <i class="fa-solid fa-arrow-up-right-from-square contact-arrow"></i>
-                            </a>
-
-                            <div class="contact-detail-card">
-                                <div class="contact-detail-icon"><i class="fa-solid fa-location-dot"></i></div>
-                                <div class="min-w-0 flex-1">
-                                    <p class="contact-detail-label">CURRENTLY BASED IN</p>
-                                    <p class="contact-detail-value">Chattogram, Bangladesh</p>
-                                </div>
-                                <i class="fa-solid fa-location-dot contact-arrow"></i>
-                            </div>
-
-                            <div class="contact-social-panel">
-                                <p class="contact-detail-label mb-4">FIND ME AROUND THE WEB</p>
-                                <div class="flex flex-wrap gap-3">
-                                    <a href="https://www.linkedin.com/in/nur-jannat-nowshin"
-                                       target="_blank" rel="noopener noreferrer"
-                                       class="contact-social-link" aria-label="LinkedIn profile">
-                                        <i class="fa-brands fa-linkedin-in"></i><span>LinkedIn</span>
-                                    </a>
-
-                                    <a href="https://www.facebook.com/nur.jannat.nowshin.2024"
-                                       target="_blank" rel="noopener noreferrer"
-                                       class="contact-social-link" aria-label="Facebook profile">
-                                        <i class="fa-brands fa-facebook-f"></i><span>Facebook</span>
-                                    </a>
-
-                                    <a href="https://wa.me/8801540338121"
-                                       target="_blank" rel="noopener noreferrer"
-                                       class="contact-social-link" aria-label="WhatsApp">
-                                        <i class="fa-brands fa-whatsapp"></i><span>WhatsApp</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- CONTACT FORM -->
-                        <div class="lg:col-span-7">
-                            <div class="contact-form-card">
-                                <div class="flex items-start justify-between gap-4 mb-8">
-                                    <div>
-                                        <p class="contact-mini-label">THE CONVERSATION BEGINS</p>
-                                        <h3 class="text-2xl sm:text-3xl text-white font-serif mt-2">Send a Message</h3>
-                                        <p class="text-slate-400 text-sm mt-2">Tell me a little about what you have in mind.</p>
-                                    </div>
-
-                                    <div class="contact-form-decoration hidden sm:flex">
-                                        <i class="fa-regular fa-paper-plane"></i>
-                                    </div>
-                                </div>
-
-                                <form id="contactForm" class="space-y-5">
-                                    <div class="grid sm:grid-cols-2 gap-5">
-                                        <div class="contact-field">
-                                            <label for="senderName">YOUR NAME</label>
-                                            <div class="contact-input-wrap">
-                                                <i class="fa-regular fa-user"></i>
-                                                <input type="text" id="senderName" name="senderName"
-                                                       placeholder="How should I call you?"
-                                                       autocomplete="name" maxlength="100" required>
-                                            </div>
-                                        </div>
-
-                                        <div class="contact-field">
-                                            <label for="senderEmail">EMAIL ADDRESS</label>
-                                            <div class="contact-input-wrap">
-                                                <i class="fa-regular fa-envelope"></i>
-                                                <input type="email" id="senderEmail" name="senderEmail"
-                                                       placeholder="you@example.com"
-                                                       autocomplete="email" maxlength="254" required>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="contact-field">
-                                        <label for="msgSubject">SUBJECT</label>
-                                        <div class="contact-input-wrap">
-                                            <i class="fa-solid fa-layer-group"></i>
-                                            <input type="text" id="msgSubject" name="msgSubject"
-                                                   placeholder="Project, collaboration, or opportunity"
-                                                   maxlength="150" required>
-                                        </div>
-                                    </div>
-
-                                    <div class="contact-field">
-                                        <div class="flex items-center justify-between gap-3">
-                                            <label for="msgBody">YOUR MESSAGE</label>
-                                            <span class="contact-character-count"><span id="messageCount">0</span>/2000</span>
-                                        </div>
-
-                                        <div class="contact-textarea-wrap">
-                                            <i class="fa-regular fa-message"></i>
-                                            <textarea id="msgBody" name="msgBody" rows="5"
-                                                      maxlength="2000"
-                                                      placeholder="I'd love to hear what you're thinking..."
-                                                      required></textarea>
-                                        </div>
-                                    </div>
-
-                                    <button type="submit" id="sendMessageBtn" class="contact-submit-btn">
-                                        <span class="contact-submit-content">
-                                            <i class="fa-regular fa-paper-plane"></i>
-                                            <span>Prepare My Message</span>
-                                        </span>
-                                        <i class="fa-solid fa-arrow-right contact-submit-arrow"></i>
-                                    </button>
-
-                                    <p class="contact-form-note">
-                                        <i class="fa-solid fa-lock"></i>
-                                        <span>Your email app will open with your message ready to send. You will need to press Send in that app.</span>
-                                    </p>
-
-                                    <p id="contactStatus" class="contact-status" role="status" aria-live="polite"></p>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="contact-bottom-note mt-10 pt-7">
-                        <span class="contact-bottom-star">✦</span>
-                        <p>Thoughtfully created. Personally connected.</p>
-                        <span class="contact-bottom-star">✦</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="relative z-10 border-t border-[#d7a0a2]/10 py-8 px-4 text-center">
-        <div class="flex items-center justify-center gap-2 text-[#d7a0a2] text-sm mb-3">
-            <span>✦</span>
-            <span class="font-serif italic">Nur Jannat Nowshin</span>
-            <span>✦</span>
+          <i class="fa-regular fa-star floating-star"></i>
         </div>
-        <p class="text-xs text-slate-500">
-            © <span id="currentYear"></span> Nur Jannat Nowshin. All rights reserved.
-        </p>
-        <a href="#home" class="inline-flex items-center gap-2 text-xs text-slate-400 hover:text-[#e8b9ba] mt-4 transition-colors">
-            Back to top <i class="fa-solid fa-arrow-up"></i>
-        </a>
-    </footer>
+      </div>
+    </section>
 
-    <script>
-        "use strict";
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">A little about me</span>
+          <h2>Purpose with <span>Passion</span></h2>
+          <p>A personal introduction shaped by curiosity, dedication, and a love of learning.</p>
+        </div>
 
-        // Current year
-        document.getElementById("currentYear").textContent = new Date().getFullYear();
+        <div class="about-grid">
+          <div class="about-art reveal">
+            <div class="about-circle">
+              <i class="fa-solid fa-book-open"></i>
+            </div>
+            <div class="about-tag">Growing with purpose ✧</div>
+          </div>
 
-        // Header styling on scroll
-        const siteHeader = document.getElementById("siteHeader");
+          <div class="about-copy reveal delay-1">
+            <h3>Every day is an opportunity to learn something meaningful.</h3>
+            <p>
+              I value education, effective communication, and a supportive
+              learning environment. My approach focuses on patience,
+              responsibility, and encouraging individuals to develop their
+              abilities with confidence.
+            </p>
+            <p>
+              Through my professional journey, I aim to continue learning,
+              contribute positively to my workplace, and make a meaningful
+              difference through dedication and teamwork.
+            </p>
 
-        function updateHeader() {
-            siteHeader.classList.toggle("scrolled", window.scrollY > 12);
-        }
+            <div class="about-facts">
+              <div class="fact">
+                <span>Professional Role</span>
+                <strong>Instructor</strong>
+              </div>
+              <div class="fact">
+                <span>Current Workplace</span>
+                <strong>NYDA</strong>
+              </div>
+              <div class="fact">
+                <span>Core Value</span>
+                <strong>Continuous Learning</strong>
+              </div>
+              <div class="fact">
+                <span>Work Approach</span>
+                <strong>Dedicated & Collaborative</strong>
+              </div>
+            </div>
 
-        updateHeader();
-        window.addEventListener("scroll", updateHeader, { passive: true });
+            <a href="#experience" class="btn btn-outline">
+              Explore Experience <i class="fa-solid fa-arrow-down"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        // Mobile navigation
-        const mobileMenuBtn = document.getElementById("mobileMenuBtn");
-        const mobileMenu = document.getElementById("mobileMenu");
-        const menuIcon = document.getElementById("menuIcon");
+    <!-- SKILLS -->
+    <section class="section skills-section" id="skills">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">What I bring</span>
+          <h2>Skills & <span>Strengths</span></h2>
+          <p>A combination of professional abilities and personal qualities that support effective work.</p>
+        </div>
 
-        function closeMobileMenu() {
-            mobileMenu.classList.add("hidden");
-            mobileMenuBtn.setAttribute("aria-expanded", "false");
-            mobileMenuBtn.setAttribute("aria-label", "Open navigation menu");
-            menuIcon.classList.remove("fa-xmark");
-            menuIcon.classList.add("fa-bars");
-        }
+        <div class="skills-grid">
+          <article class="skill-card reveal">
+            <div class="skill-icon"><i class="fa-solid fa-chalkboard-user"></i></div>
+            <h3>Teaching & Learning</h3>
+            <p>Supporting learners, communicating ideas clearly, and helping create a positive learning experience.</p>
+            <div class="skill-tags">
+              <span>Instruction</span>
+              <span>Guidance</span>
+              <span>Learning Support</span>
+            </div>
+          </article>
 
-        mobileMenuBtn.addEventListener("click", () => {
-            const isOpening = mobileMenu.classList.contains("hidden");
+          <article class="skill-card reveal delay-1">
+            <div class="skill-icon"><i class="fa-solid fa-comments"></i></div>
+            <h3>Communication</h3>
+            <p>Building respectful relationships through active listening, clear communication, and collaboration.</p>
+            <div class="skill-tags">
+              <span>Interpersonal Skills</span>
+              <span>Teamwork</span>
+              <span>Listening</span>
+            </div>
+          </article>
 
-            mobileMenu.classList.toggle("hidden");
-            mobileMenuBtn.setAttribute("aria-expanded", String(isOpening));
-            mobileMenuBtn.setAttribute(
-                "aria-label",
-                isOpening ? "Close navigation menu" : "Open navigation menu"
-            );
+          <article class="skill-card reveal delay-2">
+            <div class="skill-icon"><i class="fa-solid fa-list-check"></i></div>
+            <h3>Organization</h3>
+            <p>Approaching responsibilities with care, maintaining organization, and managing priorities effectively.</p>
+            <div class="skill-tags">
+              <span>Time Management</span>
+              <span>Planning</span>
+              <span>Responsibility</span>
+            </div>
+          </article>
 
-            menuIcon.classList.toggle("fa-bars", !isOpening);
-            menuIcon.classList.toggle("fa-xmark", isOpening);
+          <article class="skill-card reveal">
+            <div class="skill-icon"><i class="fa-solid fa-people-group"></i></div>
+            <h3>Team Collaboration</h3>
+            <p>Working cooperatively with others and contributing to shared goals in a professional environment.</p>
+            <div class="skill-tags">
+              <span>Teamwork</span>
+              <span>Cooperation</span>
+              <span>Adaptability</span>
+            </div>
+          </article>
+
+          <article class="skill-card reveal delay-1">
+            <div class="skill-icon"><i class="fa-solid fa-lightbulb"></i></div>
+            <h3>Problem Solving</h3>
+            <p>Responding thoughtfully to challenges and looking for practical, constructive solutions.</p>
+            <div class="skill-tags">
+              <span>Critical Thinking</span>
+              <span>Patience</span>
+              <span>Flexibility</span>
+            </div>
+          </article>
+
+          <article class="skill-card reveal delay-2">
+            <div class="skill-icon"><i class="fa-solid fa-heart"></i></div>
+            <h3>Personal Strengths</h3>
+            <p>Bringing empathy, professionalism, curiosity, and a willingness to improve to everyday work.</p>
+            <div class="skill-tags">
+              <span>Empathy</span>
+              <span>Integrity</span>
+              <span>Growth Mindset</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="section" id="experience">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Professional journey</span>
+          <h2>Experience & <span>Growth</span></h2>
+          <p>My current professional role and the responsibilities that shape my experience.</p>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-item reveal">
+            <span class="timeline-dot"></span>
+            <div class="timeline-card">
+              <div class="timeline-meta">
+                <span><i class="fa-solid fa-briefcase"></i> Professional Experience</span>
+                <span class="date">Present</span>
+              </div>
+              <h3>Instructor</h3>
+              <h4>National Youth Development Academy (NYDA)</h4>
+              <p>
+                Currently working as an Instructor, contributing to learning
+                and development in a professional educational environment.
+              </p>
+              <ul>
+                <li>Support instruction and learning activities.</li>
+                <li>Communicate with learners in a clear and respectful manner.</li>
+                <li>Contribute to an organized and supportive learning environment.</li>
+                <li>Continue developing professional and interpersonal skills.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="section skills-section" id="education">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Academic background</span>
+          <h2>Education & <span>Learning</span></h2>
+          <p>Academic learning and professional development supporting my journey.</p>
+        </div>
+
+        <div class="education-grid">
+          <article class="education-card reveal">
+            <div class="education-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+            <div>
+              <h3>Academic Qualification</h3>
+              <p>Add the exact degree or program name, institution, and subject from Nowshin's CV.</p>
+              <span class="edu-date">Add study period</span>
+            </div>
+          </article>
+
+          <article class="education-card reveal delay-1">
+            <div class="education-icon"><i class="fa-solid fa-book"></i></div>
+            <div>
+              <h3>Additional Education</h3>
+              <p>Add the relevant examination, qualification, or training details from her original CV.</p>
+              <span class="edu-date">Add year</span>
+            </div>
+          </article>
+
+          <article class="education-card reveal">
+            <div class="education-icon"><i class="fa-solid fa-certificate"></i></div>
+            <div>
+              <h3>Professional Training</h3>
+              <p>Include verified courses, workshops, or certificates that are relevant to her career.</p>
+              <span class="edu-date">Add course details</span>
+            </div>
+          </article>
+
+          <article class="education-card reveal delay-1">
+            <div class="education-icon"><i class="fa-solid fa-seedling"></i></div>
+            <div>
+              <h3>Continuous Development</h3>
+              <p>Committed to developing knowledge, improving professional skills, and learning continuously.</p>
+              <span class="edu-date">Ongoing</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section contact-section" id="contact">
+      <div class="container">
+        <div class="contact-card reveal">
+          <span class="eyebrow">Let's connect</span>
+          <h2>Every good connection<br>starts with a <span style="color:var(--rose);font-style:italic">hello.</span></h2>
+          <p>
+            Whether you would like to discuss a professional opportunity,
+            exchange ideas, or simply connect, I would be happy to hear from you.
+          </p>
+
+          <!-- Replace the email below with Nowshin's verified email address -->
+          <a class="btn btn-primary"
+             href="mailto:YOUR-EMAIL@example.com?subject=Professional%20Inquiry">
+            Get in Touch <i class="fa-regular fa-paper-plane"></i>
+          </a>
+
+          <div class="contact-details">
+            <span class="contact-detail">
+              <i class="fa-regular fa-envelope"></i>
+              YOUR-EMAIL@example.com
+            </span>
+            <span class="contact-detail">
+              <i class="fa-solid fa-location-dot"></i>
+              Bangladesh
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Nowshin. All rights reserved.</p>
+      <span class="footer-signature">Made with grace & purpose ✧</span>
+      <p>Designed with care.</p>
+    </div>
+  </footer>
+
+  <a class="back-top" href="#home" id="backTop" aria-label="Back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </a>
+
+  <script>
+    const navbar = document.getElementById("navbar");
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+    const scrollProgress = document.getElementById("scrollProgress");
+    const backTop = document.getElementById("backTop");
+    const menuIcon = menuToggle.querySelector("i");
+
+    // Current year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Mobile navigation
+    function closeMenu() {
+      navLinks.classList.remove("open");
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "Open navigation menu");
+      menuIcon.className = "fa-solid fa-bars";
+    }
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute(
+        "aria-label",
+        isOpen ? "Close navigation menu" : "Open navigation menu"
+      );
+      menuIcon.className = isOpen
+        ? "fa-solid fa-xmark"
+        : "fa-solid fa-bars";
+    });
+
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", closeMenu);
+    });
+
+    document.addEventListener("click", event => {
+      if (
+        !navLinks.contains(event.target) &&
+        !menuToggle.contains(event.target)
+      ) {
+        closeMenu();
+      }
+    });
+
+    // Scroll effects
+    function updateScrollUI() {
+      const scrollTop = window.scrollY;
+      const scrollable =
+        document.documentElement.scrollHeight - window.innerHeight;
+      const progress = scrollable > 0 ? (scrollTop / scrollable) * 100 : 0;
+
+      scrollProgress.style.width = progress + "%";
+      navbar.classList.toggle("scrolled", scrollTop > 25);
+      backTop.classList.toggle("visible", scrollTop > 500);
+    }
+
+    window.addEventListener("scroll", updateScrollUI, { passive: true });
+    updateScrollUI();
+
+    // Reveal animation
+    const revealElements = document.querySelectorAll(".reveal");
+
+    if ("IntersectionObserver" in window) {
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
         });
+      }, {
+        threshold: 0.12,
+        rootMargin: "0px 0px -35px 0px"
+      });
 
-        mobileMenu.querySelectorAll("a").forEach(link => {
-            link.addEventListener("click", closeMobileMenu);
-        });
+      revealElements.forEach(element => revealObserver.observe(element));
+    } else {
+      revealElements.forEach(element => element.classList.add("visible"));
+    }
 
-        document.addEventListener("keydown", event => {
-            if (event.key === "Escape") closeMobileMenu();
-        });
+    // Active navigation link
+    const sections = document.querySelectorAll("main section[id]");
+    const navItems = navLinks.querySelectorAll('a[href^="#"]');
 
-        // Scroll reveal animation
-        const revealElements = document.querySelectorAll(".reveal");
-        const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-        if ("IntersectionObserver" in window && !reduceMotion) {
-            const revealObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add("is-visible");
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, {
-                threshold: 0.12,
-                rootMargin: "0px 0px -35px 0px"
+    if ("IntersectionObserver" in window) {
+      const sectionObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            navItems.forEach(link => {
+              link.classList.toggle(
+                "active",
+                link.getAttribute("href") === "#" + entry.target.id
+              );
             });
-
-            revealElements.forEach(element => revealObserver.observe(element));
-        } else {
-            revealElements.forEach(element => element.classList.add("is-visible"));
-        }
-
-        // Live message character counter
-        const messageInput = document.getElementById("msgBody");
-        const messageCount = document.getElementById("messageCount");
-
-        messageInput.addEventListener("input", () => {
-            messageCount.textContent = messageInput.value.length;
+          }
         });
+      }, {
+        rootMargin: "-30% 0px -55% 0px"
+      });
 
-        // Contact form: opens the visitor's email application.
-        // It does not send an email silently.
-        const contactForm = document.getElementById("contactForm");
-        const contactStatus = document.getElementById("contactStatus");
-
-        contactForm.addEventListener("submit", event => {
-            event.preventDefault();
-
-            if (!contactForm.reportValidity()) return;
-
-            const senderName = document.getElementById("senderName").value.trim();
-            const senderEmail = document.getElementById("senderEmail").value.trim();
-            const subject = document.getElementById("msgSubject").value.trim();
-            const message = messageInput.value.trim();
-
-            if (!senderName || !senderEmail || !subject || !message) {
-                contactStatus.textContent = "Please complete all fields before continuing.";
-                return;
-            }
-
-            const recipient = "nurjannatnowshin810@gmail.com";
-            const emailSubject = `[Portfolio Inquiry] ${subject}`;
-            const emailBody =
-                `Name: ${senderName}\n` +
-                `Email: ${senderEmail}\n\n` +
-                `Message:\n${message}`;
-
-            const mailtoURL =
-                "mailto:" + recipient +
-                "?subject=" + encodeURIComponent(emailSubject) +
-                "&body=" + encodeURIComponent(emailBody);
-
-            contactStatus.textContent =
-                "Opening your email app. Please review your message and press Send there.";
-
-            window.location.href = mailtoURL;
-        });
-
-        // Decorative particles. Pauses when the tab is hidden.
-        const canvas = document.getElementById("particleCanvas");
-        const ctx = canvas.getContext("2d");
-
-        let particles = [];
-        let animationFrame = null;
-        let canvasWidth = 0;
-        let canvasHeight = 0;
-
-        function resizeCanvas() {
-            const dpr = Math.min(window.devicePixelRatio || 1, 2);
-
-            canvasWidth = window.innerWidth;
-            canvasHeight = window.innerHeight;
-            canvas.width = canvasWidth * dpr;
-            canvas.height = canvasHeight * dpr;
-            canvas.style.width = canvasWidth + "px";
-            canvas.style.height = canvasHeight + "px";
-
-            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-
-            const count = Math.min(35, Math.max(12, Math.floor(canvasWidth / 30)));
-
-            particles = Array.from({ length: count }, () => ({
-                x: Math.random() * canvasWidth,
-                y: Math.random() * canvasHeight,
-                size: Math.random() * 1.5 + 0.4,
-                speedX: (Math.random() - 0.5) * 0.3,
-                speedY: (Math.random() - 0.5) * 0.3,
-                opacity: Math.random() * 0.4 + 0.1
-            }));
-        }
-
-        function animateParticles() {
-            if (document.hidden || reduceMotion) {
-                animationFrame = null;
-                return;
-            }
-
-            ctx.clearRect(0, 0, canvasWidth, canvasHeight);
-
-            for (const particle of particles) {
-                particle.x += particle.speedX;
-                particle.y += particle.speedY;
-
-                if (particle.x > canvasWidth) particle.x = 0;
-                if (particle.x < 0) particle.x = canvasWidth;
-                if (particle.y > canvasHeight) particle.y = 0;
-                if (particle.y < 0) particle.y = canvasHeight;
-
-                ctx.beginPath();
-                ctx.fillStyle = `rgba(215,160,162,${particle.opacity})`;
-                ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
-                ctx.fill();
-            }
-
-            animationFrame = requestAnimationFrame(animateParticles);
-        }
-
-        function startParticles() {
-            if (reduceMotion || document.hidden || animationFrame !== null) return;
-            animationFrame = requestAnimationFrame(animateParticles);
-        }
-
-        function stopParticles() {
-            if (animationFrame !== null) {
-                cancelAnimationFrame(animationFrame);
-                animationFrame = null;
-            }
-        }
-
-        resizeCanvas();
-        startParticles();
-
-        window.addEventListener("resize", () => {
-            resizeCanvas();
-            if (!document.hidden) {
-                stopParticles();
-                startParticles();
-            }
-        });
-
-        document.addEventListener("visibilitychange", () => {
-            if (document.hidden) {
-                stopParticles();
-            } else {
-                startParticles();
-            }
-        });
-    </script>
-
+      sections.forEach(section => sectionObserver.observe(section));
+    }
+  </script>
 </body>
 </html>
