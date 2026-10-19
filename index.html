@@ -1,0 +1,1857 @@
+
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#110d13">
+    <meta name="description" content="Explore Nur Jannat Nowshin's professional portfolio, skills, experience, education and contact information.">
+    <meta name="color-scheme" content="dark">
+    <title>Nur Jannat Nowshin | Portfolio & CV</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        obsidian: "#110d13",
+                        slateCard: "#1c1620",
+                        champagne: {
+                            100: "#fff7f0",
+                            300: "#e8b9ba",
+                            400: "#d7a0a2",
+                            500: "#c58b91",
+                            600: "#986078"
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', "sans-serif"],
+                        serif: ['"Playfair Display"', "serif"]
+                    }
+                }
+            }
+        };
+    </script>
+
+    <style>
+        :root {
+            --bg: #110d13;
+            --panel: #1c1620;
+            --rose: #d7a0a2;
+            --rose-light: #f0c8c8;
+            --ivory: #fff5ed;
+            --muted: #b9aab5;
+            --line: rgba(215,160,162,.19);
+            --gold: #e5c7a0;
+        }
+
+        * { box-sizing: border-box; }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+        }
+
+        body {
+            margin: 0;
+            color: #e9e1e8;
+            background:
+                radial-gradient(ellipse at 8% 5%, rgba(183,124,131,.12), transparent 35%),
+                radial-gradient(ellipse at 92% 35%, rgba(152,96,120,.09), transparent 35%),
+                radial-gradient(ellipse at 50% 100%, rgba(215,160,162,.055), transparent 40%),
+                var(--bg);
+            overflow-x: hidden;
+        }
+
+        ::selection { background: var(--rose); color: #171019; }
+
+        ::-webkit-scrollbar { width: 7px; }
+        ::-webkit-scrollbar-track { background: var(--bg); }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(var(--rose-light), #986078);
+            border-radius: 20px;
+        }
+
+        a, button, input, textarea { -webkit-tap-highlight-color: transparent; }
+
+        a:focus-visible, button:focus-visible,
+        input:focus-visible, textarea:focus-visible {
+            outline: 2px solid var(--rose-light);
+            outline-offset: 4px;
+        }
+
+        #particleCanvas {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            opacity: .35;
+        }
+
+        .site-header {
+            background: rgba(17,13,19,.78);
+            border-bottom: 1px solid rgba(215,160,162,.13);
+            backdrop-filter: blur(22px);
+            -webkit-backdrop-filter: blur(22px);
+            transition: box-shadow .35s, background .35s;
+        }
+
+        .site-header.scrolled {
+            background: rgba(17,13,19,.94);
+            box-shadow: 0 10px 40px rgba(0,0,0,.18);
+        }
+
+        .glass-card {
+            position: relative;
+            background: linear-gradient(145deg, rgba(34,25,36,.83), rgba(25,19,29,.78));
+            border: 1px solid var(--line);
+            backdrop-filter: blur(17px);
+            -webkit-backdrop-filter: blur(17px);
+            transition: border-color .35s, box-shadow .35s, transform .35s, background .35s;
+        }
+
+        .glass-card:hover {
+            border-color: rgba(215,160,162,.42);
+            box-shadow: 0 20px 50px rgba(0,0,0,.2), 0 0 25px rgba(215,160,162,.035);
+        }
+
+        .gold-gradient-text {
+            background: linear-gradient(110deg, #fff7f0 5%, #f0c8c8 36%, #d7a0a2 62%, #e5c7a0 82%, #fff5ed);
+            background-size: 220% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textShimmer 8s linear infinite;
+        }
+
+        .section-label {
+            color: var(--rose);
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+        }
+
+        .section-heading {
+            color: var(--ivory);
+            font-family: "Playfair Display", serif;
+            letter-spacing: -.035em;
+        }
+
+        .section-ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 20px;
+            color: var(--rose);
+            font-size: 11px;
+        }
+
+        .section-ornament::before,
+        .section-ornament::after {
+            content: "";
+            width: 42px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #b77c83);
+        }
+
+        .section-ornament::after {
+            transform: rotate(180deg);
+        }
+
+        .nav-link {
+            position: relative;
+            color: #c9bec9;
+            transition: color .25s;
+        }
+
+        .nav-link::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            width: 0;
+            height: 1px;
+            background: linear-gradient(90deg, var(--rose), var(--gold));
+            transition: width .3s;
+        }
+
+        .nav-link:hover { color: var(--rose-light); }
+        .nav-link:hover::after { width: 100%; }
+
+        .premium-button {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 13px 23px;
+            overflow: hidden;
+            border: 1px solid rgba(255,245,237,.3);
+            border-radius: 12px;
+            background: linear-gradient(115deg, #e8b9ba, #fff0e5 48%, #d7a0a2);
+            background-size: 200% auto;
+            color: #241720;
+            font-size: 12px;
+            font-weight: 800;
+            transition: transform .3s, box-shadow .3s, background-position .5s;
+        }
+
+        .premium-button:hover {
+            transform: translateY(-3px);
+            background-position: right center;
+            box-shadow: 0 12px 32px rgba(183,124,131,.25);
+        }
+
+        .premium-button::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -120%;
+            width: 65%;
+            height: 100%;
+            transform: skewX(-22deg);
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,.4), transparent);
+            transition: left .7s;
+        }
+
+        .premium-button:hover::after { left: 150%; }
+
+        .eyebrow-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 15px;
+            border: 1px solid rgba(215,160,162,.23);
+            border-radius: 100px;
+            background: rgba(215,160,162,.055);
+            color: #f0c8c8;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: .025em;
+            box-shadow: inset 0 0 20px rgba(215,160,162,.025);
+        }
+
+        .status-dot {
+            width: 7px;
+            height: 7px;
+            flex-shrink: 0;
+            border-radius: 50%;
+            background: #e8b9ba;
+            box-shadow: 0 0 12px rgba(215,160,162,.8);
+            animation: pulseRose 2.5s ease-in-out infinite;
+        }
+
+        /* PREMIUM PROFILE PORTRAIT */
+
+        .portrait-stage {
+            position: relative;
+            isolation: isolate;
+            width: min(100%, 400px);
+            aspect-ratio: 4 / 5;
+            margin-inline: auto;
+            perspective: 1000px;
+        }
+
+        .portrait-aura {
+            position: absolute;
+            inset: 8% -8%;
+            z-index: -2;
+            border-radius: 48%;
+            background: radial-gradient(ellipse, rgba(215,160,162,.26), rgba(152,96,120,.12) 42%, transparent 72%);
+            filter: blur(32px);
+            animation: auraBreathe 6s ease-in-out infinite;
+        }
+
+        .portrait-orbit {
+            position: absolute;
+            inset: -13px;
+            border: 1px solid rgba(215,160,162,.22);
+            border-radius: 185px 185px 34px 34px;
+            transform: rotate(4deg);
+            transition: transform .7s cubic-bezier(.2,.8,.2,1);
+        }
+
+        .portrait-orbit::before,
+        .portrait-orbit::after {
+            content: "✦";
+            position: absolute;
+            color: var(--gold);
+            font-size: 13px;
+            text-shadow: 0 0 18px rgba(229,199,160,.5);
+        }
+
+        .portrait-orbit::before { top: 16%; right: -6px; }
+        .portrait-orbit::after { bottom: 18%; left: -7px; font-size: 10px; }
+
+        .portrait-stage:hover .portrait-orbit {
+            transform: rotate(0deg) scale(1.015);
+        }
+
+        .portrait-frame {
+            position: absolute;
+            inset: 0;
+            padding: 7px;
+            overflow: hidden;
+            border: 1px solid rgba(229,199,160,.65);
+            border-radius: 180px 180px 28px 28px;
+            background: linear-gradient(145deg, #f0c8c8 0%, #986078 22%, #e5c7a0 48%, #5b394d 75%, #d7a0a2 100%);
+            box-shadow:
+                0 28px 80px rgba(0,0,0,.38),
+                0 0 35px rgba(215,160,162,.12),
+                inset 0 0 0 1px rgba(255,255,255,.14);
+            transform: translateZ(0);
+            transition: box-shadow .5s, transform .5s;
+        }
+
+        .portrait-stage:hover .portrait-frame {
+            box-shadow:
+                0 35px 90px rgba(0,0,0,.45),
+                0 0 48px rgba(215,160,162,.22),
+                inset 0 0 0 1px rgba(255,255,255,.2);
+            transform: translateY(-4px);
+        }
+
+        .portrait-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            border: 1px solid rgba(255,245,237,.4);
+            border-radius: 174px 174px 22px 22px;
+            background: #241923;
+        }
+
+        .portrait-inner::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            pointer-events: none;
+            background:
+                linear-gradient(180deg, rgba(17,13,19,.02) 45%, rgba(17,13,19,.1) 65%, rgba(17,13,19,.76) 100%),
+                linear-gradient(115deg, rgba(255,240,229,.11), transparent 34%, transparent 72%, rgba(215,160,162,.12));
+        }
+
+        .portrait-image {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 25%;
+            transform: scale(1.015);
+            filter: saturate(.94) contrast(1.025);
+            transition: transform 1.1s cubic-bezier(.2,.8,.2,1), filter .6s;
+        }
+
+        .portrait-stage:hover .portrait-image {
+            transform: scale(1.065);
+            filter: saturate(1.04) contrast(1.04);
+        }
+
+        .portrait-shine {
+            position: absolute;
+            inset: -40% auto -40% -100%;
+            z-index: 2;
+            width: 55%;
+            pointer-events: none;
+            transform: skewX(-20deg);
+            background: linear-gradient(90deg, transparent, rgba(255,245,237,.17), transparent);
+            animation: portraitShine 8s ease-in-out infinite;
+        }
+
+        .portrait-caption {
+            position: absolute;
+            z-index: 3;
+            right: 17px;
+            bottom: 17px;
+            left: 17px;
+            padding: 15px;
+            border: 1px solid rgba(240,200,200,.3);
+            border-radius: 14px;
+            background: rgba(17,13,19,.79);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            box-shadow: 0 10px 30px rgba(0,0,0,.15);
+        }
+
+        .portrait-caption-label {
+            color: #d7a0a2;
+            font-size: 9px;
+            font-weight: 800;
+            letter-spacing: .17em;
+            text-transform: uppercase;
+        }
+
+        .portrait-badge {
+            position: absolute;
+            z-index: 4;
+            top: 15%;
+            left: -32px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 11px 14px;
+            border: 1px solid rgba(215,160,162,.3);
+            border-radius: 15px;
+            background: rgba(28,22,32,.92);
+            box-shadow: 0 12px 35px rgba(0,0,0,.24);
+            backdrop-filter: blur(15px);
+            animation: float 5s ease-in-out infinite;
+        }
+
+        .portrait-badge-icon {
+            display: grid;
+            place-items: center;
+            width: 33px;
+            height: 33px;
+            border: 1px solid rgba(215,160,162,.28);
+            border-radius: 10px;
+            background: rgba(215,160,162,.1);
+            color: #f0c8c8;
+        }
+
+        .portrait-badge-title {
+            color: var(--ivory);
+            font-size: 10px;
+            font-weight: 800;
+        }
+
+        .portrait-badge-sub {
+            margin-top: 3px;
+            color: #b9aab5;
+            font-size: 9px;
+        }
+
+        .portrait-bottom-badge {
+            position: absolute;
+            z-index: 4;
+            right: -17px;
+            bottom: 23%;
+            display: grid;
+            place-items: center;
+            width: 49px;
+            height: 49px;
+            border: 1px solid rgba(229,199,160,.7);
+            border-radius: 50%;
+            background: linear-gradient(145deg, #fff0e5, #d7a0a2);
+            color: #35202b;
+            font-size: 18px;
+            box-shadow: 0 0 30px rgba(215,160,162,.23);
+            animation: float 4.5s ease-in-out infinite reverse;
+        }
+
+        .hero-copy {
+            animation: heroEnter .9s both;
+        }
+
+        .hero-portrait {
+            animation: heroEnter .9s .15s both;
+        }
+
+        .rose-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            flex-shrink: 0;
+            border: 1px solid rgba(215,160,162,.27);
+            border-radius: 15px;
+            background: linear-gradient(145deg, rgba(215,160,162,.14), rgba(215,160,162,.025));
+            color: var(--rose-light);
+            font-size: 17px;
+            transition: transform .35s, box-shadow .35s, background .35s;
+        }
+
+        .glass-card:hover .rose-icon {
+            transform: translateY(-3px) rotate(-4deg);
+            background: rgba(215,160,162,.15);
+            box-shadow: 0 8px 22px rgba(215,160,162,.08);
+        }
+
+        .skill-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 9px;
+        }
+
+        .skill-list i {
+            margin-top: 4px;
+            color: var(--rose);
+            font-size: 10px;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(26px);
+            transition: opacity .75s ease, transform .75s cubic-bezier(.2,.7,.2,1);
+        }
+
+        .reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 { transition-delay: .08s; }
+        .reveal-delay-2 { transition-delay: .16s; }
+        .reveal-delay-3 { transition-delay: .24s; }
+
+        .timeline-line {
+            background: linear-gradient(180deg, #e8b9ba, rgba(152,96,120,.15));
+        }
+
+        .timeline-dot {
+            box-shadow: 0 0 0 5px rgba(215,160,162,.07), 0 0 20px rgba(215,160,162,.18);
+        }
+
+        .education-card {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .education-card::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 95px;
+            height: 95px;
+            pointer-events: none;
+            background: radial-gradient(circle at top right, rgba(215,160,162,.09), transparent 72%);
+        }
+
+        /* PREMIUM CONTACT SECTION */
+
+        #contact {
+            position: relative;
+            isolation: isolate;
+            scroll-margin-top: 100px;
+        }
+
+        .contact-orb {
+            position: absolute;
+            z-index: -1;
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            filter: blur(85px);
+            opacity: .14;
+            pointer-events: none;
+        }
+
+        .contact-orb-one {
+            top: 5%;
+            left: -70px;
+            background: #d7a0a2;
+        }
+
+        .contact-orb-two {
+            right: -70px;
+            bottom: 5%;
+            background: #986078;
+        }
+
+        .contact-shell {
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(215,160,162,.25);
+            border-radius: 30px;
+            background:
+                radial-gradient(ellipse at 8% 0%, rgba(183,124,131,.15), transparent 38%),
+                radial-gradient(ellipse at 100% 100%, rgba(215,160,162,.09), transparent 38%),
+                linear-gradient(145deg, #19121b 0%, #110d13 48%, #1a121b 100%);
+            box-shadow: 0 35px 100px rgba(0,0,0,.3);
+        }
+
+        .contact-top-line {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #a86f78 20%, #f0c8c8 50%, #a86f78 80%, transparent);
+            background-size: 200% 100%;
+            animation: shimmerLine 7s linear infinite;
+        }
+
+        .contact-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            color: #e7b5b6;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: .18em;
+        }
+
+        .eyebrow-line {
+            display: inline-block;
+            width: 22px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #d7a0a2);
+        }
+
+        .contact-heading {
+            color: var(--ivory);
+            font-family: "Playfair Display", serif;
+            font-weight: 600;
+            letter-spacing: -.035em;
+        }
+
+        .contact-heading-accent {
+            display: block;
+            margin-top: 5px;
+            font-style: italic;
+            background: linear-gradient(120deg, #fff5ed, #e8b9ba 52%, #b77c83);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .contact-heading-ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            color: var(--rose);
+            font-size: 11px;
+        }
+
+        .contact-heading-ornament span {
+            width: 45px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #b77c83);
+        }
+
+        .contact-intro-card {
+            position: relative;
+            overflow: hidden;
+            padding: 25px;
+            border: 1px solid rgba(215,160,162,.23);
+            border-radius: 23px;
+            background:
+                radial-gradient(circle at 100% 0%, rgba(215,160,162,.12), transparent 45%),
+                linear-gradient(145deg, rgba(215,160,162,.075), rgba(255,245,237,.018));
+        }
+
+        .contact-intro-card::after {
+            content: "✦";
+            position: absolute;
+            top: 16px;
+            right: 20px;
+            color: rgba(215,160,162,.25);
+            font-size: 30px;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .contact-avatar-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 58px;
+            height: 58px;
+            color: #f0c8c8;
+            font-size: 23px;
+            border: 1px solid rgba(215,160,162,.38);
+            border-radius: 18px;
+            background: linear-gradient(145deg, rgba(215,160,162,.19), rgba(215,160,162,.035));
+        }
+
+        .contact-mini-label, .contact-detail-label {
+            color: #d7a0a2;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: .13em;
+        }
+
+        .contact-availability {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            padding: 10px 13px;
+            color: #ead1d0;
+            font-size: 11px;
+            border: 1px solid rgba(215,160,162,.2);
+            border-radius: 100px;
+            background: rgba(215,160,162,.055);
+        }
+
+        .availability-dot {
+            width: 7px;
+            height: 7px;
+            flex-shrink: 0;
+            border-radius: 50%;
+            background: #d7a0a2;
+            animation: pulseRose 2s ease-in-out infinite;
+        }
+
+        .contact-detail-card {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            min-width: 0;
+            padding: 16px;
+            border: 1px solid rgba(215,160,162,.15);
+            border-radius: 17px;
+            background: rgba(255,245,237,.025);
+            transition: border-color .3s, background .3s, transform .3s, box-shadow .3s;
+        }
+
+        a.contact-detail-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(215,160,162,.45);
+            background: rgba(215,160,162,.065);
+            box-shadow: 0 12px 28px rgba(0,0,0,.15);
+        }
+
+        .contact-detail-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            flex-shrink: 0;
+            color: #e7b5b6;
+            border: 1px solid rgba(215,160,162,.23);
+            border-radius: 13px;
+            background: rgba(215,160,162,.085);
+            transition: transform .3s, background .3s;
+        }
+
+        .contact-detail-card:hover .contact-detail-icon {
+            transform: scale(1.06);
+            background: rgba(215,160,162,.15);
+        }
+
+        .contact-detail-value {
+            margin-top: 4px;
+            color: #fff5ed;
+            font-size: 12px;
+            font-weight: 600;
+            line-height: 1.7;
+            overflow-wrap: anywhere;
+        }
+
+        .contact-arrow {
+            margin-left: auto;
+            flex-shrink: 0;
+            color: #b77c83;
+            font-size: 12px;
+            transition: transform .3s, color .3s;
+        }
+
+        a.contact-detail-card:hover .contact-arrow {
+            color: #f0c8c8;
+            transform: translate(2px,-2px);
+        }
+
+        .contact-social-panel {
+            padding: 18px;
+            border-top: 1px solid var(--line);
+        }
+
+        .contact-social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 10px 12px;
+            color: #e7d8d5;
+            font-size: 11px;
+            font-weight: 600;
+            border: 1px solid rgba(215,160,162,.2);
+            border-radius: 11px;
+            background: rgba(215,160,162,.045);
+            transition: all .3s;
+        }
+
+        .contact-social-link i {
+            color: #d7a0a2;
+            font-size: 14px;
+        }
+
+        .contact-social-link:hover {
+            color: #fff5ed;
+            border-color: #b77c83;
+            background: rgba(215,160,162,.12);
+            transform: translateY(-3px);
+        }
+
+        .contact-form-card {
+            height: 100%;
+            padding: 25px;
+            border: 1px solid rgba(215,160,162,.22);
+            border-radius: 23px;
+            background: linear-gradient(145deg, rgba(255,245,237,.045), rgba(255,245,237,.015));
+        }
+
+        .contact-form-decoration {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            flex-shrink: 0;
+            color: #e7b5b6;
+            font-size: 20px;
+            border: 1px solid rgba(215,160,162,.23);
+            border-radius: 15px;
+            background: rgba(215,160,162,.07);
+            transform: rotate(-7deg);
+        }
+
+        .contact-field label {
+            display: block;
+            margin-bottom: 9px;
+            color: #e2c6c5;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: .11em;
+        }
+
+        .contact-input-wrap, .contact-textarea-wrap { position: relative; }
+
+        .contact-input-wrap > i, .contact-textarea-wrap > i {
+            position: absolute;
+            top: 17px;
+            left: 15px;
+            color: #b77c83;
+            font-size: 13px;
+            pointer-events: none;
+            transition: color .25s;
+        }
+
+        .contact-input-wrap input, .contact-textarea-wrap textarea {
+            width: 100%;
+            color: #fff5ed;
+            font-family: "Plus Jakarta Sans", sans-serif;
+            font-size: 12px;
+            line-height: 1.7;
+            border: 1px solid rgba(215,160,162,.17);
+            border-radius: 12px;
+            background: rgba(12,10,15,.45);
+            outline: none;
+            transition: border-color .25s, background .25s, box-shadow .25s;
+        }
+
+        .contact-input-wrap input {
+            min-height: 49px;
+            padding: 13px 13px 13px 42px;
+        }
+
+        .contact-textarea-wrap textarea {
+            min-height: 140px;
+            padding: 14px 14px 14px 42px;
+            resize: vertical;
+        }
+
+        .contact-input-wrap input::placeholder,
+        .contact-textarea-wrap textarea::placeholder {
+            color: #897e89;
+            opacity: 1;
+        }
+
+        .contact-input-wrap:focus-within input,
+        .contact-textarea-wrap:focus-within textarea {
+            border-color: rgba(215,160,162,.8);
+            background: rgba(12,10,15,.72);
+            box-shadow: 0 0 0 3px rgba(215,160,162,.075);
+        }
+
+        .contact-input-wrap:focus-within > i,
+        .contact-textarea-wrap:focus-within > i { color: #f0c8c8; }
+
+        .contact-character-count {
+            color: #9f8d98;
+            font-size: 10px;
+        }
+
+        .contact-submit-btn {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            width: 100%;
+            min-height: 54px;
+            padding: 15px 19px;
+            overflow: hidden;
+            color: #241720;
+            font-size: 12px;
+            font-weight: 800;
+            border: 1px solid rgba(255,245,237,.25);
+            border-radius: 13px;
+            background: linear-gradient(110deg, #e8b9ba, #f4d9d0 52%, #c88f98);
+            box-shadow: 0 9px 26px rgba(183,124,131,.13);
+            transition: transform .3s, box-shadow .3s, filter .3s;
+            cursor: pointer;
+        }
+
+        .contact-submit-btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 60%;
+            height: 100%;
+            transform: skewX(-22deg);
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,.4), transparent);
+            transition: left .7s;
+        }
+
+        .contact-submit-btn:hover::before { left: 150%; }
+
+        .contact-submit-btn:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.04);
+            box-shadow: 0 13px 32px rgba(183,124,131,.23);
+        }
+
+        .contact-submit-content, .contact-submit-arrow {
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-submit-content {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-submit-arrow { transition: transform .3s; }
+        .contact-submit-btn:hover .contact-submit-arrow { transform: translateX(4px); }
+
+        .contact-form-note {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            color: #a99aa5;
+            font-size: 10px;
+            line-height: 1.7;
+        }
+
+        .contact-form-note i {
+            margin-top: 2px;
+            color: #d7a0a2;
+        }
+
+        .contact-status {
+            color: #f0c8c8;
+            font-size: 12px;
+            line-height: 1.7;
+        }
+
+        .contact-status:empty { display: none; }
+
+        .contact-bottom-note {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 13px;
+            border-top: 1px solid var(--line);
+            color: #b9a7b2;
+            font-family: "Playfair Display", serif;
+            font-size: 13px;
+            font-style: italic;
+            text-align: center;
+        }
+
+        .contact-bottom-star { color: #d7a0a2; }
+
+        /* ANIMATIONS */
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-9px); }
+        }
+
+        @keyframes auraBreathe {
+            0%, 100% { transform: scale(.95); opacity: .75; }
+            50% { transform: scale(1.08); opacity: 1; }
+        }
+
+        @keyframes portraitShine {
+            0%, 62% { left: -100%; }
+            85%, 100% { left: 150%; }
+        }
+
+        @keyframes textShimmer {
+            0% { background-position: 100% center; }
+            100% { background-position: -120% center; }
+        }
+
+        @keyframes pulseRose {
+            0%, 100% { opacity: 1; box-shadow: 0 0 12px rgba(215,160,162,.65); }
+            50% { opacity: .6; box-shadow: 0 0 4px rgba(215,160,162,.25); }
+        }
+
+        @keyframes shimmerLine {
+            0% { background-position: 100% 0; }
+            100% { background-position: -100% 0; }
+        }
+
+        @keyframes heroEnter {
+            from { opacity: 0; transform: translateY(22px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (min-width: 1024px) {
+            .contact-intro-card { padding: 30px; }
+            .contact-form-card { padding: 32px; }
+        }
+
+        @media (max-width: 767px) {
+            .portrait-stage { width: min(78%, 320px); }
+            .portrait-badge { left: -20px; padding: 9px 10px; }
+            .portrait-bottom-badge { right: -15px; width: 43px; height: 43px; }
+        }
+
+        @media (max-width: 639px) {
+            .contact-shell { border-radius: 24px; }
+            .contact-form-card { padding: 20px 16px; }
+            .contact-intro-card { padding: 22px; }
+            .contact-heading { font-size: 2.35rem; }
+            .contact-social-panel { padding: 16px 0 0; }
+            .contact-social-link { flex: 1 1 auto; }
+            .contact-bottom-note { font-size: 11px; }
+            .portrait-stage { width: min(78%, 285px); }
+            .portrait-orbit { inset: -9px; }
+            .portrait-caption { right: 12px; bottom: 12px; left: 12px; padding: 12px; }
+            .portrait-badge { top: 14%; left: -25px; }
+            .portrait-badge-title { font-size: 9px; }
+            .portrait-badge-sub { font-size: 8px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                scroll-behavior: auto !important;
+                animation-duration: .01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: .01ms !important;
+            }
+
+            .reveal { opacity: 1; transform: none; }
+        }
+    </style>
+</head>
+
+<body class="bg-obsidian text-slate-200 font-sans antialiased overflow-x-hidden">
+
+    <canvas id="particleCanvas" aria-hidden="true"></canvas>
+
+    <!-- NAVIGATION -->
+    <header id="siteHeader" class="site-header sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-[76px] flex items-center justify-between">
+
+            <a href="#home" class="flex items-center gap-3 group" aria-label="Nowshin homepage">
+                <div class="w-10 h-10 rounded-xl flex items-center justify-center font-bold text-[#241720] text-sm shadow-lg"
+                     style="background:linear-gradient(135deg,#fff0e5,#d7a0a2,#986078)">
+                    NJN
+                </div>
+                <div>
+                    <span class="block font-bold tracking-wider text-white group-hover:text-[#e8b9ba] transition-colors">NOWSHIN</span>
+                    <span class="block text-[9px] text-slate-400 tracking-[.2em] uppercase">Portfolio & CV</span>
+                </div>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-7 text-xs font-semibold" aria-label="Main navigation">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#education" class="nav-link">Education</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+
+            <div class="flex items-center gap-3">
+                <a href="#contact" class="hidden sm:inline-flex premium-button !py-2.5 !px-4 !text-xs">
+                    <i class="fa-regular fa-paper-plane"></i>
+                    Let's Connect
+                </a>
+
+                <button id="mobileMenuBtn" type="button"
+                        aria-label="Open navigation menu"
+                        aria-expanded="false"
+                        aria-controls="mobileMenu"
+                        class="md:hidden p-2 text-xl text-[#e8b9ba]">
+                    <i id="menuIcon" class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <nav id="mobileMenu" aria-label="Mobile navigation"
+             class="hidden md:hidden px-5 pb-5 pt-2 space-y-1 bg-[#17121a]/98 border-t border-[#d7a0a2]/10">
+            <a href="#about" class="block py-3 text-sm text-slate-200">About</a>
+            <a href="#skills" class="block py-3 text-sm text-slate-200">Skills</a>
+            <a href="#experience" class="block py-3 text-sm text-slate-200">Experience</a>
+            <a href="#education" class="block py-3 text-sm text-slate-200">Education</a>
+            <a href="#contact" class="block py-3 text-sm text-slate-200">Contact</a>
+        </nav>
+    </header>
+
+    <main class="relative z-10 space-y-24 sm:space-y-28 pb-20">
+
+        <!-- HERO -->
+        <section id="home" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 md:pt-20">
+            <div class="grid lg:grid-cols-12 gap-12 lg:gap-10 items-center">
+
+                <div class="hero-copy lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="eyebrow-pill">
+                        <span class="status-dot"></span>
+                        Instructor @ National Youth Development Academy
+                    </div>
+
+                    <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                        Hi, I'm
+                        <span class="gold-gradient-text font-serif block mt-2">Nur Jannat Nowshin</span>
+                    </h1>
+
+                    <p class="text-slate-300 text-sm sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                        English Literature Undergraduate, Creative Graphic Designer, SEO & Digital Marketer, and Professional Instructor. Dedicated to driving growth through creative branding, digital strategies, and practical training.
+                    </p>
+
+                    <div class="flex flex-wrap gap-2 justify-center lg:justify-start pt-1">
+                        <span class="px-3 py-2 rounded-lg text-[11px] bg-[#d7a0a2]/5 text-[#e8b9ba] border border-[#d7a0a2]/15"><i class="fa-solid fa-graduation-cap mr-1"></i> English Scholar</span>
+                        <span class="px-3 py-2 rounded-lg text-[11px] bg-[#d7a0a2]/5 text-[#e8b9ba] border border-[#d7a0a2]/15"><i class="fa-solid fa-pen-nib mr-1"></i> Graphic Designer</span>
+                        <span class="px-3 py-2 rounded-lg text-[11px] bg-[#d7a0a2]/5 text-[#e8b9ba] border border-[#d7a0a2]/15"><i class="fa-solid fa-chalkboard-user mr-1"></i> IT Educator</span>
+                        <span class="px-3 py-2 rounded-lg text-[11px] bg-[#d7a0a2]/5 text-[#e8b9ba] border border-[#d7a0a2]/15"><i class="fa-solid fa-chart-line mr-1"></i> SEO Strategist</span>
+                    </div>
+
+                    <div class="flex flex-wrap gap-3 justify-center lg:justify-start pt-3">
+                        <a href="#contact" class="premium-button">
+                            Get In Touch <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                        <a href="#experience" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl glass-card text-white text-sm font-semibold">
+                            <i class="fa-regular fa-user text-[#e8b9ba]"></i> Explore My Journey
+                        </a>
+                    </div>
+
+                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-x-5 gap-y-2 pt-3 text-xs text-slate-400">
+                        <span><i class="fa-solid fa-location-dot text-[#d7a0a2] mr-2"></i>Chattogram, Bangladesh</span>
+                        <span><i class="fa-solid fa-sparkles text-[#d7a0a2] mr-2"></i>Creative. Dedicated. Curious.</span>
+                    </div>
+                </div>
+
+                <!-- PREMIUM PROFILE PICTURE -->
+                <div class="hero-portrait lg:col-span-5 flex justify-center px-2 sm:px-5 lg:px-0">
+                    <div class="portrait-stage">
+                        <div class="portrait-aura"></div>
+                        <div class="portrait-orbit"></div>
+
+                        <div class="portrait-frame">
+                            <div class="portrait-inner">
+                                <img
+                                    src="1000019747.jpg"
+                                    alt="Portrait of Nur Jannat Nowshin"
+                                    class="portrait-image"
+                                    fetchpriority="high"
+                                    onerror="this.onerror=null;this.style.display='none';document.getElementById('portraitFallback').style.display='flex';">
+
+                                <div id="portraitFallback"
+                                     style="display:none"
+                                     class="absolute inset-0 items-center justify-center flex-col gap-4 text-center p-6 text-[#e8b9ba]">
+                                    <i class="fa-regular fa-image text-5xl"></i>
+                                    <span class="text-sm font-semibold">Profile picture unavailable</span>
+                                    <span class="text-xs text-slate-400">Check that 1000019747.jpg is beside index.html.</span>
+                                </div>
+
+                                <div class="portrait-shine"></div>
+
+                                <div class="portrait-caption">
+                                    <p class="portrait-caption-label">Meet the person behind the work</p>
+                                    <div class="flex items-center justify-between gap-3 mt-2">
+                                        <div>
+                                            <p class="font-serif text-lg sm:text-xl text-white">Nur Jannat Nowshin</p>
+                                            <p class="text-[10px] text-slate-300 mt-1">Instructor · Creative Professional</p>
+                                        </div>
+                                        <div class="w-9 h-9 rounded-full border border-[#d7a0a2]/30 flex items-center justify-center text-[#e8b9ba] flex-shrink-0">
+                                            <i class="fa-solid fa-sparkles text-xs"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="portrait-badge">
+                            <div class="portrait-badge-icon"><i class="fa-solid fa-award"></i></div>
+                            <div>
+                                <p class="portrait-badge-title">Professional Instructor</p>
+                                <p class="portrait-badge-sub">NYDA · Present</p>
+                            </div>
+                        </div>
+
+                        <div class="portrait-bottom-badge" aria-hidden="true">
+                            <i class="fa-solid fa-feather-pointed"></i>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ABOUT -->
+        <section id="about" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-card rounded-3xl p-7 sm:p-12 relative overflow-hidden reveal">
+                <div class="absolute -top-24 -right-20 w-64 h-64 rounded-full bg-[#d7a0a2]/5 blur-3xl pointer-events-none"></div>
+
+                <div class="max-w-3xl space-y-6 relative">
+                    <div class="section-label"><i class="fa-solid fa-user-check mr-2"></i>About Me</div>
+
+                    <h2 class="section-heading text-3xl sm:text-4xl font-semibold">
+                        Blending Artistic Creativity with Analytical Vision
+                    </h2>
+
+                    <p class="text-slate-300 leading-8 text-sm sm:text-base">
+                        A highly motivated and detail-oriented English undergraduate with a strong foundation in Graphic Design, Digital Marketing, Content Creation, and Computer Applications. Experienced in instructing professional courses, mentoring learners, developing creative digital solutions, and managing online projects.
+                    </p>
+
+                    <p class="text-slate-400 leading-7 text-sm">
+                        Recognized for excellent communication, adaptability, and a proactive approach to learning. Passionate about contributing to organizational growth through innovation, professionalism, and continuous skill development.
+                    </p>
+
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-5 pt-6 border-t border-[#d7a0a2]/15">
+                        <div>
+                            <p class="text-[#e8b9ba] text-2xl font-bold">100%</p>
+                            <p class="text-slate-400 text-xs mt-1">Dedication to Quality</p>
+                        </div>
+                        <div>
+                            <p class="text-[#e8b9ba] text-2xl font-bold">NYDA</p>
+                            <p class="text-slate-400 text-xs mt-1">Professional Instructor</p>
+                        </div>
+                        <div>
+                            <p class="text-[#e8b9ba] text-2xl font-bold">B.A.</p>
+                            <p class="text-slate-400 text-xs mt-1">English Literature</p>
+                        </div>
+                        <div>
+                            <p class="text-[#e8b9ba] text-2xl font-bold">Fluent</p>
+                            <p class="text-slate-400 text-xs mt-1">English & Bangla</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILLS -->
+        <section id="skills" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12 space-y-4 reveal">
+                <span class="section-label"><i class="fa-solid fa-layer-group mr-2"></i>Technical Expertise</span>
+                <h2 class="section-heading text-3xl sm:text-4xl font-semibold">Skills & Competencies</h2>
+                <p class="text-slate-400 text-sm leading-7">A multidisciplinary skill set combining creative software, web design, and digital strategy.</p>
+                <div class="section-ornament"><i class="fa-solid fa-sparkles"></i></div>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                <article class="glass-card p-6 rounded-2xl space-y-4 reveal">
+                    <div class="rose-icon"><i class="fa-solid fa-palette"></i></div>
+                    <h3 class="text-lg font-bold text-white">Graphic Design</h3>
+                    <ul class="skill-list space-y-3 text-slate-300 text-sm">
+                        <li><i class="fa-solid fa-check"></i><span>Adobe Illustrator</span></li>
+                        <li><i class="fa-solid fa-check"></i><span>Adobe Photoshop</span></li>
+                        <li><i class="fa-solid fa-check"></i><span>Adobe Premiere Pro</span></li>
+                        <li><i class="fa-solid fa-check"></i><span>Canva Branding</span></li>
+                    </ul>
+                </article>
+
+                <article class="glass-card p-6 rounded-2xl space-y-4 reveal reveal-delay-1">
+                    <div class="rose-icon"><i class="fa-solid fa-bullhorn"></i></div>
+                    <h3 class="text-lg font-bold text-white">Digital Marketing</h3>
+                    <ul class="skill-list space-y-3 text-slate-300 text-sm">
+                        <li><i class="fa-solid fa-check"></i><span>Social Media Management</span></li>
+                        <li><i class="fa-solid fa-check"></i><span>Content Strategy</span></li>
+                        <li><i class="fa-solid fa-check"></i><span>SEO Fundamentals</span></li>
+                        <li><i class="fa-solid fa-check"></i><span>Digital Branding</span></li>
+                    </ul>
+                </article>
+
+                <article class="glass-card p-6 rounded-2xl space-y-4 reveal reveal-delay-2">
+                    <div class="rose-icon"><i class="fa-solid fa-code"></i></div>
+                    <h3 class="text-lg font-bold text-white">Web Development</h3>
+                    <ul class="skill-list space-y-3 text-slate-300 text-sm">
+                        <li><i class="fa-solid fa-check"></i><span>WordPress CMS</span></li>
+                        <li><i class="fa-solid fa-check"></i><span>Local WP Environment</span></li>
+                        <li><i class="fa-solid fa-check"></i><span>Pantheon Hosting</span></li>
+                        <li><i class="fa-solid fa-check"></i><span>E-commerce Layouts</span></li>
+                    </ul>
+                </article>
+
+                <article class="glass-card p-6 rounded-2xl space-y-4 reveal reveal-delay-3">
+                    <div class="rose-icon"><i class="fa-solid fa-users"></i></div>
+                    <h3 class="text-lg font-bold text-white">Soft & IT Skills</h3>
+                    <ul class="skill-list space-y-3 text-slate-300 text-sm">
+                        <li><i class="fa-solid fa-check"></i><span>MS Office & Data Entry</span></li>
+                        <li><i class="fa-solid fa-check"></i><span>Leadership & Teamwork</span></li>
+                        <li><i class="fa-solid fa-check"></i><span>Project Management</span></li>
+                        <li><i class="fa-solid fa-check"></i><span>Communication</span></li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <!-- EXPERIENCE -->
+        <section id="experience" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-14 space-y-4 reveal">
+                <span class="section-label"><i class="fa-solid fa-briefcase mr-2"></i>Career Track</span>
+                <h2 class="section-heading text-3xl sm:text-4xl font-semibold">Work Experience</h2>
+                <p class="text-slate-400 text-sm leading-7">Professional experience in instruction, mentoring, and creative design.</p>
+                <div class="section-ornament"><i class="fa-solid fa-sparkles"></i></div>
+            </div>
+
+            <div class="relative ml-3 sm:ml-10 md:ml-32 space-y-9">
+                <div class="timeline-line absolute left-0 top-2 bottom-2 w-px"></div>
+
+                <article class="relative pl-7 sm:pl-9 reveal">
+                    <span class="timeline-dot absolute -left-[7px] top-3 w-[15px] h-[15px] rounded-full bg-[#e8b9ba] border-[3px] border-[#110d13]"></span>
+                    <span class="hidden md:inline-block absolute -left-36 top-1 text-xs font-semibold text-[#e8b9ba] bg-[#d7a0a2]/10 px-3 py-1 rounded-full border border-[#d7a0a2]/20">Present</span>
+
+                    <div class="glass-card p-6 rounded-2xl space-y-4">
+                        <span class="md:hidden inline-block text-xs text-[#e8b9ba] bg-[#d7a0a2]/10 px-3 py-1 rounded-full">Present / Ongoing</span>
+                        <div class="flex flex-wrap items-center justify-between gap-3">
+                            <h3 class="text-xl font-bold text-white">Instructor</h3>
+                            <span class="text-xs text-[#e8b9ba] bg-[#d7a0a2]/10 border border-[#d7a0a2]/20 px-3 py-2 rounded-full">National Youth Development Academy (NYDA)</span>
+                        </div>
+                        <ul class="list-disc list-inside text-slate-300 text-sm space-y-2 leading-7">
+                            <li>Conduct practical training modules on computer applications and digital skills.</li>
+                            <li>Guide trainees through hands-on coursework, assignments, and real-world scenarios.</li>
+                            <li>Monitor learner performance and provide constructive feedback.</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="relative pl-7 sm:pl-9 reveal">
+                    <span class="absolute -left-[7px] top-3 w-[15px] h-[15px] rounded-full bg-[#986078] border-[3px] border-[#110d13]"></span>
+                    <span class="hidden md:inline-block absolute -left-36 top-1 text-xs text-slate-400 bg-white/5 px-3 py-1 rounded-full border border-white/10">Jul–Aug 2025</span>
+
+                    <div class="glass-card p-6 rounded-2xl space-y-4">
+                        <span class="md:hidden inline-block text-xs text-slate-400 bg-white/5 px-3 py-1 rounded-full">July – August 2025</span>
+                        <div class="flex flex-wrap items-center justify-between gap-3">
+                            <h3 class="text-xl font-bold text-white">Mentor</h3>
+                            <span class="text-xs text-slate-300 bg-white/5 border border-white/10 px-3 py-2 rounded-full">E-learning & Earning Ltd.</span>
+                        </div>
+                        <ul class="list-disc list-inside text-slate-300 text-sm space-y-2 leading-7">
+                            <li>Supported students with online learning activities and coursework.</li>
+                            <li>Assisted participants with digital skills and productivity tools.</li>
+                            <li>Encouraged collaborative problem-solving and monitored progress.</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="relative pl-7 sm:pl-9 reveal">
+                    <span class="absolute -left-[7px] top-3 w-[15px] h-[15px] rounded-full bg-[#986078] border-[3px] border-[#110d13]"></span>
+                    <span class="hidden md:inline-block absolute -left-36 top-1 text-xs text-slate-400 bg-white/5 px-3 py-1 rounded-full">Freelance</span>
+
+                    <div class="glass-card p-6 rounded-2xl space-y-4">
+                        <span class="md:hidden inline-block text-xs text-slate-400 bg-white/5 px-3 py-1 rounded-full">Self-employed</span>
+                        <div class="flex flex-wrap items-center justify-between gap-3">
+                            <h3 class="text-xl font-bold text-white">Freelance Graphic Designer</h3>
+                            <span class="text-xs text-slate-300 bg-white/5 border border-white/10 px-3 py-2 rounded-full">Remote Work</span>
+                        </div>
+                        <ul class="list-disc list-inside text-slate-300 text-sm space-y-2 leading-7">
+                            <li>Designed logos, flyers, banners, social media graphics, and business cards.</li>
+                            <li>Developed visual identity and branding materials for businesses and personal brands.</li>
+                            <li>Worked with clients to translate creative requirements into polished designs.</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- EDUCATION & CERTIFICATIONS -->
+        <section id="education" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12">
+
+                <div class="space-y-6">
+                    <div class="reveal space-y-4">
+                        <span class="section-label"><i class="fa-solid fa-graduation-cap mr-2"></i>Academic Background</span>
+                        <h2 class="section-heading text-3xl sm:text-4xl font-semibold">Education</h2>
+                    </div>
+
+                    <article class="education-card glass-card p-5 rounded-2xl space-y-2 reveal">
+                        <div class="flex flex-wrap items-start justify-between gap-2">
+                            <h3 class="text-lg font-bold text-white">Bachelor of Arts (English)</h3>
+                            <span class="text-xs text-[#e8b9ba] bg-[#d7a0a2]/10 px-2.5 py-1 rounded">Expected 2028</span>
+                        </div>
+                        <p class="text-slate-300 text-sm">National University, Bangladesh</p>
+                        <p class="text-slate-400 text-xs">Undergraduate Study — Ongoing</p>
+                    </article>
+
+                    <article class="education-card glass-card p-5 rounded-2xl space-y-2 reveal reveal-delay-1">
+                        <div class="flex flex-wrap items-start justify-between gap-2">
+                            <h3 class="text-lg font-bold text-white">Higher Secondary Certificate (HSC)</h3>
+                            <span class="text-xs text-slate-400 bg-white/5 px-2.5 py-1 rounded">2023</span>
+                        </div>
+                        <p class="text-slate-300 text-sm">Chittagong Govt. Women's College, Chattogram</p>
+                        <p class="text-[#e8b9ba] text-xs font-semibold">GPA: 4.83 / 5.00</p>
+                    </article>
+
+                    <article class="education-card glass-card p-5 rounded-2xl space-y-2 reveal reveal-delay-2">
+                        <div class="flex flex-wrap items-start justify-between gap-2">
+                            <h3 class="text-lg font-bold text-white">Secondary School Certificate (SSC)</h3>
+                            <span class="text-xs text-slate-400 bg-white/5 px-2.5 py-1 rounded">2021</span>
+                        </div>
+                        <p class="text-slate-300 text-sm">Lohagara Shahpir Pilot High School</p>
+                        <p class="text-[#e8b9ba] text-xs font-semibold">GPA: 4.83 / 5.00</p>
+                    </article>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="reveal space-y-4">
+                        <span class="section-label"><i class="fa-solid fa-award mr-2"></i>Qualifications</span>
+                        <h2 class="section-heading text-3xl sm:text-4xl font-semibold">Certifications & Training</h2>
+                    </div>
+
+                    <article class="education-card glass-card p-5 rounded-2xl space-y-2 reveal">
+                        <span class="text-xs text-[#e8b9ba]">2025</span>
+                        <h3 class="text-lg font-bold text-white">Government Freelancing Training Program</h3>
+                        <p class="text-slate-300 text-sm leading-6">Digital Marketing & Freelancing — Department of Youth Development (DYD)</p>
+                    </article>
+
+                    <article class="education-card glass-card p-5 rounded-2xl space-y-2 reveal reveal-delay-1">
+                        <span class="text-xs text-[#e8b9ba]">2025</span>
+                        <h3 class="text-lg font-bold text-white">Advanced Computer Certificate Course</h3>
+                        <p class="text-slate-300 text-sm leading-6">National Youth Development Academy (NYDA)</p>
+                    </article>
+
+                    <article class="education-card glass-card p-5 rounded-2xl space-y-2 reveal reveal-delay-2">
+                        <span class="text-xs text-[#e8b9ba]">2025</span>
+                        <h3 class="text-lg font-bold text-white">Employability Skills — 79 Hours</h3>
+                        <p class="text-slate-300 text-sm leading-6">Wadhwani Foundation — Job Ready Skills</p>
+                    </article>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- PREMIUM CONTACT SECTION -->
+        <section id="contact" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+            <div class="contact-orb contact-orb-one"></div>
+            <div class="contact-orb contact-orb-two"></div>
+
+            <div class="contact-shell">
+                <div class="contact-top-line"></div>
+
+                <div class="relative z-10 p-5 sm:p-9 lg:p-14">
+                    <div class="text-center max-w-2xl mx-auto mb-12">
+                        <div class="contact-eyebrow mb-5">
+                            <span class="eyebrow-line"></span>
+                            <i class="fa-regular fa-paper-plane"></i>
+                            <span>LET'S START A CONVERSATION</span>
+                            <span class="eyebrow-line"></span>
+                        </div>
+
+                        <h2 class="contact-heading text-4xl sm:text-5xl lg:text-6xl leading-tight">
+                            Let's Create
+                            <span class="contact-heading-accent">Something Beautiful.</span>
+                        </h2>
+
+                        <p class="text-slate-300/80 text-sm sm:text-base leading-7 mt-5 max-w-xl mx-auto">
+                            Have a project in mind, a collaboration to discuss, or an opportunity to share? I'd love to hear from you.
+                        </p>
+
+                        <div class="contact-heading-ornament mt-7">
+                            <span></span>
+                            <i class="fa-solid fa-sparkles"></i>
+                            <span></span>
+                        </div>
+                    </div>
+
+                    <div class="grid lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
+
+                        <!-- CONTACT INFORMATION -->
+                        <div class="lg:col-span-5 flex flex-col gap-6">
+                            <div class="contact-intro-card">
+                                <div class="contact-avatar-icon">
+                                    <i class="fa-regular fa-envelope"></i>
+                                </div>
+
+                                <p class="contact-mini-label mt-5">A LITTLE NOTE</p>
+
+                                <h3 class="text-2xl sm:text-3xl font-semibold text-white font-serif mt-2">
+                                    Your next idea starts here.
+                                </h3>
+
+                                <p class="text-slate-300/75 text-sm leading-7 mt-4">
+                                    Every meaningful collaboration begins with a conversation. Let's turn your ideas into something thoughtful, creative, and memorable.
+                                </p>
+
+                                <div class="contact-availability mt-6">
+                                    <span class="availability-dot"></span>
+                                    <span>Open to professional inquiries</span>
+                                </div>
+                            </div>
+
+                            <a href="mailto:nurjannatnowshin810@gmail.com" class="contact-detail-card group">
+                                <div class="contact-detail-icon"><i class="fa-regular fa-envelope"></i></div>
+                                <div class="min-w-0 flex-1">
+                                    <p class="contact-detail-label">WRITE ME AN EMAIL</p>
+                                    <p class="contact-detail-value">nurjannatnowshin810@gmail.com</p>
+                                </div>
+                                <i class="fa-solid fa-arrow-up-right-from-square contact-arrow"></i>
+                            </a>
+
+                            <a href="tel:+8801540338121" class="contact-detail-card group">
+                                <div class="contact-detail-icon"><i class="fa-solid fa-phone"></i></div>
+                                <div class="min-w-0 flex-1">
+                                    <p class="contact-detail-label">LET'S TALK</p>
+                                    <p class="contact-detail-value">+880 1540338121</p>
+                                </div>
+                                <i class="fa-solid fa-arrow-up-right-from-square contact-arrow"></i>
+                            </a>
+
+                            <div class="contact-detail-card">
+                                <div class="contact-detail-icon"><i class="fa-solid fa-location-dot"></i></div>
+                                <div class="min-w-0 flex-1">
+                                    <p class="contact-detail-label">CURRENTLY BASED IN</p>
+                                    <p class="contact-detail-value">Chattogram, Bangladesh</p>
+                                </div>
+                                <i class="fa-solid fa-location-dot contact-arrow"></i>
+                            </div>
+
+                            <div class="contact-social-panel">
+                                <p class="contact-detail-label mb-4">FIND ME AROUND THE WEB</p>
+                                <div class="flex flex-wrap gap-3">
+                                    <a href="https://www.linkedin.com/in/nur-jannat-nowshin"
+                                       target="_blank" rel="noopener noreferrer"
+                                       class="contact-social-link" aria-label="LinkedIn profile">
+                                        <i class="fa-brands fa-linkedin-in"></i><span>LinkedIn</span>
+                                    </a>
+
+                                    <a href="https://www.facebook.com/nur.jannat.nowshin.2024"
+                                       target="_blank" rel="noopener noreferrer"
+                                       class="contact-social-link" aria-label="Facebook profile">
+                                        <i class="fa-brands fa-facebook-f"></i><span>Facebook</span>
+                                    </a>
+
+                                    <a href="https://wa.me/8801540338121"
+                                       target="_blank" rel="noopener noreferrer"
+                                       class="contact-social-link" aria-label="WhatsApp">
+                                        <i class="fa-brands fa-whatsapp"></i><span>WhatsApp</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CONTACT FORM -->
+                        <div class="lg:col-span-7">
+                            <div class="contact-form-card">
+                                <div class="flex items-start justify-between gap-4 mb-8">
+                                    <div>
+                                        <p class="contact-mini-label">THE CONVERSATION BEGINS</p>
+                                        <h3 class="text-2xl sm:text-3xl text-white font-serif mt-2">Send a Message</h3>
+                                        <p class="text-slate-400 text-sm mt-2">Tell me a little about what you have in mind.</p>
+                                    </div>
+
+                                    <div class="contact-form-decoration hidden sm:flex">
+                                        <i class="fa-regular fa-paper-plane"></i>
+                                    </div>
+                                </div>
+
+                                <form id="contactForm" class="space-y-5">
+                                    <div class="grid sm:grid-cols-2 gap-5">
+                                        <div class="contact-field">
+                                            <label for="senderName">YOUR NAME</label>
+                                            <div class="contact-input-wrap">
+                                                <i class="fa-regular fa-user"></i>
+                                                <input type="text" id="senderName" name="senderName"
+                                                       placeholder="How should I call you?"
+                                                       autocomplete="name" maxlength="100" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="contact-field">
+                                            <label for="senderEmail">EMAIL ADDRESS</label>
+                                            <div class="contact-input-wrap">
+                                                <i class="fa-regular fa-envelope"></i>
+                                                <input type="email" id="senderEmail" name="senderEmail"
+                                                       placeholder="you@example.com"
+                                                       autocomplete="email" maxlength="254" required>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="contact-field">
+                                        <label for="msgSubject">SUBJECT</label>
+                                        <div class="contact-input-wrap">
+                                            <i class="fa-solid fa-layer-group"></i>
+                                            <input type="text" id="msgSubject" name="msgSubject"
+                                                   placeholder="Project, collaboration, or opportunity"
+                                                   maxlength="150" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="contact-field">
+                                        <div class="flex items-center justify-between gap-3">
+                                            <label for="msgBody">YOUR MESSAGE</label>
+                                            <span class="contact-character-count"><span id="messageCount">0</span>/2000</span>
+                                        </div>
+
+                                        <div class="contact-textarea-wrap">
+                                            <i class="fa-regular fa-message"></i>
+                                            <textarea id="msgBody" name="msgBody" rows="5"
+                                                      maxlength="2000"
+                                                      placeholder="I'd love to hear what you're thinking..."
+                                                      required></textarea>
+                                        </div>
+                                    </div>
+
+                                    <button type="submit" id="sendMessageBtn" class="contact-submit-btn">
+                                        <span class="contact-submit-content">
+                                            <i class="fa-regular fa-paper-plane"></i>
+                                            <span>Prepare My Message</span>
+                                        </span>
+                                        <i class="fa-solid fa-arrow-right contact-submit-arrow"></i>
+                                    </button>
+
+                                    <p class="contact-form-note">
+                                        <i class="fa-solid fa-lock"></i>
+                                        <span>Your email app will open with your message ready to send. You will need to press Send in that app.</span>
+                                    </p>
+
+                                    <p id="contactStatus" class="contact-status" role="status" aria-live="polite"></p>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-bottom-note mt-10 pt-7">
+                        <span class="contact-bottom-star">✦</span>
+                        <p>Thoughtfully created. Personally connected.</p>
+                        <span class="contact-bottom-star">✦</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="relative z-10 border-t border-[#d7a0a2]/10 py-8 px-4 text-center">
+        <div class="flex items-center justify-center gap-2 text-[#d7a0a2] text-sm mb-3">
+            <span>✦</span>
+            <span class="font-serif italic">Nur Jannat Nowshin</span>
+            <span>✦</span>
+        </div>
+        <p class="text-xs text-slate-500">
+            © <span id="currentYear"></span> Nur Jannat Nowshin. All rights reserved.
+        </p>
+        <a href="#home" class="inline-flex items-center gap-2 text-xs text-slate-400 hover:text-[#e8b9ba] mt-4 transition-colors">
+            Back to top <i class="fa-solid fa-arrow-up"></i>
+        </a>
+    </footer>
+
+    <script>
+        "use strict";
+
+        // Current year
+        document.getElementById("currentYear").textContent = new Date().getFullYear();
+
+        // Header styling on scroll
+        const siteHeader = document.getElementById("siteHeader");
+
+        function updateHeader() {
+            siteHeader.classList.toggle("scrolled", window.scrollY > 12);
+        }
+
+        updateHeader();
+        window.addEventListener("scroll", updateHeader, { passive: true });
+
+        // Mobile navigation
+        const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+        const mobileMenu = document.getElementById("mobileMenu");
+        const menuIcon = document.getElementById("menuIcon");
+
+        function closeMobileMenu() {
+            mobileMenu.classList.add("hidden");
+            mobileMenuBtn.setAttribute("aria-expanded", "false");
+            mobileMenuBtn.setAttribute("aria-label", "Open navigation menu");
+            menuIcon.classList.remove("fa-xmark");
+            menuIcon.classList.add("fa-bars");
+        }
+
+        mobileMenuBtn.addEventListener("click", () => {
+            const isOpening = mobileMenu.classList.contains("hidden");
+
+            mobileMenu.classList.toggle("hidden");
+            mobileMenuBtn.setAttribute("aria-expanded", String(isOpening));
+            mobileMenuBtn.setAttribute(
+                "aria-label",
+                isOpening ? "Close navigation menu" : "Open navigation menu"
+            );
+
+            menuIcon.classList.toggle("fa-bars", !isOpening);
+            menuIcon.classList.toggle("fa-xmark", isOpening);
+        });
+
+        mobileMenu.querySelectorAll("a").forEach(link => {
+            link.addEventListener("click", closeMobileMenu);
+        });
+
+        document.addEventListener("keydown", event => {
+            if (event.key === "Escape") closeMobileMenu();
+        });
+
+        // Scroll reveal animation
+        const revealElements = document.querySelectorAll(".reveal");
+        const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        if ("IntersectionObserver" in window && !reduceMotion) {
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("is-visible");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.12,
+                rootMargin: "0px 0px -35px 0px"
+            });
+
+            revealElements.forEach(element => revealObserver.observe(element));
+        } else {
+            revealElements.forEach(element => element.classList.add("is-visible"));
+        }
+
+        // Live message character counter
+        const messageInput = document.getElementById("msgBody");
+        const messageCount = document.getElementById("messageCount");
+
+        messageInput.addEventListener("input", () => {
+            messageCount.textContent = messageInput.value.length;
+        });
+
+        // Contact form: opens the visitor's email application.
+        // It does not send an email silently.
+        const contactForm = document.getElementById("contactForm");
+        const contactStatus = document.getElementById("contactStatus");
+
+        contactForm.addEventListener("submit", event => {
+            event.preventDefault();
+
+            if (!contactForm.reportValidity()) return;
+
+            const senderName = document.getElementById("senderName").value.trim();
+            const senderEmail = document.getElementById("senderEmail").value.trim();
+            const subject = document.getElementById("msgSubject").value.trim();
+            const message = messageInput.value.trim();
+
+            if (!senderName || !senderEmail || !subject || !message) {
+                contactStatus.textContent = "Please complete all fields before continuing.";
+                return;
+            }
+
+            const recipient = "nurjannatnowshin810@gmail.com";
+            const emailSubject = `[Portfolio Inquiry] ${subject}`;
+            const emailBody =
+                `Name: ${senderName}\n` +
+                `Email: ${senderEmail}\n\n` +
+                `Message:\n${message}`;
+
+            const mailtoURL =
+                "mailto:" + recipient +
+                "?subject=" + encodeURIComponent(emailSubject) +
+                "&body=" + encodeURIComponent(emailBody);
+
+            contactStatus.textContent =
+                "Opening your email app. Please review your message and press Send there.";
+
+            window.location.href = mailtoURL;
+        });
+
+        // Decorative particles. Pauses when the tab is hidden.
+        const canvas = document.getElementById("particleCanvas");
+        const ctx = canvas.getContext("2d");
+
+        let particles = [];
+        let animationFrame = null;
+        let canvasWidth = 0;
+        let canvasHeight = 0;
+
+        function resizeCanvas() {
+            const dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+            canvasWidth = window.innerWidth;
+            canvasHeight = window.innerHeight;
+            canvas.width = canvasWidth * dpr;
+            canvas.height = canvasHeight * dpr;
+            canvas.style.width = canvasWidth + "px";
+            canvas.style.height = canvasHeight + "px";
+
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+            const count = Math.min(35, Math.max(12, Math.floor(canvasWidth / 30)));
+
+            particles = Array.from({ length: count }, () => ({
+                x: Math.random() * canvasWidth,
+                y: Math.random() * canvasHeight,
+                size: Math.random() * 1.5 + 0.4,
+                speedX: (Math.random() - 0.5) * 0.3,
+                speedY: (Math.random() - 0.5) * 0.3,
+                opacity: Math.random() * 0.4 + 0.1
+            }));
+        }
+
+        function animateParticles() {
+            if (document.hidden || reduceMotion) {
+                animationFrame = null;
+                return;
+            }
+
+            ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+
+            for (const particle of particles) {
+                particle.x += particle.speedX;
+                particle.y += particle.speedY;
+
+                if (particle.x > canvasWidth) particle.x = 0;
+                if (particle.x < 0) particle.x = canvasWidth;
+                if (particle.y > canvasHeight) particle.y = 0;
+                if (particle.y < 0) particle.y = canvasHeight;
+
+                ctx.beginPath();
+                ctx.fillStyle = `rgba(215,160,162,${particle.opacity})`;
+                ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+
+            animationFrame = requestAnimationFrame(animateParticles);
+        }
+
+        function startParticles() {
+            if (reduceMotion || document.hidden || animationFrame !== null) return;
+            animationFrame = requestAnimationFrame(animateParticles);
+        }
+
+        function stopParticles() {
+            if (animationFrame !== null) {
+                cancelAnimationFrame(animationFrame);
+                animationFrame = null;
+            }
+        }
+
+        resizeCanvas();
+        startParticles();
+
+        window.addEventListener("resize", () => {
+            resizeCanvas();
+            if (!document.hidden) {
+                stopParticles();
+                startParticles();
+            }
+        });
+
+        document.addEventListener("visibilitychange", () => {
+            if (document.hidden) {
+                stopParticles();
+            } else {
+                startParticles();
+            }
+        });
+    </script>
+
+</body>
+</html>
