@@ -9,7 +9,7 @@
   <meta property="og:title" content="Nur Jannat Nowshin | Luxury CV">
   <meta property="og:description" content="Discover Nur Jannat Nowshin's professional journey, skills, education, and experience.">
   <meta property="og:type" content="profile">
-  <title>Nur Jannat Nowshin | PROFESSIONAL CV</title>
+  <title>Nur Jannat Nowshin | Professional CV</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1276,54 +1276,6 @@
     .education-note { margin-top: 7px; color: #a99ca9; font-size: 10px; line-height: 1.7; }
     .education-note.highlight { color: var(--rose-light); text-shadow: 0 0 6px rgba(240,200,200,0.3); }
 
-    /* INSIGHTS / BLOG SECTION STYLES */
-    .insights-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
-    .insight-card { padding: 26px 22px; display: flex; flex-direction: column; justify-content: space-between; }
-    .insight-meta { display: flex; align-items: center; gap: 8px; color: var(--rose); font-size: 10px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 12px; }
-    .insight-card h3 { margin: 0 0 12px; color: var(--ivory); font-family: "Playfair Display", serif; font-size: 18px; line-height: 1.4; font-weight: 500; }
-    .insight-card p { color: #b5a9b5; font-size: 12px; line-height: 1.8; margin: 0 0 20px; }
-    .insight-link { display: inline-flex; align-items: center; gap: 8px; color: var(--rose-light); font-size: 11px; font-weight: 700; transition: transform .3s; }
-    .insight-link:hover { transform: translateX(4px); }
-
-    /* CV MODAL STYLES */
-    .cv-modal-backdrop {
-      position: fixed;
-      inset: 0;
-      z-index: 9999;
-      background: rgba(11, 9, 13, 0.88);
-      -webkit-backdrop-filter: blur(12px);
-      backdrop-filter: blur(12px);
-      display: grid;
-      place-items: center;
-      padding: 20px;
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity .4s ease, visibility .4s ease;
-    }
-    .cv-modal-backdrop.open { opacity: 1; visibility: visible; }
-    .cv-modal-content {
-      width: min(950px, calc(100% - 20px));
-      height: 85vh;
-      max-height: 750px;
-      display: flex;
-      flex-direction: column;
-      padding: 25px;
-      border-radius: 24px;
-      background: linear-gradient(145deg, rgba(29,22,32,.98), rgba(18,14,21,.98));
-      border: 1px solid rgba(215,160,162,.35);
-      box-shadow: 0 25px 60px rgba(0,0,0,.6), 0 0 40px rgba(215,160,162,.2);
-      transform: translateY(20px) scale(.98);
-      transition: transform .4s var(--ease);
-    }
-    .cv-modal-backdrop.open .cv-modal-content { transform: translateY(0) scale(1); }
-    .cv-modal-header { display: flex; align-items: center; justify-content: space-between; gap: 15px; margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid var(--line); }
-    .cv-modal-header h3 { margin: 0; color: var(--ivory); font-family: "Playfair Display", serif; font-size: 22px; }
-    .cv-modal-close { width: 38px; height: 38px; display: grid; place-items: center; color: var(--rose-light); background: rgba(215,160,162,.1); border: 1px solid rgba(215,160,162,.25); border-radius: 10px; cursor: pointer; transition: background .3s, transform .3s; }
-    .cv-modal-close:hover { background: rgba(215,160,162,.25); transform: rotate(90deg); }
-    .cv-modal-body { flex: 1; border-radius: 14px; overflow: hidden; background: #0b090d; border: 1px solid rgba(215,160,162,.2); }
-    .cv-modal-body iframe { width: 100%; height: 100%; border: none; }
-    .cv-modal-footer { display: flex; align-items: center; justify-content: flex-end; gap: 12px; margin-top: 15px; padding-top: 15px; border-top: 1px solid var(--line); }
-
     /* CONTACT */
     .contact-shell {
       position: relative;
@@ -1633,7 +1585,7 @@
       .desktop-nav { gap: 16px; }
       .hero-grid { gap: 38px; }
       .hero h1 { font-size: clamp(38px,5.6vw,56px); }
-      .skills-grid, .reviews-grid, .insights-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+      .skills-grid, .reviews-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
       .about-card { grid-template-columns: 1fr 190px; gap: 25px; }
       .about-seal { width: 175px; height: 175px; }
       .contact-grid { grid-template-columns: 1fr 1.1fr; gap: 20px; }
@@ -1664,7 +1616,7 @@
       .contact-grid { grid-template-columns: 1fr; }
       .contact-shell { border-radius: 23px; }
       .floating-contact { right: 13px; bottom: 13px; width: 44px; height: 44px; }
-      .reviews-grid, .insights-grid { grid-template-columns: 1fr; }
+      .reviews-grid { grid-template-columns: 1fr; }
       .cursor-glow { display: none; }
     }
 
@@ -1678,7 +1630,7 @@
       .hero-description { font-size: 12px; }
       .hero-tag { font-size: 9px; }
       .hero-actions { display: grid; grid-template-columns: 1fr; }
-      .hero-actions a, .hero-actions button { width: 100%; }
+      .hero-actions a { width: 100%; }
       .hero-meta { font-size: 9px; }
       .portrait-stage { width: min(84%,280px); }
       .portrait-orbit { inset: -8px; }
@@ -1773,7 +1725,6 @@
           <a href="#skills" class="nav-link">Skills</a>
           <a href="#experience" class="nav-link">Experience</a>
           <a href="#education" class="nav-link">Education</a>
-          <a href="#insights" class="nav-link">Insights</a>
           <a href="#contact" class="nav-link">Contact</a>
         </nav>
 
@@ -1793,7 +1744,6 @@
         <a href="#experience">Work Experience</a>
         <a href="#education">Education &amp; Certifications</a>
         <a href="#testimonials">Recommendations</a>
-        <a href="#insights">Thoughts &amp; Insights</a>
         <a href="#contact">Contact</a>
       </nav>
     </header>
@@ -1833,7 +1783,6 @@
 
             <div class="hero-actions">
               <a href="#contact" class="premium-button">Get In Touch <i class="fa-solid fa-arrow-right"></i></a>
-              <button type="button" class="outline-button" id="previewCvBtn"><i class="fa-solid fa-eye"></i> Preview CV</button>
               <a href="Nur_Jannat_Nowshin_CV.pdf" download class="outline-button"><i class="fa-solid fa-file-arrow-down"></i> Download CV</a>
             </div>
 
@@ -2103,45 +2052,6 @@
         </div>
       </section>
 
-      <!-- THOUGHTS & INSIGHTS (BLOG SECTION) -->
-      <section id="insights" class="section container">
-        <div class="section-head">
-          <span class="eyebrow">Thoughts &amp; Insights</span>
-          <h2 class="section-title">Articles &amp; Perspectives</h2>
-          <p class="section-description">Explorations in design, digital strategy, and literature.</p>
-          <div class="ornament"><i class="fa-solid fa-sparkles"></i></div>
-        </div>
-
-        <div class="insights-grid">
-          <article class="glass-card insight-card">
-            <div>
-              <div class="insight-meta"><span>Design</span><span>•</span><span>5 min read</span></div>
-              <h3>The Psychology of Color in Luxury Brand Identity</h3>
-              <p>How matte obsidian tones and champagne gold accents evoke exclusivity, trust, and timeless elegance.</p>
-            </div>
-            <a href="#contact" class="insight-link">Read Article <i class="fa-solid fa-arrow-right"></i></a>
-          </article>
-
-          <article class="glass-card insight-card">
-            <div>
-              <div class="insight-meta"><span>Marketing</span><span>•</span><span>4 min read</span></div>
-              <h3>Bridging Creativity and SEO in Modern Digital Strategy</h3>
-              <p>Why aesthetic design must align with search intent to build a truly impactful digital footprint.</p>
-            </div>
-            <a href="#contact" class="insight-link">Read Article <i class="fa-solid fa-arrow-right"></i></a>
-          </article>
-
-          <article class="glass-card insight-card">
-            <div>
-              <div class="insight-meta"><span>Literature</span><span>•</span><span>6 min read</span></div>
-              <h3>The Narrative Edge: Storytelling in Professional Branding</h3>
-              <p>Drawing from English literature to craft compelling brand narratives that resonate deeply with audiences.</p>
-            </div>
-            <a href="#contact" class="insight-link">Read Article <i class="fa-solid fa-arrow-right"></i></a>
-          </article>
-        </div>
-      </section>
-
       <!-- CONTACT -->
       <section id="contact" class="section container">
         <div class="contact-shell">
@@ -2293,23 +2203,6 @@
     </footer>
   </div>
 
-  <!-- CV PREVIEW MODAL -->
-  <div class="cv-modal-backdrop" id="cvModalBackdrop" aria-hidden="true">
-    <div class="cv-modal-content glass-card" role="dialog" aria-modal="true" aria-label="CV Preview">
-      <div class="cv-modal-header">
-        <h3>Curriculum Vitae Preview</h3>
-        <button type="button" class="cv-modal-close" id="cvModalClose" aria-label="Close modal"><i class="fa-solid fa-xmark"></i></button>
-      </div>
-      <div class="cv-modal-body">
-        <iframe src="Nur_Jannat_Nowshin_CV.pdf" title="CV Preview"></iframe>
-      </div>
-      <div class="cv-modal-footer">
-        <a href="Nur_Jannat_Nowshin_CV.pdf" download class="premium-button" style="padding:10px 18px; font-size:10px;">Download PDF</a>
-        <button type="button" class="outline-button" id="cvModalCloseBtn" style="padding:10px 18px; font-size:10px;">Close</button>
-      </div>
-    </div>
-  </div>
-
   <a href="https://wa.me/8801751074091" target="_blank" rel="noopener noreferrer"
     class="floating-contact" aria-label="Contact Nowshin on WhatsApp" title="Chat on WhatsApp">
     <i class="fa-brands fa-whatsapp"></i>
@@ -2360,7 +2253,6 @@
       ".timeline-item",
       ".subheading",
       ".education-card",
-      ".insight-card",
       ".contact-shell",
       ".contact-note-card",
       ".contact-detail",
@@ -2377,7 +2269,7 @@
     revealElements.forEach((element, index) => {
       element.classList.add("reveal");
 
-      if (element.matches(".skill-card, .review-card, .education-card, .insight-card, .timeline-item")) {
+      if (element.matches(".skill-card, .review-card, .education-card, .timeline-item")) {
         element.classList.add("scale-in");
       }
 
@@ -2389,7 +2281,7 @@
         element.classList.add("from-right");
       }
 
-      if (element.matches(".skill-card, .review-card, .education-card, .insight-card, .timeline-item")) {
+      if (element.matches(".skill-card, .review-card, .education-card, .timeline-item")) {
         element.style.setProperty("--delay", (index % 4) * 90 + "ms");
       }
     });
@@ -2441,33 +2333,7 @@
       if (event.key === "Escape") {
         closeMobileMenu();
         dismissIntro();
-        closeCvModal();
       }
-    });
-
-    // CV MODAL CONTROLS
-    const cvModalBackdrop = document.getElementById("cvModalBackdrop");
-    const previewCvBtn = document.getElementById("previewCvBtn");
-    const cvModalClose = document.getElementById("cvModalClose");
-    const cvModalCloseBtn = document.getElementById("cvModalCloseBtn");
-
-    function openCvModal() {
-      cvModalBackdrop.classList.add("open");
-      cvModalBackdrop.setAttribute("aria-hidden", "false");
-      document.body.style.overflow = "hidden";
-    }
-
-    function closeCvModal() {
-      cvModalBackdrop.classList.remove("open");
-      cvModalBackdrop.setAttribute("aria-hidden", "true");
-      document.body.style.overflow = "";
-    }
-
-    previewCvBtn.addEventListener("click", openCvModal);
-    cvModalClose.addEventListener("click", closeCvModal);
-    cvModalCloseBtn.addEventListener("click", closeCvModal);
-    cvModalBackdrop.addEventListener("click", (e) => {
-      if (e.target === cvModalBackdrop) closeCvModal();
     });
 
     // SCROLL PROGRESS + HEADER STATE
@@ -2494,7 +2360,7 @@
     updateScrollUI();
 
     // ACTIVE NAVIGATION
-    const observedSections = document.querySelectorAll("#about, #skills, #experience, #education, #insights, #contact");
+    const observedSections = document.querySelectorAll("#about, #skills, #experience, #education, #contact");
     const navLinks = document.querySelectorAll(".desktop-nav .nav-link");
 
     if ("IntersectionObserver" in window) {
