@@ -33,6 +33,20 @@
       --ease: cubic-bezier(.22,1,.36,1);
     }
 
+    /* DYNAMIC AMBIENT THEME MODES */
+    body.theme-morning {
+      --bg: #0f0d0c;
+      --rose: #e2b08d;
+      --rose-light: #f5d6be;
+      --gold: #f4d06f;
+    }
+    body.theme-twilight {
+      --bg: #0c0912;
+      --rose: #c498b6;
+      --rose-light: #e5bfdb;
+      --gold: #dfb2d1;
+    }
+
     * { box-sizing: border-box; }
 
     html {
@@ -49,8 +63,9 @@
         radial-gradient(ellipse at 12% 4%, rgba(215,160,162,.15), transparent 42%),
         radial-gradient(ellipse at 92% 34%, rgba(152,96,120,.12), transparent 45%),
         radial-gradient(ellipse at 50% 80%, rgba(229,199,160,.07), transparent 50%),
-        linear-gradient(180deg, #0b090d 0%, #100b12 48%, #0b090d 100%);
+        linear-gradient(180deg, var(--bg) 0%, #100b12 48%, var(--bg) 100%);
       overflow-x: clip;
+      transition: background 1s ease;
     }
 
     body.intro-active { overflow: hidden; }
@@ -147,6 +162,7 @@
       background: linear-gradient(145deg, #fff0e5, #e8b9ba 55%, #986078);
       box-shadow: 0 0 25px rgba(215,160,162,.24), 0 0 80px rgba(215,160,162,.13);
       animation: monogramGlow 3s ease-in-out infinite;
+      cursor: pointer;
     }
 
     .intro-eyebrow {
@@ -409,6 +425,7 @@
       background: linear-gradient(135deg, #fff0e5, #d7a0a2 55%, #986078);
       box-shadow: 0 4px 22px rgba(215,160,162,.25);
       transition: transform .45s var(--ease), box-shadow .4s;
+      cursor: pointer;
     }
 
     .brand:hover .brand-mark {
@@ -731,6 +748,125 @@
       border-color: rgba(240,200,200,.75);
       box-shadow: 0 0 25px rgba(240,200,200,.3);
     }
+
+    /* =========================================
+       NEW EXCEPTIONALS: MANIFESTO & PROCESS LAB
+       ========================================= */
+       
+    /* 1. THE LITERARY & DESIGN MANIFESTO */
+    .manifesto-card {
+      padding: clamp(30px, 4vw, 50px);
+      text-align: center;
+      background: linear-gradient(135deg, rgba(29,22,32,0.95), rgba(15,11,17,0.98));
+      border: 1px solid rgba(215,160,162,0.3);
+      border-radius: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .manifesto-quote {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(20px, 2.8vw, 28px);
+      font-style: italic;
+      color: var(--ivory);
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .manifesto-hint {
+      margin-top: 20px;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      color: var(--rose);
+      text-transform: uppercase;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .manifesto-hint i { transition: transform 0.3s; }
+    .manifesto-card:hover .manifesto-hint i { transform: translateX(4px); }
+
+    /* 3. THE CREATIVE PROCESS LAB (TABS) */
+    .process-container { margin-top: 20px; }
+    .process-tabs-header {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+    .process-tab-btn {
+      padding: 12px 20px;
+      border-radius: 12px;
+      border: 1px solid rgba(215,160,162,0.2);
+      background: rgba(23,18,26,0.6);
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s var(--ease);
+    }
+    .process-tab-btn.active, .process-tab-btn:hover {
+      background: rgba(215,160,162,0.15);
+      border-color: var(--rose);
+      color: var(--ivory);
+      transform: translateY(-2px);
+    }
+    .process-panel {
+      display: none;
+      animation: panelFadeIn 0.5s var(--ease) forwards;
+    }
+    .process-panel.active { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: center; }
+    @keyframes panelFadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .process-panel-content h3 { font-family: "Playfair Display", serif; font-size: 24px; color: var(--ivory); margin-bottom: 12px; }
+    .process-panel-content p { color: var(--muted); font-size: 13px; line-height: 1.9; }
+    .process-step-badge {
+      display: inline-block; padding: 5px 12px; border-radius: 6px; background: rgba(215,160,162,0.1);
+      color: var(--rose-light); font-size: 10px; font-weight: 800; margin-bottom: 15px; letter-spacing: 0.15em;
+    }
+    .process-visual-box {
+      height: 220px; border-radius: 16px; border: 1px solid rgba(215,160,162,0.25);
+      background: radial-gradient(circle at center, rgba(215,160,162,0.1), rgba(11,9,13,0.8));
+      display: flex; align-items: center; justify-content: center; font-size: 48px; color: var(--rose);
+      box-shadow: inset 0 0 30px rgba(215,160,162,0.05);
+    }
+
+    /* 4. SECRET MONOGRAM VAULT (MODAL) */
+    .vault-modal {
+      position: fixed; inset: 0; z-index: 10000; display: none; align-items: center; justify-content: center;
+      background: rgba(11,9,13,0.92); backdrop-filter: blur(15px); padding: 20px;
+      opacity: 0; transition: opacity 0.4s ease;
+    }
+    .vault-modal.open { display: flex; opacity: 1; }
+    .vault-box {
+      width: min(500px, 100%); padding: 40px; border-radius: 24px; text-align: center;
+      background: linear-gradient(145deg, #1c1520, #0f0a12); border: 1px solid var(--gold);
+      box-shadow: 0 0 50px rgba(229,199,160,0.25); position: relative; transform: scale(0.9);
+      transition: transform 0.4s var(--ease);
+    }
+    .vault-modal.open .vault-box { transform: scale(1); }
+    .vault-close {
+      position: absolute; top: 15px; right: 15px; width: 36px; height: 36px; border-radius: 50%;
+      border: 1px solid rgba(215,160,162,0.3); background: transparent; color: var(--ivory);
+      cursor: pointer; display: grid; place-items: center; transition: background 0.3s;
+    }
+    .vault-close:hover { background: rgba(215,160,162,0.2); }
+
+    /* AMBIENT THEME SWITCHER FLOATING BAR (Feature 2) */
+    .mood-switch-bar {
+      position: fixed; left: 20px; bottom: 20px; z-index: 90; display: flex; gap: 6px;
+      padding: 6px; border-radius: 50px; background: rgba(23,18,26,0.85); border: 1px solid rgba(215,160,162,0.25);
+      backdrop-filter: blur(10px);
+    }
+    .mood-btn {
+      width: 32px; height: 32px; border-radius: 50%; border: 0; cursor: pointer; font-size: 11px;
+      display: grid; place-items: center; color: var(--ivory); transition: transform 0.3s;
+    }
+    .mood-btn.obsidian { background: #0b090d; }
+    .mood-btn.morning { background: #d7986b; color: #1c140d; }
+    .mood-btn.twilight { background: #986078; }
+    .mood-btn:hover { transform: scale(1.15); }
 
     /* SCROLL REVEAL */
     .js-ready .reveal {
@@ -1618,6 +1754,7 @@
       .floating-contact { right: 13px; bottom: 13px; width: 44px; height: 44px; }
       .reviews-grid { grid-template-columns: 1fr; }
       .cursor-glow { display: none; }
+      .process-panel.active { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 480px) {
@@ -1686,13 +1823,34 @@
     <div class="intro-light one"></div>
     <div class="intro-light two"></div>
     <div class="intro-content">
-      <div class="intro-monogram">N</div>
+      <div class="intro-monogram" id="introMonogramBtn" title="Triple click for secret!">N</div>
       <div class="intro-eyebrow">A Personal Portfolio</div>
       <h1 class="intro-title">Nur Jannat Nowshin</h1>
       <div class="intro-subtitle">Creative · Dedicated · Curious</div>
       <div class="intro-loader"><span></span></div>
     </div>
     <button type="button" class="intro-skip" id="introSkip">Skip intro <i class="fa-solid fa-arrow-right"></i></button>
+  </div>
+
+  <!-- AMBIENT MOOD SWITCHER (Feature 2) -->
+  <div class="mood-switch-bar" aria-label="Ambient Mood Switcher">
+    <button class="mood-btn obsidian" data-theme="obsidian" title="Obsidian Luxe Mode"></button>
+    <button class="mood-btn morning" data-theme="morning" title="Champagne Morning Mode"></button>
+    <button class="mood-btn twilight" data-theme="twilight" title="Rose Twilight Mode"></button>
+  </div>
+
+  <!-- SECRET MONOGRAM VAULT MODAL (Feature 4) -->
+  <div class="vault-modal" id="vaultModal">
+    <div class="vault-box">
+      <button class="vault-close" id="vaultClose"><i class="fa-solid fa-xmark"></i></button>
+      <div class="icon-box" style="margin: 0 auto 15px;"><i class="fa-solid fa-feather-pointed"></i></div>
+      <span class="eyebrow" style="margin-bottom: 10px;">The Secret Vault Unlocked</span>
+      <h3 style="font-family: 'Playfair Display', serif; color: var(--ivory); font-size: 24px; margin-bottom: 12px;">"Words &amp; Aesthetics"</h3>
+      <p style="color: var(--muted); font-size: 13px; line-height: 1.9;">
+        You found the secret creator vault! Nowshin believes that true digital artistry lives at the intersection of powerful storytelling and flawless design execution. Thank you for exploring deeply.
+      </p>
+      <button class="premium-button" id="vaultUnlockBtn" style="margin-top: 22px; width: 100%;">Awesome, Close Vault</button>
+    </div>
   </div>
 
   <div class="scroll-progress" aria-hidden="true"><span id="scrollProgressBar"></span></div>
@@ -1713,7 +1871,7 @@
     <header id="siteHeader" class="site-header">
       <div class="container nav-inner">
         <a href="#home" class="brand" aria-label="Nowshin homepage">
-          <span class="brand-mark">N</span>
+          <span class="brand-mark" id="brandMarkBtn" title="Triple click for secret">N</span>
           <span>
             <span class="brand-name">NOWSHIN</span>
             <span class="brand-sub">Portfolio &amp; CV</span>
@@ -1722,7 +1880,9 @@
 
         <nav class="desktop-nav" aria-label="Main navigation">
           <a href="#about" class="nav-link">About</a>
+          <a href="#manifesto" class="nav-link">Philosophy</a>
           <a href="#skills" class="nav-link">Skills</a>
+          <a href="#process" class="nav-link">Process Lab</a>
           <a href="#experience" class="nav-link">Experience</a>
           <a href="#education" class="nav-link">Education</a>
           <a href="#contact" class="nav-link">Contact</a>
@@ -1740,7 +1900,9 @@
 
       <nav id="mobileMenu" class="mobile-menu" aria-label="Mobile navigation">
         <a href="#about">About Me</a>
+        <a href="#manifesto">Philosophy &amp; Manifesto</a>
         <a href="#skills">Skills &amp; Competencies</a>
+        <a href="#process">Creative Process Lab</a>
         <a href="#experience">Work Experience</a>
         <a href="#education">Education &amp; Certifications</a>
         <a href="#testimonials">Recommendations</a>
@@ -1866,6 +2028,20 @@
         </div>
       </section>
 
+      <!-- EXCEPTION FEATURE 1: THE LITERARY & DESIGN MANIFESTO -->
+      <section id="manifesto" class="section container">
+        <div class="manifesto-card reveal">
+          <span class="eyebrow" style="margin-bottom: 15px;">Literary &amp; Design Philosophy</span>
+          <p class="manifesto-quote" id="manifestoQuote">
+            "Words form the soul of human expression, while design gives that soul an unforgettable visual sanctuary."
+          </p>
+          <div class="manifesto-hint" id="manifestoToggle">
+            <span>Click to explore alternate philosophy</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </div>
+      </section>
+
       <!-- SKILLS -->
       <section id="skills" class="section container">
         <div class="section-head">
@@ -1915,6 +2091,63 @@
               <li class="skill-item-row"><div class="skill-item-head"><span>Leadership &amp; Teamwork</span><strong>90%</strong></div><div class="skill-meter-track"><div class="skill-meter-fill" style="--skill-width:90%"></div></div></li>
             </ul>
           </article>
+        </div>
+      </section>
+
+      <!-- EXCEPTION FEATURE 3: THE CREATIVE PROCESS LAB -->
+      <section id="process" class="section container">
+        <div class="section-head">
+          <span class="eyebrow">Methodology &amp; Workflow</span>
+          <h2 class="section-title">The Creative Process Lab</h2>
+          <p class="section-description">A structured, step-by-step approach to turning complex requirements into polished digital deliverables.</p>
+          <div class="ornament"><i class="fa-solid fa-sparkles"></i></div>
+        </div>
+
+        <div class="glass-card" style="padding: 35px;">
+          <div class="process-tabs-header">
+            <button class="process-tab-btn active" data-tab="1">01. Conceptualize</button>
+            <button class="process-tab-btn" data-tab="2">02. Draft &amp; Outline</button>
+            <button class="process-tab-btn" data-tab="3">03. Refine &amp; Style</button>
+            <button class="process-tab-btn" data-tab="4">04. Deliver &amp; Mentor</button>
+          </div>
+
+          <div class="process-container">
+            <div class="process-panel active" data-panel="1">
+              <div class="process-panel-content">
+                <span class="process-step-badge">STAGE ONE</span>
+                <h3>Deep Discovery &amp; Ideation</h3>
+                <p>Every project begins with understanding the core objective. Whether it's crafting a brand identity or preparing a training syllabus, I analyze audience needs, narrative tones, and visual directions thoroughly.</p>
+              </div>
+              <div class="process-visual-box"><i class="fa-solid fa-lightbulb"></i></div>
+            </div>
+
+            <div class="process-panel" data-panel="2">
+              <div class="process-panel-content">
+                <span class="process-step-badge">STAGE TWO</span>
+                <h3>Structural Drafting</h3>
+                <p>Translating ideas into tangible layouts or lesson frameworks. Wireframing design structures and structuring instructional modules to ensure seamless user and learner experiences.</p>
+              </div>
+              <div class="process-visual-box"><i class="fa-solid fa-pen-ruler"></i></div>
+            </div>
+
+            <div class="process-panel" data-panel="3">
+              <div class="process-panel-content">
+                <span class="process-step-badge">STAGE THREE</span>
+                <h3>Visual &amp; Content Refinement</h3>
+                <p>Applying color psychology, typography hierarchy, and polished aesthetic touches using industry-standard tools like Adobe Illustrator, Photoshop, and advanced layout suites.</p>
+              </div>
+              <div class="process-visual-box"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+            </div>
+
+            <div class="process-panel" data-panel="4">
+              <div class="process-panel-content">
+                <span class="process-step-badge">STAGE FOUR</span>
+                <h3>Final Delivery &amp; Mentorship</h3>
+                <p>Deploying the final output with precision and guiding learners or clients through effective execution and long-term maintenance strategies.</p>
+              </div>
+              <div class="process-visual-box"><i class="fa-solid fa-award"></i></div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -2243,6 +2476,81 @@
     // Enable scroll reveal only after JS is ready, so content remains visible if JS fails.
     body.classList.add("js-ready");
 
+    // FEATURE 1: LITERARY & DESIGN MANIFESTO QUOTE TOGGLE
+    const quotes = [
+      "\"Words form the soul of human expression, while design gives that soul an unforgettable visual sanctuary.\"",
+      "\"In literature we find depth, in design we find direction—together, they create resonance that lasts.\"",
+      "\"Teaching is planting a seed of curiosity; design and marketing are the sunlight that helps it bloom.\""
+    ];
+    let quoteIndex = 0;
+    const manifestoQuote = document.getElementById("manifestoQuote");
+    const manifestoToggle = document.getElementById("manifestoToggle");
+
+    if (manifestoToggle && manifestoQuote) {
+      manifestoToggle.addEventListener("click", () => {
+        quoteIndex = (quoteIndex + 1) % quotes.length;
+        manifestoQuote.style.opacity = 0;
+        setTimeout(() => {
+          manifestoQuote.textContent = quotes[quoteIndex];
+          manifestoQuote.style.opacity = 1;
+        }, 300);
+      });
+    }
+
+    // FEATURE 2: AMBIENT MOOD SWITCHER
+    const moodButtons = document.querySelectorAll(".mood-btn");
+    moodButtons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const theme = btn.getAttribute("data-theme");
+        body.classList.remove("theme-morning", "theme-twilight");
+        if (theme === "morning") body.classList.add("theme-morning");
+        if (theme === "twilight") body.classList.add("theme-twilight");
+      });
+    });
+
+    // FEATURE 3: CREATIVE PROCESS LAB TABS
+    const tabBtns = document.querySelectorAll(".process-tab-btn");
+    const panels = document.querySelectorAll(".process-panel");
+
+    tabBtns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const targetTab = btn.getAttribute("data-tab");
+        tabBtns.forEach(b => b.classList.remove("active"));
+        panels.forEach(p => p.classList.remove("active"));
+        btn.classList.add("active");
+        const targetPanel = document.querySelector(`.process-panel[data-panel="${targetTab}"]`);
+        if (targetPanel) targetPanel.classList.add("active");
+      });
+    });
+
+    // FEATURE 4: SECRET MONOGRAM VAULT (TRIPLE CLICK EASTER EGG)
+    const vaultModal = document.getElementById("vaultModal");
+    const vaultClose = document.getElementById("vaultClose");
+    const vaultUnlockBtn = document.getElementById("vaultUnlockBtn");
+    const brandMarkBtn = document.getElementById("brandMarkBtn");
+    const introMonogramBtn = document.getElementById("introMonogramBtn");
+
+    let clickCount = 0;
+    let clickTimer = null;
+
+    function handleMonogramClick() {
+      clickCount++;
+      clearTimeout(clickTimer);
+      if (clickCount >= 3) {
+        if (vaultModal) vaultModal.classList.add("open");
+        clickCount = 0;
+      } else {
+        clickTimer = setTimeout(() => { clickCount = 0; }, 600);
+      }
+    }
+
+    if (brandMarkBtn) brandMarkBtn.addEventListener("click", handleMonogramClick);
+    if (introMonogramBtn) introMonogramBtn.addEventListener("click", handleMonogramClick);
+
+    function closeVault() { if (vaultModal) vaultModal.classList.remove("open"); }
+    if (vaultClose) vaultClose.addEventListener("click", closeVault);
+    if (vaultUnlockBtn) vaultUnlockBtn.addEventListener("click", closeVault);
+
     // REVEAL ANIMATIONS
     const revealTargets = [
       ".section-head",
@@ -2261,7 +2569,8 @@
       ".contact-bottom",
       "footer .footer-brand",
       "footer .footer-copy",
-      "footer .back-top"
+      "footer .back-top",
+      ".manifesto-card"
     ];
 
     const revealElements = document.querySelectorAll(revealTargets.join(","));
@@ -2333,6 +2642,7 @@
       if (event.key === "Escape") {
         closeMobileMenu();
         dismissIntro();
+        closeVault();
       }
     });
 
