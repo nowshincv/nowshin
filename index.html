@@ -33,20 +33,6 @@
       --ease: cubic-bezier(.22,1,.36,1);
     }
 
-    /* DYNAMIC AMBIENT THEME MODES */
-    body.theme-morning {
-      --bg: #0f0d0c;
-      --rose: #e2b08d;
-      --rose-light: #f5d6be;
-      --gold: #f4d06f;
-    }
-    body.theme-twilight {
-      --bg: #0c0912;
-      --rose: #c498b6;
-      --rose-light: #e5bfdb;
-      --gold: #dfb2d1;
-    }
-
     * { box-sizing: border-box; }
 
     html {
@@ -96,25 +82,12 @@
     .site-content { position: relative; z-index: 1; }
     main { padding-bottom: 78px; }
     
-    /* SECTION LIGHTING DIVIDER */
     section { 
       scroll-margin-top: 105px; 
       position: relative;
     }
     .section { 
       padding-top: 105px; 
-    }
-
-    section::after {
-      content: "";
-      position: absolute;
-      bottom: -30px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 60%;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(215,160,162,0.3), rgba(229,199,160,0.5), rgba(215,160,162,0.3), transparent);
-      box-shadow: 0 0 15px rgba(215,160,162,0.4);
     }
 
     /* CINEMATIC OPENING */
@@ -749,11 +722,7 @@
       box-shadow: 0 0 25px rgba(240,200,200,.3);
     }
 
-    /* =========================================
-       NEW EXCEPTIONALS: MANIFESTO & PROCESS LAB
-       ========================================= */
-       
-    /* 1. THE LITERARY & DESIGN MANIFESTO */
+    /* MANIFESTO & PROCESS LAB */
     .manifesto-card {
       padding: clamp(30px, 4vw, 50px);
       text-align: center;
@@ -787,7 +756,6 @@
     .manifesto-hint i { transition: transform 0.3s; }
     .manifesto-card:hover .manifesto-hint i { transform: translateX(4px); }
 
-    /* 3. THE CREATIVE PROCESS LAB (TABS) */
     .process-container { margin-top: 20px; }
     .process-tabs-header {
       display: flex;
@@ -832,7 +800,6 @@
       box-shadow: inset 0 0 30px rgba(215,160,162,0.05);
     }
 
-    /* 4. SECRET MONOGRAM VAULT (MODAL) */
     .vault-modal {
       position: fixed; inset: 0; z-index: 10000; display: none; align-items: center; justify-content: center;
       background: rgba(11,9,13,0.92); backdrop-filter: blur(15px); padding: 20px;
@@ -852,21 +819,6 @@
       cursor: pointer; display: grid; place-items: center; transition: background 0.3s;
     }
     .vault-close:hover { background: rgba(215,160,162,0.2); }
-
-    /* AMBIENT THEME SWITCHER FLOATING BAR (Feature 2) */
-    .mood-switch-bar {
-      position: fixed; left: 20px; bottom: 20px; z-index: 90; display: flex; gap: 6px;
-      padding: 6px; border-radius: 50px; background: rgba(23,18,26,0.85); border: 1px solid rgba(215,160,162,0.25);
-      backdrop-filter: blur(10px);
-    }
-    .mood-btn {
-      width: 32px; height: 32px; border-radius: 50%; border: 0; cursor: pointer; font-size: 11px;
-      display: grid; place-items: center; color: var(--ivory); transition: transform 0.3s;
-    }
-    .mood-btn.obsidian { background: #0b090d; }
-    .mood-btn.morning { background: #d7986b; color: #1c140d; }
-    .mood-btn.twilight { background: #986078; }
-    .mood-btn:hover { transform: scale(1.15); }
 
     /* SCROLL REVEAL */
     .js-ready .reveal {
@@ -1425,16 +1377,6 @@
       box-shadow: 0 35px 100px rgba(0,0,0,.4), 0 0 30px rgba(215,160,162,0.1);
     }
 
-    .contact-top-line {
-      height: 2px;
-      background: linear-gradient(90deg, transparent, #a86f78 20%, #f0c8c8 50%, #a86f78 80%, transparent);
-      background-size: 200% 100%;
-      box-shadow: 0 0 10px var(--rose-light);
-      animation: lineFlow 7s linear infinite;
-    }
-
-    @keyframes lineFlow { to { background-position: 200% 0; } }
-
     .contact-inner { padding: clamp(23px,5vw,55px); }
 
     .contact-heading {
@@ -1470,16 +1412,6 @@
       border-radius: 21px;
       background: linear-gradient(145deg, rgba(215,160,162,.09), rgba(255,245,237,.02));
       box-shadow: 0 10px 30px rgba(0,0,0,.15);
-    }
-
-    .contact-note-card::after {
-      content: "✦";
-      position: absolute;
-      top: 14px;
-      right: 19px;
-      color: rgba(215,160,162,.3);
-      font-size: 30px;
-      animation: starTwinkle 4s ease-in-out infinite;
     }
 
     .contact-note-card h3 { margin: 18px 0 0; color: var(--ivory); font-family: "Playfair Display",serif; font-size: 25px; font-weight: 500; line-height: 1.35; }
@@ -1798,7 +1730,6 @@
       .contact-bottom { font-size: 11px; gap: 8px; }
     }
 
-    /* ACCESSIBILITY: RESPECT DEVICE MOTION SETTINGS */
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         scroll-behavior: auto !important;
@@ -1832,14 +1763,7 @@
     <button type="button" class="intro-skip" id="introSkip">Skip intro <i class="fa-solid fa-arrow-right"></i></button>
   </div>
 
-  <!-- AMBIENT MOOD SWITCHER (Feature 2) -->
-  <div class="mood-switch-bar" aria-label="Ambient Mood Switcher">
-    <button class="mood-btn obsidian" data-theme="obsidian" title="Obsidian Luxe Mode"></button>
-    <button class="mood-btn morning" data-theme="morning" title="Champagne Morning Mode"></button>
-    <button class="mood-btn twilight" data-theme="twilight" title="Rose Twilight Mode"></button>
-  </div>
-
-  <!-- SECRET MONOGRAM VAULT MODAL (Feature 4) -->
+  <!-- SECRET MONOGRAM VAULT MODAL -->
   <div class="vault-modal" id="vaultModal">
     <div class="vault-box">
       <button class="vault-close" id="vaultClose"><i class="fa-solid fa-xmark"></i></button>
@@ -2028,7 +1952,7 @@
         </div>
       </section>
 
-      <!-- EXCEPTION FEATURE 1: THE LITERARY & DESIGN MANIFESTO -->
+      <!-- MANIFESTO -->
       <section id="manifesto" class="section container">
         <div class="manifesto-card reveal">
           <span class="eyebrow" style="margin-bottom: 15px;">Literary &amp; Design Philosophy</span>
@@ -2094,7 +2018,7 @@
         </div>
       </section>
 
-      <!-- EXCEPTION FEATURE 3: THE CREATIVE PROCESS LAB -->
+      <!-- PROCESS LAB -->
       <section id="process" class="section container">
         <div class="section-head">
           <span class="eyebrow">Methodology &amp; Workflow</span>
@@ -2229,7 +2153,7 @@
         </div>
       </section>
 
-      <!-- EDUCATION & CERTIFICATIONS -->
+      <!-- EDUCATION -->
       <section id="education" class="section container">
         <div class="two-columns">
           <div>
@@ -2288,7 +2212,6 @@
       <!-- CONTACT -->
       <section id="contact" class="section container">
         <div class="contact-shell">
-          <div class="contact-top-line"></div>
           <div class="contact-inner">
             <div class="section-head" style="margin-bottom:0">
               <span class="eyebrow">Let's Start a Conversation</span>
@@ -2452,7 +2375,6 @@
     // CURRENT YEAR
     document.getElementById("currentYear").textContent = new Date().getFullYear();
 
-    // INTRO: auto-dismiss; also supports skip and reduced-motion preferences.
     let introDismissed = false;
     let introTimer;
 
@@ -2473,10 +2395,9 @@
       introTimer = window.setTimeout(dismissIntro, 2300);
     }
 
-    // Enable scroll reveal only after JS is ready, so content remains visible if JS fails.
     body.classList.add("js-ready");
 
-    // FEATURE 1: LITERARY & DESIGN MANIFESTO QUOTE TOGGLE
+    // MANIFESTO QUOTE TOGGLE
     const quotes = [
       "\"Words form the soul of human expression, while design gives that soul an unforgettable visual sanctuary.\"",
       "\"In literature we find depth, in design we find direction—together, they create resonance that lasts.\"",
@@ -2497,18 +2418,7 @@
       });
     }
 
-    // FEATURE 2: AMBIENT MOOD SWITCHER
-    const moodButtons = document.querySelectorAll(".mood-btn");
-    moodButtons.forEach(btn => {
-      btn.addEventListener("click", () => {
-        const theme = btn.getAttribute("data-theme");
-        body.classList.remove("theme-morning", "theme-twilight");
-        if (theme === "morning") body.classList.add("theme-morning");
-        if (theme === "twilight") body.classList.add("theme-twilight");
-      });
-    });
-
-    // FEATURE 3: CREATIVE PROCESS LAB TABS
+    // CREATIVE PROCESS LAB TABS
     const tabBtns = document.querySelectorAll(".process-tab-btn");
     const panels = document.querySelectorAll(".process-panel");
 
@@ -2523,7 +2433,7 @@
       });
     });
 
-    // FEATURE 4: SECRET MONOGRAM VAULT (TRIPLE CLICK EASTER EGG)
+    // SECRET MONOGRAM VAULT (TRIPLE CLICK EASTER EGG)
     const vaultModal = document.getElementById("vaultModal");
     const vaultClose = document.getElementById("vaultClose");
     const vaultUnlockBtn = document.getElementById("vaultUnlockBtn");
