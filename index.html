@@ -53,7 +53,7 @@
       overflow-x: clip;
     }
 
-    body.intro-active { overflow: hidden; }
+    body.intro-active, body.modal-active { overflow: hidden; }
     ::selection { background: var(--rose); color: #160f16; }
     a, button, input, textarea, select { -webkit-tap-highlight-color: transparent; }
     a { color: inherit; text-decoration: none; }
@@ -1276,6 +1276,101 @@
     .education-note { margin-top: 7px; color: #a99ca9; font-size: 10px; line-height: 1.7; }
     .education-note.highlight { color: var(--rose-light); text-shadow: 0 0 6px rgba(240,200,200,0.3); }
 
+    /* CV MODAL STYLES */
+    .cv-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 99999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: rgba(11, 9, 13, 0.85);
+      backdrop-filter: blur(12px);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.35s ease, visibility 0.35s ease;
+    }
+
+    .cv-modal.open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .cv-modal-content {
+      position: relative;
+      width: min(900px, 100%);
+      max-height: 85vh;
+      background: var(--card);
+      border: 1px solid rgba(215, 160, 162, 0.35);
+      border-radius: 20px;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.6), 0 0 30px rgba(215, 160, 162, 0.15);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transform: scale(0.95);
+      transition: transform 0.35s cubic-bezier(.22,1,.36,1);
+    }
+
+    .cv-modal.open .cv-modal-content {
+      transform: scale(1);
+    }
+
+    .cv-modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 24px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(29, 22, 32, 0.95);
+    }
+
+    .cv-modal-header h3 {
+      margin: 0;
+      color: var(--ivory);
+      font-family: "Playfair Display", serif;
+      font-size: 20px;
+    }
+
+    .cv-close-btn {
+      width: 35px;
+      height: 35px;
+      display: grid;
+      place-items: center;
+      background: rgba(215, 160, 162, 0.1);
+      border: 1px solid rgba(215, 160, 162, 0.25);
+      border-radius: 50%;
+      color: var(--rose-light);
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .cv-close-btn:hover {
+      background: rgba(215, 160, 162, 0.25);
+      transform: scale(1.1);
+    }
+
+    .cv-modal-body {
+      padding: 25px;
+      overflow-y: auto;
+      color: var(--text);
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .cv-preview-section {
+      margin-bottom: 25px;
+    }
+
+    .cv-preview-section h4 {
+      color: var(--gold);
+      font-family: "Playfair Display", serif;
+      font-size: 16px;
+      margin-bottom: 10px;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 5px;
+    }
+
     /* CONTACT */
     .contact-shell {
       position: relative;
@@ -1630,7 +1725,7 @@
       .hero-description { font-size: 12px; }
       .hero-tag { font-size: 9px; }
       .hero-actions { display: grid; grid-template-columns: 1fr; }
-      .hero-actions a { width: 100%; }
+      .hero-actions a, .hero-actions button { width: 100%; }
       .hero-meta { font-size: 9px; }
       .portrait-stage { width: min(84%,280px); }
       .portrait-orbit { inset: -8px; }
@@ -1661,7 +1756,6 @@
       .contact-bottom { font-size: 11px; gap: 8px; }
     }
 
-    /* ACCESSIBILITY: RESPECT DEVICE MOTION SETTINGS */
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         scroll-behavior: auto !important;
@@ -1669,12 +1763,7 @@
         animation-iteration-count: 1 !important;
         transition-duration: .01ms !important;
       }
-
-      .js-ready .reveal {
-        opacity: 1;
-        transform: none;
-      }
-
+      .js-ready .reveal { opacity: 1; transform: none; }
       .particle-field, .cursor-glow { display: none !important; }
     }
   </style>
@@ -1783,6 +1872,7 @@
 
             <div class="hero-actions">
               <a href="#contact" class="premium-button">Get In Touch <i class="fa-solid fa-arrow-right"></i></a>
+              <button type="button" id="viewCvBtn" class="outline-button"><i class="fa-regular fa-eye"></i> View CV</button>
               <a href="Nur_Jannat_Nowshin_CV.pdf" download class="outline-button"><i class="fa-solid fa-file-arrow-down"></i> Download CV</a>
             </div>
 
@@ -1805,7 +1895,7 @@
                   <div id="portraitFallback" style="display:none;position:absolute;inset:0;align-items:center;justify-content:center;flex-direction:column;gap:12px;text-align:center;padding:20px;color:#e8b9ba;">
                     <i class="fa-regular fa-image" style="font-size:40px"></i>
                     <strong style="font-size:12px">Profile picture unavailable</strong>
-                    <span style="font-size:10px;color:#b9aab5">Place 1000019747.jpg beside index.html.</span>
+                    <span style="font-size:10px;color:#b9aab5">Place 1000019747.png beside index.html.</span>
                   </div>
                 </div>
               </div>
@@ -2116,7 +2206,8 @@
                 <h3>Send a Message</h3>
                 <p class="form-subtitle">Tell me a little about what you have in mind.</p>
 
-                <form id="contactForm" class="contact-form">
+                <!-- Formspree Endpoint: Replace 'xlgokpqr' with your Formspree form ID or keep it ready -->
+                <form id="contactForm" class="contact-form" action="https://formspree.io/f/xlgokpqr" method="POST">
                   <div class="form-row">
                     <div class="field">
                       <label for="senderName">YOUR NAME</label>
@@ -2167,14 +2258,14 @@
                     </div>
                   </div>
 
-                  <button type="submit" class="submit-button">
-                    <span><i class="fa-regular fa-paper-plane" style="margin-right:9px"></i>Prepare My Message</span>
+                  <button type="submit" id="submitBtn" class="submit-button">
+                    <span><i class="fa-regular fa-paper-plane" style="margin-right:9px"></i>Send Message</span>
                     <i class="fa-solid fa-arrow-right"></i>
                   </button>
 
                   <p class="form-note">
-                    <i class="fa-solid fa-lock"></i>
-                    <span>Your email app will open with your message ready to send. You will need to press Send in that app.</span>
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <span>Your message will be sent directly through secure form delivery.</span>
                   </p>
                   <p id="contactStatus" role="status" aria-live="polite"></p>
                 </form>
@@ -2203,6 +2294,44 @@
     </footer>
   </div>
 
+  <!-- VIEW CV MODAL -->
+  <div class="cv-modal" id="cvModal" role="dialog" aria-modal="true" aria-labelledby="cvModalTitle">
+    <div class="cv-modal-content">
+      <div class="cv-modal-header">
+        <h3 id="cvModalTitle"><i class="fa-solid fa-file-lines" style="color:var(--rose); margin-right:8px;"></i> Curriculum Vitae Preview</h3>
+        <button type="button" class="cv-close-btn" id="cvCloseBtn" aria-label="Close CV preview"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="cv-modal-body">
+        <div class="cv-preview-section">
+          <h4>Nur Jannat Nowshin</h4>
+          <p style="color:var(--muted); font-size:12px; margin:0 0 15px 0;">Chattogram, Bangladesh | nurjannatnowshin810@gmail.com | +880 1540338121</p>
+          <p>English Literature Undergraduate, Creative Graphic Designer, SEO &amp; Digital Marketer, and Professional IT Instructor at National Youth Development Academy (NYDA).</p>
+        </div>
+
+        <div class="cv-preview-section">
+          <h4>Professional Experience</h4>
+          <p><strong>Instructor</strong> — National Youth Development Academy (NYDA)<br><span style="color:var(--muted); font-size:11px;">Conducting practical training modules on computer applications and digital skills, guiding trainees and monitoring performance.</span></p>
+          <p style="margin-top:12px;"><strong>Freelance Graphic Designer</strong> — Remote Work<br><span style="color:var(--muted); font-size:11px;">Designing logos, flyers, banners, and social media branding materials for diverse clients.</span></p>
+        </div>
+
+        <div class="cv-preview-section">
+          <h4>Education &amp; Qualifications</h4>
+          <p>• <strong>B.A. in English</strong> (Ongoing) — National University, Bangladesh<br>
+             • <strong>HSC</strong> (2023) — Chittagong Govt. Women's College (GPA: 4.83 / 5.00)<br>
+             • <strong>SSC</strong> (2021) — Lohagara Shahpir Pilot High School (GPA: 4.83 / 5.00)<br>
+             • <strong>Govt. Freelancing Training Program (2025)</strong> — DYD<br>
+             • <strong>Employability Skills (2025)</strong> — Wadhwani Foundation</p>
+        </div>
+
+        <div style="text-align:center; margin-top:30px; padding-top:15px; border-top:1px solid var(--line);">
+          <a href="Nur_Jannat_Nowshin_CV.pdf" download class="premium-button">
+            <i class="fa-solid fa-file-arrow-down"></i> Download Full PDF CV
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <a href="https://wa.me/8801751074091" target="_blank" rel="noopener noreferrer"
     class="floating-contact" aria-label="Contact Nowshin on WhatsApp" title="Chat on WhatsApp">
     <i class="fa-brands fa-whatsapp"></i>
@@ -2219,7 +2348,7 @@
     // CURRENT YEAR
     document.getElementById("currentYear").textContent = new Date().getFullYear();
 
-    // INTRO: auto-dismiss; also supports skip and reduced-motion preferences.
+    // INTRO
     let introDismissed = false;
     let introTimer;
 
@@ -2240,47 +2369,24 @@
       introTimer = window.setTimeout(dismissIntro, 2300);
     }
 
-    // Enable scroll reveal only after JS is ready, so content remains visible if JS fails.
     body.classList.add("js-ready");
 
     // REVEAL ANIMATIONS
     const revealTargets = [
-      ".section-head",
-      ".about-card",
-      ".skill-card",
-      ".review-card",
-      ".timeline",
-      ".timeline-item",
-      ".subheading",
-      ".education-card",
-      ".contact-shell",
-      ".contact-note-card",
-      ".contact-detail",
-      ".social-panel",
-      ".contact-form-card",
-      ".contact-bottom",
-      "footer .footer-brand",
-      "footer .footer-copy",
-      "footer .back-top"
+      ".section-head", ".about-card", ".skill-card", ".review-card",
+      ".timeline", ".timeline-item", ".subheading", ".education-card",
+      ".contact-shell", ".contact-note-card", ".contact-detail",
+      ".social-panel", ".contact-form-card", ".contact-bottom",
+      "footer .footer-brand", "footer .footer-copy", "footer .back-top"
     ];
 
     const revealElements = document.querySelectorAll(revealTargets.join(","));
 
     revealElements.forEach((element, index) => {
       element.classList.add("reveal");
-
-      if (element.matches(".skill-card, .review-card, .education-card, .timeline-item")) {
-        element.classList.add("scale-in");
-      }
-
-      if (element.matches(".about-card, .contact-note-card")) {
-        element.classList.add("from-left");
-      }
-
-      if (element.matches(".contact-form-card")) {
-        element.classList.add("from-right");
-      }
-
+      if (element.matches(".skill-card, .review-card, .education-card, .timeline-item")) element.classList.add("scale-in");
+      if (element.matches(".about-card, .contact-note-card")) element.classList.add("from-left");
+      if (element.matches(".contact-form-card")) element.classList.add("from-right");
       if (element.matches(".skill-card, .review-card, .education-card, .timeline-item")) {
         element.style.setProperty("--delay", (index % 4) * 90 + "ms");
       }
@@ -2293,10 +2399,7 @@
           entry.target.classList.add("is-visible");
           observer.unobserve(entry.target);
         });
-      }, {
-        threshold: 0.12,
-        rootMargin: "0px 0px -35px 0px"
-      });
+      }, { threshold: 0.12, rootMargin: "0px 0px -35px 0px" });
 
       revealElements.forEach(element => revealObserver.observe(element));
     } else {
@@ -2325,14 +2428,13 @@
       menuIcon.classList.toggle("fa-xmark", opening);
     });
 
-    mobileMenu.querySelectorAll("a").forEach(link => {
-      link.addEventListener("click", closeMobileMenu);
-    });
+    mobileMenu.querySelectorAll("a").forEach(link => link.addEventListener("click", closeMobileMenu));
 
     document.addEventListener("keydown", event => {
       if (event.key === "Escape") {
         closeMobileMenu();
         dismissIntro();
+        closeCvModal();
       }
     });
 
@@ -2344,7 +2446,6 @@
     function updateScrollUI() {
       const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
       const progress = scrollableHeight > 0 ? (window.scrollY / scrollableHeight) * 100 : 0;
-
       progressBar.style.width = Math.min(100, Math.max(0, progress)) + "%";
       siteHeader.classList.toggle("scrolled", window.scrollY > 12);
       scrollScheduled = false;
@@ -2374,35 +2475,23 @@
             else link.removeAttribute("aria-current");
           });
         });
-      }, {
-        rootMargin: "-30% 0px -55% 0px",
-        threshold: 0
-      });
+      }, { rootMargin: "-30% 0px -55% 0px", threshold: 0 });
 
       observedSections.forEach(section => sectionObserver.observe(section));
     }
 
-    // ANIMATED TIMELINE
+    // ANIMATED TIMELINE & SKILL BARS
     const timeline = document.querySelector(".timeline");
-
     if (timeline && "IntersectionObserver" in window && !reducedMotion) {
       const timelineObserver = new IntersectionObserver(entries => {
         entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            timeline.classList.add("is-visible");
-            timelineObserver.unobserve(entry.target);
-          }
+          if (entry.isIntersecting) { timeline.classList.add("is-visible"); timelineObserver.unobserve(entry.target); }
         });
       }, { threshold: 0.1 });
-
       timelineObserver.observe(timeline);
-    } else if (timeline) {
-      timeline.classList.add("is-visible");
-    }
+    } else if (timeline) { timeline.classList.add("is-visible"); }
 
-    // SKILL BARS
     const skillCards = document.querySelectorAll(".skill-card");
-
     if ("IntersectionObserver" in window && !reducedMotion) {
       const skillObserver = new IntersectionObserver(entries => {
         entries.forEach(entry => {
@@ -2411,15 +2500,11 @@
           skillObserver.unobserve(entry.target);
         });
       }, { threshold: 0.25 });
-
       skillCards.forEach(card => skillObserver.observe(card));
-    } else {
-      skillCards.forEach(card => card.classList.add("is-visible"));
-    }
+    } else { skillCards.forEach(card => card.classList.add("is-visible")); }
 
-    // SUBTLE POINTER-RESPONSIVE CARD LIGHTING
+    // POINTER GLOW
     const finePointer = window.matchMedia("(hover:hover) and (pointer:fine)").matches;
-
     if (finePointer && !reducedMotion) {
       document.querySelectorAll(".glass-card").forEach(card => {
         card.addEventListener("pointermove", event => {
@@ -2431,13 +2516,9 @@
 
       const cursorGlow = document.getElementById("cursorGlow");
       let cursorFrame = null;
-      let cursorX = -300;
-      let cursorY = -300;
-
+      let cursorX = -300, cursorY = -300;
       document.addEventListener("pointermove", event => {
-        cursorX = event.clientX;
-        cursorY = event.clientY;
-
+        cursorX = event.clientX; cursorY = event.clientY;
         if (cursorFrame) return;
         cursorFrame = window.requestAnimationFrame(() => {
           cursorGlow.style.left = cursorX + "px";
@@ -2454,7 +2535,6 @@
 
     copyEmailCard.addEventListener("click", async () => {
       const originalText = "WRITE ME AN EMAIL (CLICK TO COPY)";
-
       try {
         if (navigator.clipboard && window.isSecureContext) {
           await navigator.clipboard.writeText(emailAddress);
@@ -2466,18 +2546,15 @@
           tempInput.style.opacity = "0";
           document.body.appendChild(tempInput);
           tempInput.select();
-          const copied = document.execCommand("copy");
+          document.execCommand("copy");
           tempInput.remove();
-          if (!copied) throw new Error("Clipboard unavailable");
         }
-
         copyEmailLabel.textContent = "COPIED TO CLIPBOARD!";
         copyEmailLabel.style.color = "var(--gold)";
       } catch (error) {
         copyEmailLabel.textContent = emailAddress;
         copyEmailLabel.style.color = "var(--rose-light)";
       }
-
       window.setTimeout(() => {
         copyEmailLabel.textContent = originalText;
         copyEmailLabel.style.color = "";
@@ -2487,47 +2564,71 @@
     // MESSAGE CHARACTER COUNTER
     const messageInput = document.getElementById("msgBody");
     const messageCount = document.getElementById("messageCount");
-
     messageInput.addEventListener("input", () => {
       messageCount.textContent = messageInput.value.length;
     });
 
-    // CONTACT FORM
+    // VIEW CV MODAL LOGIC
+    const cvModal = document.getElementById("cvModal");
+    const viewCvBtn = document.getElementById("viewCvBtn");
+    const cvCloseBtn = document.getElementById("cvCloseBtn");
+
+    function openCvModal() {
+      cvModal.classList.add("open");
+      body.classList.add("modal-active");
+    }
+
+    function closeCvModal() {
+      cvModal.classList.remove("open");
+      body.classList.remove("modal-active");
+    }
+
+    viewCvBtn.addEventListener("click", openCvModal);
+    cvCloseBtn.addEventListener("click", closeCvModal);
+    cvModal.addEventListener("click", event => {
+      if (event.target === cvModal) closeCvModal();
+    });
+
+    // CONTACT FORM (AJAX FORMSPREE SUBMISSION)
     const contactForm = document.getElementById("contactForm");
     const contactStatus = document.getElementById("contactStatus");
+    const submitBtn = document.getElementById("submitBtn");
 
-    contactForm.addEventListener("submit", event => {
+    contactForm.addEventListener("submit", async event => {
       event.preventDefault();
       contactStatus.textContent = "";
 
       if (!contactForm.reportValidity()) return;
 
-      const senderName = document.getElementById("senderName").value.trim();
-      const senderEmail = document.getElementById("senderEmail").value.trim();
-      const serviceType = document.getElementById("serviceType").value;
-      const subject = document.getElementById("msgSubject").value.trim();
-      const message = messageInput.value.trim();
+      submitBtn.disabled = true;
+      submitBtn.style.opacity = "0.7";
+      contactStatus.textContent = "Sending your message...";
 
-      if (!senderName || !senderEmail || !subject || !message) {
-        contactStatus.textContent = "Please complete all fields before continuing.";
-        return;
+      const formData = new FormData(contactForm);
+
+      try {
+        const response = await fetch(contactForm.action, {
+          method: "POST",
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          contactStatus.textContent = "Thank you! Your message has been successfully sent.";
+          contactStatus.style.color = "var(--gold)";
+          contactForm.reset();
+          messageCount.textContent = "0";
+        } else {
+          contactStatus.textContent = "Oops! There was a problem sending your message. Please try again.";
+          contactStatus.style.color = "var(--rose-light)";
+        }
+      } catch (error) {
+        contactStatus.textContent = "Network error. Please check your connection and try again.";
+        contactStatus.style.color = "var(--rose-light)";
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.style.opacity = "1";
       }
-
-      const recipient = emailAddress;
-      const emailSubject = "[" + serviceType + "] " + subject;
-      const emailBody =
-        "Name: " + senderName + "\n" +
-        "Email: " + senderEmail + "\n" +
-        "Service: " + serviceType + "\n\n" +
-        "Message:\n" + message;
-
-      const mailtoURL =
-        "mailto:" + recipient +
-        "?subject=" + encodeURIComponent(emailSubject) +
-        "&body=" + encodeURIComponent(emailBody);
-
-      contactStatus.textContent = "Opening your email app. Please review your message and press Send there.";
-      window.location.href = mailtoURL;
     });
   </script>
 </body>
